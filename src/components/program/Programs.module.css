@@ -1,0 +1,195 @@
+.fullScreenContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1a1a;
+  position: relative;
+  width:max-content;
+  text-align: center;
+}
+
+
+.programContainer {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  background-color: transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: none;
+}
+
+.programContent {
+  flex: 2;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.programTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-align: center;
+  align-items: center;
+}
+
+.programDescription {
+  margin-bottom: 1.5rem;
+  color: #ddd;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+}
+
+.programPhilosophySystem {
+  margin-bottom: 2rem;
+}
+
+.programSectionHeading {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  text-align: center;
+
+}
+
+.trainingProgramSection {
+  padding: 4rem 0;
+  background-color: #1a1a1a; /* Set the desired background color */
+}
+.programFeatures {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.programFeature {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  color: #ddd;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+}
+
+.programFeature::before {
+  content: '✓';
+  margin-right: 0.5rem;
+  color: #007bff;
+}
+
+.button {
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.learnMoreButton {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.learnMoreButton:hover {
+  background-color: #0056b3;
+}
+
+.getStartedButton {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.getStartedButton:hover {
+  background-color: #1e7e34;
+}
+
+.programImageContainer {
+  flex: 1;
+  overflow: hidden;
+  max-width: 30%;
+  position: relative;
+}
+
+.programImage {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.programImage:hover {
+  transform: scale(1.05);
+}
+
+.nameVector {
+  position: absolute;
+  bottom: 50px;
+  right: -165px;
+  font-size: 100px;
+  line-height: 1;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgba(255, 255, 255, 0.1);
+  transform: rotate(-30deg);
+  z-index: 0;
+}
+
+.svgWrap {
+  position: absolute;
+  bottom: 85px;
+  left: 0;
+  width: 165px;
+  z-index: 3;
+}
+
+.svgWrap svg {
+  fill: #ffffff;
+  height: auto;
+  max-width: 66vmin;
+  transform-origin: center;
+  width: 100%;
+  animation: spin 15s linear infinite;
+  font-size: 14px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .programContainer {
+    flex-direction: column;
+  }
+
+  .programContent {
+    order: 2;
+  }
+
+  .programImageContainer {
+    order: 1;
+    max-width: 100%;
+  }
+}

@@ -2,7 +2,7 @@
   --swiper-theme-color: #869791; /* Define a custom property for the theme color */
   width: 50vw; /* Set the slider's width to 50% of the viewport width */
   margin: 0 auto; 
-  height: 50px;/* Center the slider horizontally */
+  /* Center the slider horizontally */
 }
 
 .swiper-slide.swiper-slide-active .hero-slider-text {

@@ -1,3 +1,4 @@
+
 import React from "react";
 import HeaderSection from "@/components/header/HeaderSection";
 import AboutSection3 from "@/components/about/AboutSection3";
@@ -9,7 +10,7 @@ import { trainingProgramData } from "@/data/Data";
 import TrainingProgram from "../components/program/TrainingProgram";
 import { spaceGrotesk } from "./fonts";
 import FounderSection from "@/components/founder/FounderSection";
-import DecoLineSection from "@/components/about/decoline/DecolineSection";
+import DecoLineSection from "@/components/decoline/DecolineSection";
 import VideoSection3 from "@/components/video/VideoSection3";
 import VideoModal from "@/components/modal/VideoModal";
 
@@ -30,7 +31,7 @@ export default function Home() {
         <HeroSlider />
         <AboutSection3 />
       
-        <TrainingProgram trainingPrograms={trainingProgramData} />      
+        <TrainingProgram  />      
         <DecoLineSection />
         <FounderSection />
         <DecoLineSection />   

@@ -1,0 +1,13 @@
+.deco-line-section {
+  width: 100%;
+  text-align: center;
+  display: flex; /* Add this line */
+  justify-content: center; /* Add this line */
+}
+
+.deco-line {
+  border: 0;
+  height: 3px;
+  background-image: linear-gradient(to right, #f0f0f0, #8c8c8c, #f0f0f0);
+  width: 100%; /* Add this line */
+}

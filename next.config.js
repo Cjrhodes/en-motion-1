@@ -3,6 +3,7 @@ const path = require('path');
 const nextConfig = {
   experimental: {
     outputFileTracingRoot: __dirname,
+    appDir: true,
   },
   webpack: (config) => {
     config.resolve.alias = {
