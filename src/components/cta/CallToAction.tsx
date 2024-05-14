@@ -12,7 +12,7 @@ const CTASection = () => {
 
   // Handler to open the contact modal
   const handleButtonClick = () => {
-    dispatch(toggleContactModalOpen);
+    dispatch(toggleContactModalOpen({ packageName: "", packageType: "" }));
   };
 
   return (

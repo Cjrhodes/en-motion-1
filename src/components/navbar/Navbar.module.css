@@ -3,10 +3,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px;
+  padding: 15px;
   position: fixed;
   width: 100%;
   z-index: 999;
+  height: 80px  ;
 }
 
 /* Logo Styling */
@@ -14,12 +15,12 @@
   position: relative;
   left: 0;
   top: 0;
-  z-index: 1010;
+  z-index: 800;
 }
 
 .logoImg {
   max-width: 120px;
-  height: auto;
+  height:min-content;
 }
 
 /* Hamburger Menu Styles */
@@ -28,12 +29,14 @@
   flex-direction: column;
   align-items: flex-start; /* Align items to the left */
   background-color: #242423;
-  padding: 20px;
+  padding: 10px; /* Decrease the padding */
   position: absolute;
   top: 80px;
   left: 0;
   right: 0;
   z-index: 998;
+  max-height: calc(100vh - 80px); /* Add a max-height to make it scrollable */
+  overflow-y: auto; 
 }
 
 .hamburgerMenu.open {
@@ -55,12 +58,16 @@
   margin-left: 0;
 }
 
+.hamburgerMenu .socialNav a {
+  margin: 0 10px; /* Add some spacing between social icons */
+}
+
 .hamburgerMenu .socialNav {
   display: flex;
-  flex-direction: column;
-  margin-left: 50px;/* Align items to the left */
-  margin-bottom: 200px;
-  width: 100%; 
+  flex-direction: row; /* Change to row direction */
+  margin-left: 0; /* Remove left margin */
+  margin-bottom: 10px; /* Decrease the bottom margin */
+  width: auto; 
 }
 .hamburgerMenu .programLinks {
    display: none;

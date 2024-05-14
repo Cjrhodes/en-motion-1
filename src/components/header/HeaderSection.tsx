@@ -7,7 +7,7 @@ import { toggleContactModalOpen } from "@/redux/features/contactModalSlice";
 import { toggleSidebarOpen } from "@/redux/features/sidebarSlice";
 import { usePathname } from "next/navigation";
 import TransparentNavbar from "@/components/navbar/Navbar";
-import HeroSlider from "../hero/HeroSlider";
+import HeroSlider from "../../client/HeroSlider";
 
 type Props = {
   contactModal: boolean;
