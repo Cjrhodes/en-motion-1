@@ -183,4 +183,30 @@
   .hamburgerToggle {
     margin-left: auto;
   }
+
+  .logoImg {
+    max-width: 80px; 
+
+  }
+  .hamburgerMenu {
+    width: 100%;
+    left: 0;
+    right: unset;
+    padding: 20px;
+    background-color: #242423;
+  }
+
+  .hamburgerMenu .navLinks {
+    width: 100%;
+  }
+
+  .hamburgerMenu .navLinks a,
+  .hamburgerMenu .socialNav a {
+    margin: 15px 0;
+    font-size: 1.2rem;
+  }
+
+  .hamburgerMenu .programLinks {
+    padding-left: 20px;
+  }
 }
