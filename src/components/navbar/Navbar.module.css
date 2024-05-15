@@ -3,10 +3,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px;
+  padding: 15px;
   position: fixed;
   width: 100%;
   z-index: 999;
+  height: 80px;
 }
 
 /* Logo Styling */
@@ -14,12 +15,12 @@
   position: relative;
   left: 0;
   top: 0;
-  z-index: 1010;
+  z-index: 800;
 }
 
 .logoImg {
   max-width: 120px;
-  height: auto;
+  height:min-content;
 }
 
 /* Hamburger Menu Styles */
@@ -28,13 +29,17 @@
   flex-direction: column;
   align-items: flex-start; /* Align items to the left */
   background-color: #242423;
-  padding: 20px;
+  padding: 10px; /* Decrease the padding */
   position: absolute;
   top: 80px;
   left: 0;
   right: 0;
   z-index: 998;
+  max-height: calc(100vh - 80px); /* Add a max-height to make it scrollable */
+  overflow-y: auto;
 }
+
+
 
 .hamburgerMenu.open {
   display: flex;
@@ -43,16 +48,68 @@
 .hamburgerMenu .navLinks{
   display: flex;
   flex-direction: column;
-  margin-left: 200px;
+  margin-left: 0;
 
 
 }
+.hamburgerMenu .navLinks > div {
+  position: relative;
+}
+
+.hamburgerMenu .navLinks a {
+  margin: 5px 0;
+}
+
+.hamburgerMenu .socialNav a {
+  margin: 0 10px; /* Add some spacing between social icons */
+}
+
 .hamburgerMenu .socialNav {
   display: flex;
-  flex-direction: column;
-  margin-left: 50px;/* Align items to the left */
-  margin-bottom: 200px;
-  width: 100%; 
+  flex-direction: row; /* Change to row direction */
+  margin-left: 0; /* Remove left margin */
+  margin-bottom: 10px; /* Decrease the bottom margin */
+  width: auto;
+}
+.hamburgerMenu .programLinks {
+   display: none;
+  background-color: #242423;
+  padding: 10px;
+  z-index: 1;
+}
+
+
+.hamburgerMenu .programLinks.open {
+  display: block; /* Display the dropdown when open */
+}
+
+.hamburgerMenu .programLinks a {
+  padding: 5px 0;
+  transition: background-color 0.3s ease;
+}
+
+.hamburgerMenu .programLinks div:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.hamburgerMenu .programLinks div {
+  padding: 5px 0; /* Add padding for hover effect */
+  transition: background-color 0.3s ease; /* Add transition for smooth hover effect */
+}
+
+.hamburgerMenu .programLinks div:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Change background color on hover */
+}
+
+.hamburgerMenu .navLinks a {
+  margin-left: 0; /* Remove left margin */
+}
+
+.hamburgerMenu .navLinks > div {
+  position: relative; /* Add position relative to the parent div */
+}
+
+.hamburgerMenu .programLinks a {
+  padding: 5px 10px; /* Add padding to the program links */
 }
 
 .hamburgerMenu .navLinks a,
@@ -68,18 +125,46 @@
   justify-content: center;
  /* Adjust this value to move the links to the right */
   margin-left: 343px;
+}
 
-
+.navLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 343px;
+  position: relative; /* Add this to make the .programLinks positioning relative to .navLinks */
 }
 
 .navLinks a {
   color: inherit;
   text-decoration: none;
-  display: flex;
+  margin-left: 25px;
+}
 
-  margin-left: 25px; /* Adjust this value to move the links to the right */
-  
+/* New styles for .programLinks */
+.programLinks {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #242423;
+  padding: 10px;
+  z-index: 1;
+}
 
+.programLinks a {
+  color: #E8E9EB;
+  display: block;
+  padding: 5px 10px;
+  transition: background-color 0.3s ease; 
+}
+
+.programLinks a:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Change background color on hover */
+}
+
+.navLinks:hover .programLinks {
+  display: block;
 }
 
 .socialNav {

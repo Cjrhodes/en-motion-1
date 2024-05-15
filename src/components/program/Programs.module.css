@@ -1,0 +1,152 @@
+.colorContainer {
+  --primary-color: #3498db;
+  --secondary-color: #f1c40f;
+  --text-color: #f9f9f9;
+  --background-color: #aca4a3;
+  --accent-color: #aca4a3;
+}
+
+.fullScreenContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3D3B3E;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-height: 95vh;
+}
+
+.programContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #3D3B3E;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 100%;
+
+}
+
+.programImageContainer {
+  flex: 1;
+  height: 600px; /* Set a fixed height for the image container */
+  max-width: 50%; /* Limit the maximum width to 50% of the parent */
+}
+
+.programImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the entire container while maintaining aspect ratio */
+  border-radius: 10px 0 0 10px;
+}
+
+.programContent {
+  flex: 1;
+  padding: 20px;
+  background-color: #3D3B3E;
+}
+
+.programTitle {
+  font-size: 2.5rem;
+  color: #F1CF7C; /* Dark gray text color */
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif; /* Modern sans-serif font */
+}
+
+.programDescription {
+  font-size: 1.2rem;
+  color: #f9f9f9; /* Dark gray text color */
+  line-height: 1.6;
+  margin-bottom: 30px;
+  font-family: 'Lato', sans-serif; /* Clean sans-serif font */
+}
+
+.programPhilosophySystem {
+  margin-bottom: 30px;
+  color: #f9f9f9;
+}
+
+.programSectionHeading {
+  font-size: 1.5rem;
+  color:  #F1CF7C; /* Deep red accent color */
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif; /* Modern sans-serif font */
+}
+
+.programSectionHeading p {
+  font-size: 1.5rem;
+  color:  #f9f9f9; /* Deep red accent color */
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif; /* Modern sans-serif font */
+}
+
+
+
+.programFeature {
+  font-size: 1.1rem;
+  color: #f9f9f9; /* Dark gray text color */
+  margin-bottom: 5px;
+  font-family: 'Lato', sans-serif; /* Clean sans-serif font */
+}
+
+.sliderBtn {
+  text-align: center;
+  margin-top: auto; 
+}
+
+.buyTicketsBtn {
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #e74c3c; /* Deep red accent color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.buyTicketsBtn:hover {
+  background-color: var(--primary-color); /* Bright blue on hover */
+}
+
+@media (max-width: 768px) {
+  .programContainer {
+    flex-direction: column; /* Override to column layout for smaller screens */
+  }
+
+  .programImageContainer {
+    max-height: 200px; /* Further reduce the maximum height for smaller screens */
+  }
+
+  .programContent {
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+
+  .programTitle {
+    font-size: 2rem; /* Reduce font size for smaller screens */
+  }
+
+  .programDescription {
+    font-size: 1rem; /* Reduce font size for smaller screens */
+  }
+
+  .programSectionHeading {
+    font-size: 1.2rem; /* Reduce font size for smaller screens */
+  }
+
+  .programSectionHeading p {
+    font-size: 1.2rem; /* Reduce font size for smaller screens */
+  }
+
+  .programFeature {
+    font-size: 1rem; /* Reduce font size for smaller screens */
+  }
+
+  .buyTicketsBtn {
+    font-size: 1rem; /* Reduce font size for smaller screens */
+    padding: 8px 16px; /* Reduce padding for smaller screens */
+  }
+}

@@ -12,6 +12,10 @@ import FounderSection from "@/components/founder/FounderSection";
 import DecoLineSection from "@/components/about/decoline/DecolineSection";
 import VideoSection3 from "@/components/video/VideoSection3";
 import VideoModal from "@/components/modal/VideoModal";
+import PersonalTrainingProgram from "@/components/program/PersonalTrainingProgram";
+import SelfDefense from "@/components/program/SelfDefense";
+import CorporateWellness from "@/components/program/CorporateWellness";
+import OnlineTraining from "@/components/program/OnlineTrainingProgram";
 
 
 
@@ -29,8 +33,14 @@ export default function Home() {
         <HeaderSection contactModal={true} />
         <HeroSlider />
         <AboutSection3 />
-      
-        <TrainingProgram trainingPrograms={trainingProgramData} />      
+        <DecoLineSection />
+        <PersonalTrainingProgram />
+        <DecoLineSection />
+        <SelfDefense />
+        <CorporateWellness />
+        <OnlineTraining />
+
+
         <DecoLineSection />
         <FounderSection />
         <DecoLineSection />   

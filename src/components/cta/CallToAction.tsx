@@ -11,8 +11,8 @@ const CTASection = () => {
   const dispatch = useDispatch();
 
   // Handler to open the contact modal
-  const handleButtonClick = () => {
-    dispatch(toggleContactModalOpen);
+  const openContactModal = () => {
+    dispatch(toggleContactModalOpen({ packageName: "", packageType: "" }));
   };
 
   return (
@@ -40,7 +40,7 @@ const CTASection = () => {
         <p className="lead py-2">
           Join us today and start your path to a healthier and stronger you with our expert coaching.
         </p>
-        <Button variant="primary" size="lg" onClick={handleButtonClick}>
+        <Button variant="primary" size="lg" onClick={openContactModal}>
           Get Started Here
         </Button>
       </div>

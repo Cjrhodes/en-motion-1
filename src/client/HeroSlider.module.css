@@ -1,0 +1,60 @@
+.hero-slider {
+  --swiper-theme-color: #869791; /* Define a custom property for the theme color */
+  width: 50vw; /* Set the slider's width to 50% of the viewport width */
+  margin: 0 auto; 
+  /* Center the slider horizontally */
+}
+
+.swiper-slide.swiper-slide-active .hero-slider-text {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  padding: 1rem;
+  font-family: 'Inter', sans-serif; /* Add a modern font family */
+}
+
+.swiper-slide.swiper-slide-active .hero-slider-text h1 {
+  color: var(--swiper-theme-color); /* Use the custom property for consistency */
+  margin-bottom: 1rem;
+  font-size: 2.5rem; /* Use a more modern font size unit */
+  font-weight: 700; /* Add font weight for better readability */
+}
+
+.swiper-slide.swiper-slide-active .hero-slider-text p {
+  font-size: 1rem; /* Use a more modern font size unit */
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.hero-slider-item {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 75vh; /* Maintain the height as 75vh */
+  position: relative;
+  display: flex; /* Keep flexbox for layout */
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-slider-text {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Inter', sans-serif; /* Maintain the modern font family */
+}
