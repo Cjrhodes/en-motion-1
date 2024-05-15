@@ -49,8 +49,8 @@
     height: 50px; /* Reduced height for screens up to 768px */
   }
 
-  .logoImg {
-    max-width: 80px;
+  .logo {
+    display: none; /* Hide the logo on smaller screens */
   }
 
   .navLinks,
@@ -67,19 +67,11 @@
   .navContainer {
     height: 40px; /* Reduced height for screens up to 576px */
   }
-
-  .logoImg {
-    max-width: 70px;
-  }
 }
 
 @media (max-width: 320px) {
   .navContainer {
     height: 30px; /* Reduced height for screens up to 320px */
-  }
-
-  .logoImg {
-    max-width: 60px;
   }
 }
 
@@ -107,10 +99,12 @@
   display: flex;
   flex-direction: column;
   margin-left: 0;
+  width: 100%;
 }
 
 .hamburgerMenu .navLinks > div {
   position: relative;
+  width: 100%;
 }
 
 .hamburgerMenu .navLinks a {
@@ -134,6 +128,7 @@
   background-color: #242423;
   padding: 10px;
   z-index: 1;
+  width: 100%;
 }
 
 .hamburgerMenu .programLinks.open {
@@ -248,10 +243,6 @@
     right: unset;
     padding: 20px;
     background-color: #242423;
-  }
-
-  .hamburgerMenu .navLinks {
-    width: 100%;
   }
 
   .hamburgerMenu .navLinks a,

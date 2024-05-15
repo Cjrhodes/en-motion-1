@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faXTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
@@ -9,6 +9,7 @@ function TransparentNavbar() {
   const [colorChange, setColorChange] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [showProgramsDropdown, setShowProgramsDropdown] = useState(false);
+  const hamburgerMenuRef = useRef<HTMLDivElement>(null);
 
   const changeNavbarColor = () => {
     if (window.scrollY >= 80) {
@@ -19,8 +20,24 @@ function TransparentNavbar() {
   };
 
   const toggleMenu = () => {
-    setShowMenu(!showMenu);
+    setShowMenu((prevShowMenu) => !prevShowMenu);
+    setShowProgramsDropdown(false);
   };
+
+  const handleOutsideClick = useCallback((event: MouseEvent) => {
+    if (
+      hamburgerMenuRef.current &&
+      !hamburgerMenuRef.current.contains(event.target as Node)
+    ) {
+      setShowMenu(false);
+      setShowProgramsDropdown(false);
+    }
+  }, []);
+
+  const handleLinkClick = useCallback(() => {
+    setShowMenu(false);
+    setShowProgramsDropdown(false);
+  }, []);
 
   useEffect(() => {
     window.addEventListener('scroll', changeNavbarColor);
@@ -28,6 +45,19 @@ function TransparentNavbar() {
       window.removeEventListener('scroll', changeNavbarColor);
     }
   }, []);
+
+  useEffect(() => {
+    const handleOutsideClickWrapper = (event: MouseEvent) => handleOutsideClick(event);
+    const handleLinkClickWrapper = (event: MouseEvent) => handleLinkClick();
+
+    document.addEventListener('mousedown', handleOutsideClickWrapper);
+    document.addEventListener('click', handleLinkClickWrapper);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClickWrapper);
+      document.removeEventListener('click', handleLinkClickWrapper);
+    };
+  }, [handleOutsideClick, handleLinkClick]);
 
   return (
     <>
@@ -87,37 +117,40 @@ function TransparentNavbar() {
       </Navbar>
 
       {/* Hamburger Menu */}
-      <div className={`${styles.hamburgerMenu} ${showMenu ? styles.open : ''}`}>
+      <div
+        className={`${styles.hamburgerMenu} ${showMenu ? styles.open : ''}`}
+        ref={hamburgerMenuRef}
+      >
         <div className={styles.navLinks}>
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#About">About</Nav.Link>
+          <Nav.Link href="#home" onClick={handleLinkClick}>Home</Nav.Link>
+          <Nav.Link href="#About" onClick={handleLinkClick}>About</Nav.Link>
           <div>
-            <Nav.Link href="#TrainingProgram" onClick={() => setShowProgramsDropdown(!showProgramsDropdown)}>
+            <Nav.Link href="#TrainingProgram" onClick={() => setShowProgramsDropdown((prevState) => !prevState)}>
               Programs <FontAwesomeIcon icon={faCaretDown} style={{ marginLeft: '5px' }} />
             </Nav.Link>
             <div className={`${styles.programLinks} ${showProgramsDropdown ? styles.open : ''}`}>
               <div>
-                <Nav.Link href="#self-defense">Self-Defense</Nav.Link>
+                <Nav.Link href="#self-defense" onClick={handleLinkClick}>Self-Defense</Nav.Link>
               </div>
               <div>
-                <Nav.Link href="#personal-training">Personal Training</Nav.Link>
+                <Nav.Link href="#personal-training" onClick={handleLinkClick}>Personal Training</Nav.Link>
               </div>
               <div>
-                <Nav.Link href="#CorporateWellness">Corporate Wellness</Nav.Link>
+                <Nav.Link href="#CorporateWellness" onClick={handleLinkClick}>Corporate Wellness</Nav.Link>
               </div>
               <div>
-                <Nav.Link href="#OnlineTraining">Online Training</Nav.Link>
+                <Nav.Link href="#OnlineTraining" onClick={handleLinkClick}>Online Training</Nav.Link>
               </div>
             </div>
           </div>
           <div className={styles.socialNav}>
-            <Nav.Link href="https://www.facebook.com/profile.php?id=61558229676688">
+            <Nav.Link href="https://www.facebook.com/profile.php?id=61558229676688" onClick={handleLinkClick}>
               <FontAwesomeIcon icon={faFacebook} />
             </Nav.Link>
-            <Nav.Link href="https://twitter.com/enmotionfit">
+            <Nav.Link href="https://twitter.com/enmotionfit" onClick={handleLinkClick}>
               <FontAwesomeIcon icon={faXTwitter} />
             </Nav.Link>
-            <Nav.Link href="https://www.instagram.com/enmotionfit/">
+            <Nav.Link href="https://www.instagram.com/enmotionfit/" onClick={handleLinkClick}>
               <FontAwesomeIcon icon={faInstagram} />
             </Nav.Link>
           </div>
@@ -127,4 +160,4 @@ function TransparentNavbar() {
   );
 }
 
-export default TransparentNavbar; 
+export default TransparentNavbar;
