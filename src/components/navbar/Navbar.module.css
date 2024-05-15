@@ -7,7 +7,7 @@
   position: fixed;
   width: 100%;
   z-index: 999;
-  height: 80px;
+  height: 80px; /* Default height for larger screens */
 }
 
 /* Logo Styling */
@@ -20,7 +20,67 @@
 
 .logoImg {
   max-width: 120px;
-  height:min-content;
+  height: min-content;
+}
+
+/* Media queries for different screen sizes */
+@media (max-width: 1200px) {
+  .navContainer {
+    height: 70px; /* Reduced height for screens up to 1200px */
+  }
+
+  .logoImg {
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 992px) {
+  .navContainer {
+    height: 60px; /* Reduced height for screens up to 992px */
+  }
+
+  .logoImg {
+    max-width: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navContainer {
+    height: 50px; /* Reduced height for screens up to 768px */
+  }
+
+  .logoImg {
+    max-width: 80px;
+  }
+
+  .navLinks,
+  .socialNav {
+    display: none;
+  }
+
+  .hamburgerToggle {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .navContainer {
+    height: 40px; /* Reduced height for screens up to 576px */
+  }
+
+  .logoImg {
+    max-width: 70px;
+  }
+}
+
+@media (max-width: 320px) {
+  .navContainer {
+    height: 30px; /* Reduced height for screens up to 320px */
+  }
+
+  .logoImg {
+    max-width: 60px;
+  }
 }
 
 /* Hamburger Menu Styles */
@@ -31,27 +91,24 @@
   background-color: #242423;
   padding: 10px; /* Decrease the padding */
   position: absolute;
-  top: 80px;
+  top: 50px; /* Adjust the top position based on the Navbar height */
   left: 0;
   right: 0;
   z-index: 998;
-  max-height: calc(100vh - 80px); /* Add a max-height to make it scrollable */
+  max-height: calc(100vh - 50px); /* Adjust the max-height based on the Navbar height */
   overflow-y: auto;
 }
-
-
 
 .hamburgerMenu.open {
   display: flex;
 }
 
-.hamburgerMenu .navLinks{
+.hamburgerMenu .navLinks {
   display: flex;
   flex-direction: column;
   margin-left: 0;
-
-
 }
+
 .hamburgerMenu .navLinks > div {
   position: relative;
 }
@@ -71,13 +128,13 @@
   margin-bottom: 10px; /* Decrease the bottom margin */
   width: auto;
 }
+
 .hamburgerMenu .programLinks {
-   display: none;
+  display: none;
   background-color: #242423;
   padding: 10px;
   z-index: 1;
 }
-
 
 .hamburgerMenu .programLinks.open {
   display: block; /* Display the dropdown when open */
@@ -91,6 +148,7 @@
 .hamburgerMenu .programLinks div:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
+
 .hamburgerMenu .programLinks div {
   padding: 5px 0; /* Add padding for hover effect */
   transition: background-color 0.3s ease; /* Add transition for smooth hover effect */
@@ -114,7 +172,7 @@
 
 .hamburgerMenu .navLinks a,
 .hamburgerMenu .socialNav a {
-  color: #E8E9EB;
+  color: #e8e9eb;
   margin: 10px 0;
 }
 
@@ -123,7 +181,7 @@
   align-items: flex-end;
   display: flex;
   justify-content: center;
- /* Adjust this value to move the links to the right */
+  /* Adjust this value to move the links to the right */
   margin-left: 343px;
 }
 
@@ -153,10 +211,10 @@
 }
 
 .programLinks a {
-  color: #E8E9EB;
+  color: #e8e9eb;
   display: block;
   padding: 5px 10px;
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease;
 }
 
 .programLinks a:hover {
@@ -184,10 +242,6 @@
     margin-left: auto;
   }
 
-  .logoImg {
-    max-width: 80px; 
-
-  }
   .hamburgerMenu {
     width: 100%;
     left: 0;
