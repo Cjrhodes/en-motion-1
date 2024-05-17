@@ -1,159 +1,121 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faXTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faInstagram, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import styles from './Navbar.module.css';
 
 function TransparentNavbar() {
-  const [colorChange, setColorChange] = useState(false);
-  const [showMenu, setShowMenu] = useState(false);
   const [showProgramsDropdown, setShowProgramsDropdown] = useState(false);
-  const hamburgerMenuRef = useRef<HTMLDivElement>(null);
-
-  const changeNavbarColor = () => {
-    if (window.scrollY >= 80) {
-      setColorChange(true);
-    } else {
-      setColorChange(false);
-    }
-  };
+  const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
-    setShowMenu((prevShowMenu) => !prevShowMenu);
-    setShowProgramsDropdown(false);
+    setShowMenu(!showMenu);
   };
 
-  const handleOutsideClick = useCallback((event: MouseEvent) => {
-    if (
-      hamburgerMenuRef.current &&
-      !hamburgerMenuRef.current.contains(event.target as Node)
-    ) {
-      setShowMenu(false);
-      setShowProgramsDropdown(false);
-    }
-  }, []);
-
-  const handleLinkClick = useCallback(() => {
-    setShowMenu(false);
-    setShowProgramsDropdown(false);
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener('scroll', changeNavbarColor);
-    return () => {
-      window.removeEventListener('scroll', changeNavbarColor);
-    }
-  }, []);
-
-  useEffect(() => {
-    const handleOutsideClickWrapper = (event: MouseEvent) => handleOutsideClick(event);
-    const handleLinkClickWrapper = (event: MouseEvent) => handleLinkClick();
-
-    document.addEventListener('mousedown', handleOutsideClickWrapper);
-    document.addEventListener('click', handleLinkClickWrapper);
-
-    return () => {
-      document.removeEventListener('mousedown', handleOutsideClickWrapper);
-      document.removeEventListener('click', handleLinkClickWrapper);
-    };
-  }, [handleOutsideClick, handleLinkClick]);
+  const handleDropdownLinkClick = () => {
+  setShowMenu(false);
+  setShowProgramsDropdown(false);
+};
 
   return (
     <>
-      <Navbar expand="lg" fixed="top" className={styles.navContainer} style={{ backgroundColor: colorChange ? 'black' : 'transparent', color: 'white' }}>
-        <Container>
-          <Navbar.Brand href="/" className={styles.logo}>
-            <img src="/img/whitelogo.png" alt="Logo" className={styles.logoImg} />
-          </Navbar.Brand>
-          <div className={styles.navLinks}>
-            <Nav.Link href="#home" style={{ color: 'white', fontSize: '1.2rem' }}>
-              Home
-            </Nav.Link>
-            <Nav.Link href="#About" style={{ color: 'white', fontSize: '1.2rem' }}>
-              About
-            </Nav.Link>
-            <div>
-              <Nav.Link href="#TrainingProgram" style={{ color: 'white', fontSize: '1.2rem', display: 'flex', alignItems: 'center' }}>
-                Programs <FontAwesomeIcon icon={faCaretDown} style={{ marginLeft: '5px' }} />
-              </Nav.Link>
-              <div className={styles.programLinks}>
-                <div>
-                  <Nav.Link href="#Self-Defense" style={{ color: 'white', fontSize: '1.2rem' }}>
-                    Self-Defense
-                  </Nav.Link>
-                </div>
-                <div>
-                  <Nav.Link href="#PersonalTraining" style={{ color: 'white', fontSize: '1.2rem' }}>
-                    Personal Training
-                  </Nav.Link>
-                </div>
-                <div>
-                  <Nav.Link href="#CorporateWellness" style={{ color: 'white', fontSize: '1.2rem' }}>
-                    Corporate Wellness
-                  </Nav.Link>
-                </div>
-                <div>
-                  <Nav.Link href="#OnlineTraining" style={{ color: 'white', fontSize: '1.2rem' }}>
-                    Online Training
-                  </Nav.Link>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={styles.socialNav}>
-            <Nav.Link href="https://www.facebook.com/profile.php?id=61558229676688" style={{ color: 'white', fontSize: '1.8rem' }}>
-              <FontAwesomeIcon icon={faFacebook} />
-            </Nav.Link>
-            <Nav.Link href="https://twitter.com/enmotionfit" style={{ color: 'white', fontSize: '1.8rem' }}>
-              <FontAwesomeIcon icon={faXTwitter} />
-            </Nav.Link>
-            <Nav.Link href="https://www.instagram.com/enmotionfit/" style={{ color: 'white', fontSize: '1.8rem' }}>
-              <FontAwesomeIcon icon={faInstagram} />
-            </Nav.Link>
-          </div>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" style={{ borderColor: 'white' }} onClick={toggleMenu} className={styles.hamburgerToggle} />
-        </Container>
-      </Navbar>
-
-      {/* Hamburger Menu */}
-      <div
-        className={`${styles.hamburgerMenu} ${showMenu ? styles.open : ''}`}
-        ref={hamburgerMenuRef}
-      >
+      {/* Navbar for larger screens */}
+      <nav className={styles.navContainer}>
+        <div className={styles.logo}>
+          <img src="/img/whitelogo.png" alt="Logo" className={styles.logoImg} />
+        </div>
         <div className={styles.navLinks}>
-          <Nav.Link href="#home" onClick={handleLinkClick}>Home</Nav.Link>
-          <Nav.Link href="#About" onClick={handleLinkClick}>About</Nav.Link>
+          <a href="#" style={{ color: 'white', fontSize: '1.2rem' }}>
+            Home
+          </a>
+          <a href="#About" style={{ color: 'white', fontSize: '1.2rem' }}>
+            About
+          </a>
           <div>
-            <Nav.Link href="#TrainingProgram" onClick={() => setShowProgramsDropdown((prevState) => !prevState)}>
+            <a
+              href="#"
+              onClick={() => setShowProgramsDropdown(!showProgramsDropdown)}
+              style={{ color: 'white', fontSize: '1.2rem', display: 'flex', alignItems: 'center' }}
+            >
               Programs <FontAwesomeIcon icon={faCaretDown} style={{ marginLeft: '5px' }} />
-            </Nav.Link>
-            <div className={`${styles.programLinks} ${showProgramsDropdown ? styles.open : ''}`}>
-              <div>
-                <Nav.Link href="#self-defense" onClick={handleLinkClick}>Self-Defense</Nav.Link>
+            </a>
+            {showProgramsDropdown && (
+              <div className={styles.programsDropdown}>
+                <a href="#Self-Defense" style={{ color: 'white', fontSize: '1.2rem' }}>
+                  Self-Defense
+                </a>
+                <a href="#OnlineTraining" style={{ color: 'white', fontSize: '1.2rem' }}>
+                  Online Training
+                </a>
+                <a href="#PersonalTraining" style={{ color: 'white', fontSize: '1.2rem' }}>
+                  Personal Training
+                </a>
+                <a href="#CorporateWellness" style={{ color: 'white', fontSize: '1.2rem' }}>
+                  Corporate Wellness
+                </a>
               </div>
-              <div>
-                <Nav.Link href="#personal-training" onClick={handleLinkClick}>Personal Training</Nav.Link>
-              </div>
-              <div>
-                <Nav.Link href="#CorporateWellness" onClick={handleLinkClick}>Corporate Wellness</Nav.Link>
-              </div>
-              <div>
-                <Nav.Link href="#OnlineTraining" onClick={handleLinkClick}>Online Training</Nav.Link>
-              </div>
-            </div>
+            )}
           </div>
-          <div className={styles.socialNav}>
-            <Nav.Link href="https://www.facebook.com/profile.php?id=61558229676688" onClick={handleLinkClick}>
-              <FontAwesomeIcon icon={faFacebook} />
-            </Nav.Link>
-            <Nav.Link href="https://twitter.com/enmotionfit" onClick={handleLinkClick}>
-              <FontAwesomeIcon icon={faXTwitter} />
-            </Nav.Link>
-            <Nav.Link href="https://www.instagram.com/enmotionfit/" onClick={handleLinkClick}>
-              <FontAwesomeIcon icon={faInstagram} />
-            </Nav.Link>
+        </div>
+        <div className={styles.socialNav}>
+          <a href="https://www.facebook.com/profile.php?id=61558229676688" style={{ color: 'white' }}>
+            <FontAwesomeIcon icon={faFacebook} />
+          </a>
+          <a href="https://www.instagram.com/enmotionfit/" style={{ color: 'white' }}>
+            <FontAwesomeIcon icon={faInstagram} />
+          </a>
+          <a href="https://www.instagram.com/enmotionfit/" style={{ color: 'white' }}>
+            <FontAwesomeIcon icon={faXTwitter} />
+          </a>
+        </div>
+        <button className={styles.hamburgerToggle} onClick={toggleMenu}>
+          <span className={styles.hamburgerIcon} />
+          <span className={styles.hamburgerIcon} />
+          <span className={styles.hamburgerIcon} />
+        </button>
+      </nav>
+
+      {/* Hamburger Menu for smaller screens */}
+      <div className={`${styles.hamburgerMenu} ${showMenu ? styles.open : ''}`}>
+        <div className={styles.navLinks}>
+          <a href="#" onClick={() => setShowMenu(false)}>
+            Home
+          </a>
+          <a href="#" onClick={() => setShowMenu(false)}>
+            About
+          </a>
+          <div>
+            <a href="#" onClick={() => setShowProgramsDropdown(!showProgramsDropdown)}>
+              Programs <FontAwesomeIcon icon={faCaretDown} style={{ marginLeft: '5px' }} />
+            </a>
+            {showProgramsDropdown && (
+              <div className={styles.programsDropdown}>
+                <a href="#" onClick={() => setShowMenu(false)}>
+                  Self-Defense
+                </a>
+                <a href="#" onClick={() => setShowMenu(false)}>
+                  Online Training
+                </a>
+                <a href="#" onClick={() => setShowMenu(false)}>
+                  Personal Training
+                </a>
+                <a href="#" onClick={() => setShowMenu(false)}>
+                  Corporate Wellness
+                </a>
+              </div>
+            )}
           </div>
+        </div>
+        <div className={styles.socialNav}>
+          <a href="https://www.facebook.com/profile.php?id=61558229676688" onClick={() => setShowMenu(false)}>
+            <FontAwesomeIcon icon={faFacebook} style={{ color: 'white' }} />
+          </a>
+          <a href="https://www.instagram.com/enmotionfit/" onClick={() => setShowMenu(false)}>
+            <FontAwesomeIcon icon={faInstagram} style={{ color: 'white' }} />
+          </a>
+          <a href="https://www.instagram.com/enmotionfit/" style={{ color: 'white' }}>
+            <FontAwesomeIcon icon={faXTwitter} />
+          </a>
         </div>
       </div>
     </>

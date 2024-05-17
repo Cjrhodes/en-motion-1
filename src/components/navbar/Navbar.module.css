@@ -9,7 +9,22 @@
   z-index: 999;
   height: 80px; /* Default height for larger screens */
 }
+.hamburgerToggle {
+  display: none;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 8px;
+}
 
+.hamburgerIcon {
+  display: block;
+  width: 24px;
+  height: 4px;
+  background-color: white;
+  position: relative;
+  margin: 6px 0; 
+}
 /* Logo Styling */
 .logo {
   position: relative;
@@ -21,6 +36,40 @@
 .logoImg {
   max-width: 120px;
   height: min-content;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 650px;
+  position: relative;
+  size: 35px;
+}
+
+.navLinks a {
+  color: inherit;
+  text-decoration: none;
+  margin-left: 25px;
+  font-size: 25px; /* Increase the font size */
+}
+
+.hamburgerIcon::before,
+.hamburgerIcon::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+}
+
+.hamburgerIcon::before {
+  top: -1px; /* Adjust the spacing between bars */
+}
+
+.hamburgerIcon::after {
+  bottom: -1px; /* Adjust the spacing between bars */
 }
 
 /* Media queries for different screen sizes */
@@ -52,10 +101,8 @@
   .logo {
     display: none; /* Hide the logo on smaller screens */
   }
-
-  .navLinks,
-  .socialNav {
-    display: none;
+  .hamburgerToggle {
+    display: block; /* Show the hamburger toggle button */
   }
 
   .hamburgerToggle {
@@ -100,6 +147,8 @@
   flex-direction: column;
   margin-left: 0;
   width: 100%;
+  text-align: center; 
+  /* Add this line */
 }
 
 .hamburgerMenu .navLinks > div {
@@ -109,10 +158,14 @@
 
 .hamburgerMenu .navLinks a {
   margin: 5px 0;
+  font-size: 1.4rem; 
+  align-items: center; /* Increase font size */
 }
 
 .hamburgerMenu .socialNav a {
-  margin: 0 10px; /* Add some spacing between social icons */
+  margin: 0 50px; /* Add some spacing between social icons */
+  font-size: 2rem;
+  padding: 10px; /* Increase font size */
 }
 
 .hamburgerMenu .socialNav {
@@ -122,15 +175,16 @@
   margin-bottom: 10px; /* Decrease the bottom margin */
   width: auto;
 }
-
 .hamburgerMenu .programLinks {
-  display: none;
-  background-color: #242423;
-  padding: 10px;
-  z-index: 1;
-  width: 100%;
+  .hamburgerMenu .programLinks {
+    display: none;
+    background-color: #242423;
+    padding: 10px;
+    z-index: 1;
+    width: 200px; /* Set a specific width value */
+    margin: 0 auto; /* Center the dropdown menu horizontally */
+  } /* Add margin-left: auto to push it to the right */
 }
-
 .hamburgerMenu .programLinks.open {
   display: block; /* Display the dropdown when open */
 }
@@ -138,6 +192,7 @@
 .hamburgerMenu .programLinks a {
   padding: 5px 0;
   transition: background-color 0.3s ease;
+  font-size: 1.4rem; /* Increase font size */
 }
 
 .hamburgerMenu .programLinks div:hover {
@@ -171,27 +226,11 @@
   margin: 10px 0;
 }
 
-.navLinks {
-  display: flex;
-  align-items: flex-end;
-  display: flex;
-  justify-content: center;
-  /* Adjust this value to move the links to the right */
-  margin-left: 343px;
-}
-
-.navLinks {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 343px;
-  position: relative; /* Add this to make the .programLinks positioning relative to .navLinks */
-}
-
 .navLinks a {
   color: inherit;
   text-decoration: none;
   margin-left: 25px;
+  font-size: 1.4rem; /* Increase font size */
 }
 
 /* New styles for .programLinks */
@@ -210,6 +249,7 @@
   display: block;
   padding: 5px 10px;
   transition: background-color 0.3s ease;
+  font-size: 1.4rem; /* Increase font size */
 }
 
 .programLinks a:hover {
@@ -248,7 +288,6 @@
   .hamburgerMenu .navLinks a,
   .hamburgerMenu .socialNav a {
     margin: 15px 0;
-    font-size: 1.2rem;
   }
 
   .hamburgerMenu .programLinks {

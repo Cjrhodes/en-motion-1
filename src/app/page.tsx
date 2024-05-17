@@ -37,7 +37,9 @@ export default function Home() {
         <PersonalTrainingProgram />
         <DecoLineSection />
         <SelfDefense />
+        <DecoLineSection />
         <CorporateWellness />
+        <DecoLineSection />
         <OnlineTraining />
 
 
