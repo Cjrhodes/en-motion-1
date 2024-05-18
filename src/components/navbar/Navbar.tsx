@@ -90,16 +90,16 @@ function TransparentNavbar() {
             </a>
             {showProgramsDropdown && (
               <div className={styles.programsDropdown}>
-                <a href="#" onClick={() => setShowMenu(false)}>
+                <a href="#Self-Defense" onClick={() => setShowMenu(false)}>
                   Self-Defense
                 </a>
-                <a href="#" onClick={() => setShowMenu(false)}>
+                <a href="#OnlineTraining" onClick={() => setShowMenu(false)}>
                   Online Training
                 </a>
-                <a href="#" onClick={() => setShowMenu(false)}>
+                <a href="#PersonalTraining" onClick={() => setShowMenu(false)}>
                   Personal Training
                 </a>
-                <a href="#" onClick={() => setShowMenu(false)}>
+                <a href="#CorporateWellness" onClick={() => setShowMenu(false)}>
                   Corporate Wellness
                 </a>
               </div>
