@@ -2,11 +2,11 @@ import React from "react";
 import HeaderSection from "@/components/header/HeaderSection";
 import AboutSection3 from "@/components/about/AboutSection3";
 import FooterSection3 from "@/components/footer/FooterSection3";
-import SidebarSection from "@/components/side-panel/SidebarSection";
+
 import ContactFormModal from "@/components/modal/ContactFormModal";
 import HeroSlider from "@/components/hero/HeroSlider";
-import { trainingProgramData } from "@/data/Data";
-import TrainingProgram from "../components/program/TrainingProgram";
+
+import GradientDivider from "@/components/decoline/gradient";
 import { spaceGrotesk } from "./fonts";
 import FounderSection from "@/components/founder/FounderSection";
 import DecoLineSection from "@/components/about/decoline/DecolineSection";
@@ -32,14 +32,56 @@ export default function Home() {
       <div id="mainContent">
         <HeaderSection contactModal={true} />
         <HeroSlider />
+        <GradientDivider
+  height="12px"
+  gradient="linear-gradient(to right, #8b008b, #4b0082)"
+  style={{ backgroundImage: 'solid' }}
+/>
         <AboutSection3 />
-        <DecoLineSection />
+
+<GradientDivider
+  height="5px"
+  gradient="linear-gradient(to right, #800000, #330000)"
+  style={{
+    backgroundImage: 'dotted',
+    backgroundSize: '4px 4px',
+    backgroundPosition: '0 0, 2px 2px',
+  }}
+/>
+
+
         <PersonalTrainingProgram />
-        <DecoLineSection />
+        <GradientDivider
+  height="5px"
+  gradient="linear-gradient(to right, #800000, #330000)"
+  style={{
+    backgroundImage: 'dotted',
+    backgroundSize: '4px 4px',
+    backgroundPosition: '0 0, 2px 2px',
+  }}
+/>
+      
         <SelfDefense />
-        <DecoLineSection />
+        <GradientDivider
+  height="5px"
+  gradient="linear-gradient(to right, #800000, #330000)"
+  style={{
+    backgroundImage: 'dotted',
+    backgroundSize: '4px 4px',
+    backgroundPosition: '0 0, 2px 2px',
+  }}
+/>
         <CorporateWellness />
-        <DecoLineSection />
+        <GradientDivider
+  height="5px"
+  gradient="linear-gradient(to right, #800000, #330000)"
+  style={{
+    backgroundImage: 'dotted',
+    backgroundSize: '4px 4px',
+    backgroundPosition: '0 0, 2px 2px',
+  }}
+/>
+    
         <OnlineTraining />
 
 
