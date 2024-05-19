@@ -33,30 +33,7 @@ const AboutSection = () => {
                   />
                 </div>
               </div>
-            </div>
-            <div className={`${styles['section-content']} row align-items-center`}>
-              <div className="col-lg-5 order-lg-1 order-2">
-                <div className={`${styles['about-text']} text-white`}>
-                  <h3 className={styles['sub-heading']}>Our Community</h3>
-                  <p>
-                    En Motion is more than a gym; it's a sanctuary where individuals converge, drawing strength from each other to reach new heights. Our community thrives on mutual support and shared goals, fostering a motivating environment that champions personal growth and accountability.
-                  </p>
-                </div>
-              </div>
-              <div className="col-lg-7 mt-4 mt-lg-0 order-lg-2 order-1">
-                <div className={`${styles['image-container']} d-flex justify-content-lg-end justify-content-center pr-lg-5`}>
-                  <Image
-                    src="/img/miguel-trainee.jpg"
-                    alt="Community Image"
-                    width={200}
-                    height={150}
-                    className={`${styles['rounded-image']} img-fluid`}
-                    priority
-                    loading="eager"
-                  />
-                </div>
-              </div>
-            </div>
+            </div>     
           </div>
         </div>
       </div>
