@@ -55,7 +55,7 @@ const TestimonialSection3 = () => {
               viewport={{once: true}}
               transition={{duration: 1.2}}
               >
-                <h2 className="mb-4"><CustomGsapTextSplit children="testimonial"/></h2>
+                <h2 className="mb-4"><CustomGsapTextSplit children="testimonials"/></h2>
                 
               </motion.div>
             </div>
