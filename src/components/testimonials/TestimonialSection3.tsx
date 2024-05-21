@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 const TestimonialSection3 = () => {
   const sliderSettings = {
-    slidesToShow: 2,
+    slidesToShow: 1,
     vertical: true,
     verticalSwiping: true,
     arrows: false,
@@ -55,12 +55,8 @@ const TestimonialSection3 = () => {
               viewport={{once: true}}
               transition={{duration: 1.2}}
               >
-                <h2 className="mb-4"><CustomGsapTextSplit children="students Say"/></h2>
-                    <CustomGsapTextSplitLine className="title-txt">
-                        Aerobics is a form of cardiovascular exercise that involves a
-                        combination of rhythmic movements, dance-like steps, and
-                        repetitive motions 
-                    </CustomGsapTextSplitLine>
+                <h2 className="mb-4"><CustomGsapTextSplit children="testimonial"/></h2>
+                
               </motion.div>
             </div>
           </div>
@@ -96,7 +92,7 @@ const TestimonialSection3 = () => {
                             </span>
 
                             <motion.p initial="hidden" whileInView="visible" variants={textVariants} viewport={{once: true}}>
-                            "Great job on the recent blog post on 'The Benefits of Meditation. Your writing style is engaging, and the research is well-done. However, I suggest adding more subheadings to break up the text and making the call to action clearer. Keep up the good work!"
+                            {item.text} 
                             </motion.p>
                             <motion.div 
                             className="client-area"
@@ -114,7 +110,7 @@ const TestimonialSection3 = () => {
                               <h3 className="client-name">
                                 <CustomGsapTextSplit children={item.name}/>
                               </h3>
-                              <span>{item.title}</span>
+                          
                             </motion.div>
                           </div>
                         </div>

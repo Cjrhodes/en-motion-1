@@ -17,6 +17,8 @@ import SelfDefense from "@/components/program/SelfDefense";
 import CorporateWellness from "@/components/program/CorporateWellness";
 import OnlineTraining from "@/components/program/OnlineTrainingProgram";
 
+import TestimonialSection3 from "@/components/testimonials/TestimonialSection3";
+
 
 
 
@@ -88,8 +90,9 @@ export default function Home() {
         <DecoLineSection />
         <FounderSection />
         <DecoLineSection />   
-        <VideoSection3/>
+   
         <DecoLineSection /> 
+        <TestimonialSection3/>
         <FooterSection3 />
       </div>
       <ContactFormModal />

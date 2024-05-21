@@ -1,3 +1,4 @@
+import { text } from "stream/consumers";
 
 
 const servicesData = [
@@ -162,25 +163,17 @@ const videoData = [
 
 const testimonialData = [
   {
-    name: "John William",
+    name: "Chris Rhodes",
     position: "Mixcola Director",
-    img: "img/testimonial-image-1.png",
+    img: "img/crfb.jpg" ,
+    message: "I have been using it for a number of years. I use Mixcola for different projects. I have been using it for a number of years.",
   },
   {
-    name: "Emily Jones",
+    name: "Bonnie Lambert",
     position: "Marketing Manager",
     img: "img/testimonial-image-2.png",
   },
-  {
-    name: "Alex Thompson",
-    position: "Creative Designer",
-    img: "img/testimonial-image-3.png",
-  },
-  {
-    name: "Sophia Miller",
-    position: "Product Developer",
-    img: "img/testimonial-image-2.png",
-  },
+
 ];
 
 const blogData = [
@@ -437,29 +430,20 @@ const trainingGalleryData = [
 ];
 
 const testimonialData3 = [
-  {
-    id: 1,
-    img: "img/t10_1.png",
-    name: "John William",
-    title: "Mixcola Director",
-  },
-  {
-    id: 2,
-    img: "img/t10_2.png",
-    name: "Emily Jones",
-    title: "Marketing Manager",
-  },
+
   {
     id: 3,
-    img: "img/t10_1.png",
-    name: "Alex Turner",
+    img: "img/brfb.jpg",
+    name: "Bonnie Lambert",
     title: "Creative Designer",
+    text:  "Miguel's workouts are one of a kind. They're unique and push your limits without feeling like you're with a drill sergeant. Great online experience, highly recommend!",
   },
   {
     id: 4,
-    img: "img/t10_2.png",
-    name: "Sophia Miller",
+    img: "img/crfb.jpg",
+    name: "Chris Rhodes",
     title: "Product Developer",
+    text: "Over the past two years, Miguel has been an amazing trainer. He helped me drop over 60 pounds and recover from knee and shoulder injuries. What I really like is how he pays close attention to my form while still pushing me in a safe way. I wholeheartedly recommend Miguel to anyone seeking a knowledgeable, supportive, and results-driven trainer.",
   },
 ];
 
