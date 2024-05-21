@@ -91,7 +91,7 @@ export default function Home() {
         <FounderSection />
         <DecoLineSection />   
    
-        <DecoLineSection /> 
+   
         <TestimonialSection3/>
         <FooterSection3 />
       </div>

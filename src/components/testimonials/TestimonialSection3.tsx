@@ -9,9 +9,10 @@ import { motion } from "framer-motion";
 const TestimonialSection3 = () => {
   const sliderSettings = {
     slidesToShow: 1,
+    slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
-    arrows: false,
+    arrows: true,
     autoplay: true,
     autoplaySpeed: 5000,
     responsive: [
@@ -19,6 +20,8 @@ const TestimonialSection3 = () => {
         breakpoint: 576,
         settings: {
           slidesToShow: 1,
+          vertical: false,
+          verticalSwiping: false,
         }
       },
     ]
@@ -32,7 +35,7 @@ const TestimonialSection3 = () => {
       opacity: 1,
       x: 0, // Final position on-screen
       transition: {
-        duration: 1.5,
+        duration: 3,
         type: "spring",
         stiffness: 100,
       },
@@ -40,12 +43,12 @@ const TestimonialSection3 = () => {
   };
   return (
     <section>
-      <div className="testimonial-8 testimonial-10">
+      <div className="testimonial-8 testimonial-10" style={{ padding: '50px 10px', minHeight: '800px' }}>
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-lg-6">
+            <div className="col-lg-8">
               <motion.div 
-              className="section-heading-8 section-heading-10 text-center"
+              className="section-heading-10 text-center"
               initial={{
                 opacity: 0
               }}
@@ -60,10 +63,10 @@ const TestimonialSection3 = () => {
               </motion.div>
             </div>
           </div>
-          <div className="testimonial-8-slider-wrap fade_bottom">
+          <div className="testimonial-8-slider-wrap" >
             <Slider {...sliderSettings} className="testimonial-8-slider">
               {testimonialData3.map((item) => (
-                <div className="single-testimonial" key={item.id}>
+                <div className="single-testimonial" key={item.id} style={{ minHeight: '60px' }}>
                   <div className={`row ${item.id % 2 === 0 ? '' : 'justify-content-end'}`}>
                     <div className="col-lg-8">
                       <div className="row align-items-center">
@@ -85,7 +88,7 @@ const TestimonialSection3 = () => {
                             />
                           </div>
                         </div>
-                        <div className="col-8">
+                        <div className="col-8"  style={{ height: '400px'}}>
                           <div className="part-txt">
                             <span className="part-icon">
                               <i className="fa-solid fa-quote-right"></i>
