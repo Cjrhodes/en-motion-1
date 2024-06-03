@@ -1,11 +1,7 @@
-
 import React from 'react';
-import Link from 'next/link';
 import { useDispatch } from 'react-redux';
 import { toggleContactModalOpen } from '@/redux/features/contactModalSlice'; // Adjust the path as necessary
 import { Button } from 'react-bootstrap';
-
-
 
 const CTASection = () => {
   const dispatch = useDispatch();

@@ -46,9 +46,9 @@ const HeroSlider: React.FC = () => {
                   <div className="container">
                     <div className="hero-slider-text two">
                       
-                      <h1>Wellness That Works</h1>
+                      <h1>Put More Fight into Your Fit</h1>
                       <p>
-                        Tailored Health Strategies for Individuals and Teams
+                      Our staff at En Motion comes with extensive martial arts experience. Take classes that mix self-defense training with personal training, or choose dedicated self-defense classes. Get a free evaluation and personalized fitness plan today!
                       </p>
                       <div className="slider-btn">
                         <Link
@@ -77,8 +77,8 @@ const HeroSlider: React.FC = () => {
                 <div className="d-table-cell">
                   <div className="container">
                     <div className="hero-slider-text three">
-                    <h1>Boost Team Wellness and Productivity</h1>
-<p>En Motion's corporate wellness boosts health and productivity with classes for all levels, fostering a vibrant workplace culture.</p>
+                    <h1>Elevate Your Team's Health and Productivity</h1>
+<p>Enhance your company's success by investing in employee well-being through our corporate wellness programs. Schedule a free evaluation and get a tailored fitness plan for your team!</p>
 
 
 
@@ -88,7 +88,7 @@ const HeroSlider: React.FC = () => {
                           className="buyTicketsBtn"
                           onClick={openContactModal}
                         >
-                          Get Started
+                          Free Quote
                         </Link>
                       </div>
                     </div>
@@ -109,7 +109,7 @@ const HeroSlider: React.FC = () => {
                   <div className="container">
                     <div className="hero-slider-text one">
                     <h1>Discover Your Peak Potential</h1>
-<p>En Motion offers personalized training to reach your health goals. Our certified trainers craft custom workouts for effective, motivating sessions.</p>
+<p>Unlock your potential with personalized training sessions tailored to your goals. Start today with a free evaluation and receive a customized fitness plan just for you!</p>
 
 
 <div className="slider-btn">
@@ -118,7 +118,7 @@ const HeroSlider: React.FC = () => {
                           className="buyTicketsBtn"
                           onClick={openContactModal}
                         >
-                          Get Started
+                          Free Evaluation
                         </Link>
                       </div>
                     </div>

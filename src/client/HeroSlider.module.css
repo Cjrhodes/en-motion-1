@@ -24,7 +24,7 @@
 .swiper-slide.swiper-slide-active .hero-slider-text h1 {
   color: var(--swiper-theme-color); /* Use the custom property for consistency */
   margin-bottom: 1rem;
-  font-size: 2.5rem; /* Use a more modern font size unit */
+  font-size: 3.5rem; /* Use a more modern font size unit */
   font-weight: 700; /* Add font weight for better readability */
 }
 

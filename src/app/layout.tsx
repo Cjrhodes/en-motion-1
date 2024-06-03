@@ -8,17 +8,12 @@ import "../../public/css/flaticon.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "swiper/css/bundle";
-// At the top of your component or main application file
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
-
 import "react-toastify/dist/ReactToastify.css";
 import "../../public/css/style.css";
 import "../../public/css/responsive.css";
 import { Providers } from "@/redux/provider";
-//import CustomCursor from "@/components/utils/CustomCursor";
 import { ToastContainer } from "react-toastify";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export default function RootLayout({
   children,
@@ -29,7 +24,6 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>
-          
           {children}
           <SpeedInsights />
           <ToastContainer />

@@ -1010,7 +1010,7 @@ nav.navigation-12 .container-fluid {
 
 /* Red button styles */
 .buyTicketsBtn {
-    background-color: #e50914;
+    background-color: #ac161e;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -10636,21 +10636,21 @@ header.header-3.pc-header-transparent {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        color: #FFFFFF;
+        color: #b2b2b2;
         padding: 1rem;
         font-family: 'Inter', sans-serif; /* Add a modern font family */
       }
   
       .hero-slider-text h1 {
-        color: var(--swiper-theme-color); /* Use the custom property for consistency */
+        color: #ffffff; /* Use the custom property for consistency */
         margin-bottom: 1rem;
-        font-size: 2.5rem; /* Use a more modern font size unit */
+        font-size: 3.5rem; /* Use a more modern font size unit */
         font-weight: 700; /* Add font weight for better readability */
       }
   
       .hero-slider-text p {
         font-size: 1rem; /* Use a more modern font size unit */
-        color: #FFFFFF;
+        color: var(--gradient-background);
         margin-bottom: 1.5rem;
         text-transform: uppercase;
         letter-spacing: 2px;

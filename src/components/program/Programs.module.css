@@ -1,106 +1,114 @@
 .colorContainer {
   --primary-color: #3498db;
-  --secondary-color: #f1c40f;
+  --secondary-color: #661106;
   --text-color: #f9f9f9;
   --background-color: #aca4a3;
-  --accent-color: #aca4a3;
+  --accent-color: #e74c3c; /* Deep red accent color */
+  --heading-color: #F1CF7C; /* Deep red accent color for headings */
+  --title-color: #b83b3b; /* Color for titles */
 }
 
 .fullScreenContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #3D3B3E;
+  background-color: #333;
   padding: 40px;
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   min-height: 95vh;
+  flex-direction: column; /* Add this line to center the title and description */
 }
 
 .programContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column; /* Change to column to stack elements vertically */
   align-items: center;
   justify-content: center;
-  background-color: #3D3B3E;
+  background-color: #333;
   border-radius: 10px;
   overflow: hidden;
-  height: 100%;
-
+  width: 100%;
+  max-width: 1200px; /* Add a max-width for better layout on large screens */
 }
 
 .programImageContainer {
-  flex: 1;
-  height: 600px; /* Set a fixed height for the image container */
-  max-width: 50%; /* Limit the maximum width to 50% of the parent */
+  width: 100%;
+  max-width: 600px; /* Limit the maximum width */
+  margin: 20px 0; /* Add margin for spacing */
 }
 
 .programImage {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensure the image covers the entire container while maintaining aspect ratio */
-  border-radius: 10px 0 0 10px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .programContent {
   flex: 1;
   padding: 20px;
-  background-color: #3D3B3E;
+  background-color: #333;
+  text-align: center; /* Center-align text */
 }
 
 .programTitle {
   font-size: 2.5rem;
-  color: #F1CF7C; /* Dark gray text color */
+  color: var(--title-color);
   margin-bottom: 20px;
-  font-family: 'Montserrat', sans-serif; /* Modern sans-serif font */
+  font-family: 'Montserrat', sans-serif;
 }
 
 .programDescription {
   font-size: 1.2rem;
-  color: #f9f9f9; /* Dark gray text color */
+  color: var(--text-color);
   line-height: 1.6;
   margin-bottom: 30px;
-  font-family: 'Lato', sans-serif; /* Clean sans-serif font */
+  font-family: 'Lato', sans-serif;
 }
 
 .programPhilosophySystem {
   margin-bottom: 30px;
-  color: #f9f9f9;
+  color: var(--text-color);
+  text-align: left; /* Align left for better readability */
 }
 
 .programSectionHeading {
   font-size: 1.5rem;
-  color:  #F1CF7C; /* Deep red accent color */
+  color: var(--heading-color);
   margin-bottom: 10px;
-  font-family: 'Montserrat', sans-serif; /* Modern sans-serif font */
+  font-family: 'Montserrat', sans-serif;
 }
 
 .programSectionHeading p {
   font-size: 1.5rem;
-  color:  #f9f9f9; /* Deep red accent color */
+  color: var(--text-color);
   margin-bottom: 10px;
-  font-family: 'Montserrat', sans-serif; /* Modern sans-serif font */
+  font-family: 'Montserrat', sans-serif;
 }
 
-
+.programFeatures {
+  margin-bottom: 30px;
+  text-align: left; /* Align left for better readability */
+}
 
 .programFeature {
   font-size: 1.1rem;
-  color: #f9f9f9; /* Dark gray text color */
+  color: var(--text-color); /* Ensure the text color is white */
   margin-bottom: 5px;
-  font-family: 'Lato', sans-serif; /* Clean sans-serif font */
+  font-family: 'Lato', sans-serif;
 }
 
 .sliderBtn {
   text-align: center;
-  margin-top: auto; 
+  margin-top: auto;
 }
 
 .buyTicketsBtn {
   font-size: 1.1rem;
   padding: 10px 20px;
-  color: #fff;
-  background-color: #e74c3c; /* Deep red accent color */
+  color: var(--text-color); /* Ensure the text color is white */
+  background-color: #ac161e; /* Deep red background */
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -114,39 +122,39 @@
 
 @media (max-width: 768px) {
   .programContainer {
-    flex-direction: column; /* Override to column layout for smaller screens */
+    flex-direction: column;
   }
 
   .programImageContainer {
-    max-height: 200px; /* Further reduce the maximum height for smaller screens */
+    max-height: 200px;
   }
 
   .programContent {
-    padding: 10px; /* Reduce padding for smaller screens */
+    padding: 10px;
   }
 
   .programTitle {
-    font-size: 2rem; /* Reduce font size for smaller screens */
+    font-size: 2rem;
   }
 
   .programDescription {
-    font-size: 1rem; /* Reduce font size for smaller screens */
+    font-size: 1rem;
   }
 
   .programSectionHeading {
-    font-size: 1.2rem; /* Reduce font size for smaller screens */
+    font-size: 1.2rem;
   }
 
   .programSectionHeading p {
-    font-size: 1.2rem; /* Reduce font size for smaller screens */
+    font-size: 1.2rem;
   }
 
   .programFeature {
-    font-size: 1rem; /* Reduce font size for smaller screens */
+    font-size: 1rem;
   }
 
   .buyTicketsBtn {
-    font-size: 1rem; /* Reduce font size for smaller screens */
-    padding: 8px 16px; /* Reduce padding for smaller screens */
+    font-size: 1rem;
+    padding: 8px 16px;
   }
 }

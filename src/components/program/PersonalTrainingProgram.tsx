@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 const PersonalTrainingProgram: React.FC = () => {
   const title = 'Personal Training';
-  const description = 'Achieve your fitness goals with personalized training programs.';
+  const description = 'Achieve your fitness goals with personalized training programs. We will find the best trainer to match your goals.';
   const philosophy = 'Our personal training philosophy revolves around tailoring programs to meet individual needs and goals. We believe in a holistic approach that combines physical training, nutrition guidance, and mindset coaching for sustainable results.';
   const system = 'Our personal training system starts with a comprehensive assessment to understand your current fitness level, lifestyle, and goals. We then design customized workout plans and provide ongoing support and accountability to help you stay on track.';
   const image = '/img/powerliftgirl.jpeg';
@@ -20,13 +20,13 @@ const PersonalTrainingProgram: React.FC = () => {
 
   return (
     <section id="PersonalTraining" className={styles.fullScreenContainer}>
+      <h2 className={styles.programTitle}>{title}</h2>
+      <p className={styles.programDescription}>{description}</p>
       <div className={styles.programContainer}>
         <div className={styles.programImageContainer}>
           <img src={image} alt={title} className={styles.programImage} />
         </div>
         <div className={styles.programContent}>
-          <h2 className={styles.programTitle}>{title}</h2>
-          <p className={styles.programDescription}>{description}</p>
           <div className={styles.programPhilosophySystem}>
             <h3 className={styles.programSectionHeading}>Philosophy</h3>
             <p>{philosophy}</p>

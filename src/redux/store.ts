@@ -1,4 +1,4 @@
-import { configureStore, ConfigureStoreOptions } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import videoModalReducer from './features/videoModalSlice';
 import contactModalReducer from './features/contactModalSlice';
 import sidePanelReducer from './features/sidePanelSlice';
@@ -16,7 +16,7 @@ const store = configureStore({
     sidebar: sidebarReducer,
     // Add other reducers
   },
-} as ConfigureStoreOptions);
+});
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

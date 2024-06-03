@@ -2,7 +2,7 @@ import React from "react";
 import HeaderSection from "@/components/header/HeaderSection";
 import AboutSection3 from "@/components/about/AboutSection3";
 import FooterSection3 from "@/components/footer/FooterSection3";
-
+import CTASection from "@/components/cta/CallToAction";
 import ContactFormModal from "@/components/modal/ContactFormModal";
 import HeroSlider from "@/components/hero/HeroSlider";
 
@@ -86,16 +86,14 @@ export default function Home() {
     
         <OnlineTraining />
 
-
-        <DecoLineSection />
+      
         <FounderSection />
         <DecoLineSection />   
-   
-   
         <TestimonialSection3/>
         <FooterSection3 />
       </div>
       <ContactFormModal />
+    
       <VideoModal videoUrl="https://www.youtube.com/embed/wV5yw3cqEs8?si=JcRR0qB7_lkdlX4h" />
       
     </main>
