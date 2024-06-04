@@ -99,55 +99,6 @@
   color: #fff;
 }
 
-/* Media queries for different screen sizes */
-@media (max-width: 1200px) {
-  .navContainer {
-    height: 70px; /* Reduced height for screens up to 1200px */
-  }
-
-  .logoImg {
-    max-width: 100px;
-  }
-}
-
-@media (max-width: 992px) {
-  .navContainer {
-    height: 60px; /* Reduced height for screens up to 992px */
-  }
-
-  .logoImg {
-    max-width: 90px;
-  }
-}
-
-@media (max-width: 768px) {
-  .navContainer {
-    height: 50px; /* Reduced height for screens up to 768px */
-  }
-
-  .logo {
-    display: none; /* Hide the logo on smaller screens */
-  }
-  .hamburgerToggle {
-    display: block; /* Show the hamburger toggle button */
-  }
-
-  .hamburgerToggle {
-    margin-left: auto;
-  }
-}
-
-@media (max-width: 576px) {
-  .navContainer {
-    height: 40px; /* Reduced height for screens up to 576px */
-  }
-}
-
-@media (max-width: 320px) {
-  .navContainer {
-    height: 30px; /* Reduced height for screens up to 320px */
-  }
-}
 
 /* Hamburger Menu Styles */
 .hamburgerMenu {
@@ -309,6 +260,46 @@
 .freeEvaluationBtn:hover {
   background-color: #c0392b;
 }
+/* Media queries for different screen sizes */
+@media (max-width: 1200px) {
+  .navContainer {
+    height: 70px; /* Reduced height for screens up to 1200px */
+  }
+
+  .logoImg {
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 992px) {
+  .navContainer {
+    height: 60px; /* Reduced height for screens up to 992px */
+  }
+
+  .logoImg {
+    max-width: 90px;
+  }
+}
+
+
+
+@media (max-width: 576px) {
+  .navContainer {
+    height: 40px; /* Reduced height for screens up to 576px */
+  }
+  .logoImg {
+    max-width: 40px; /* Adjust the logo size for even smaller screens */
+  }
+}
+
+@media (max-width: 320px) {
+  .navContainer {
+    height: 30px; /* Reduced height for screens up to 320px */
+  }
+  .logoImg {
+    max-width: 30px; /* Adjust the logo size for even smaller screens */
+  }
+}
 
 @media (max-width: 768px) {
   .navLinks,
@@ -318,6 +309,7 @@
 
   .hamburgerToggle {
     margin-left: auto;
+    display: block; /* Show the hamburger toggle button */
   }
 
   .hamburgerMenu {
@@ -336,4 +328,15 @@
   .hamburgerMenu .programLinks {
     padding-left: 20px;
   }
+
+  .navContainer {
+    height: 50px; /* Reduced height for screens up to 768px */
+  }
+  .logoImg {
+    max-width: 60px; /* Adjust the logo size for smaller screens */
+  }
+
+
+
+
 }

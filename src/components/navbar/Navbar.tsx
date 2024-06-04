@@ -38,9 +38,9 @@ function TransparentNavbar() {
       >
         <div className="container-fluid">
           {/* Logo */}
-          <a className="navbar-brand d-none d-lg-block" href="#">
-            <img src="/img/whitelogo.png" alt="Logo" className="img-fluid" style={{ maxWidth: '150px' }} />
-          </a>
+          <a className="navbar-brand" href="#">
+  <img src="/img/whitelogo.png" alt="Logo" className="img-fluid logoImg" />
+</a>
 
           {/* Nav Links */}
           <div className={`collapse navbar-collapse ${showMenu ? 'show' : ''}`} id="navbarNav">
