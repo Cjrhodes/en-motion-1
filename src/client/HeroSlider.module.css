@@ -58,3 +58,20 @@
   transform: translate(-50%, -50%);
   font-family: 'Inter', sans-serif; /* Maintain the modern font family */
 }
+.social-links {
+  position: absolute;
+  bottom: 20px; /* Adjust the vertical position */
+  left: 20px; /* Adjust the horizontal position */
+  display: flex;
+  gap: 10px; /* Adjust the spacing between icons */
+}
+
+.social-links a {
+  color: #ffffff; /* Set the icon color */
+  font-size: 24px; /* Adjust the icon size */
+  transition: color 0.3s ease; /* Add a transition for hover effect */
+}
+
+.social-links a:hover {
+  color: #869791; /* Set the hover color */
+}

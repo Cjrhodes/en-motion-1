@@ -1,13 +1,13 @@
 "use client";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import Link from "next/link";
+
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+
 import { toggleContactModalOpen } from "@/redux/features/contactModalSlice";
 import { toggleSidebarOpen } from "@/redux/features/sidebarSlice";
 import { usePathname } from "next/navigation";
 import TransparentNavbar from "@/components/navbar/Navbar";
-import HeroSlider from "../hero/HeroSlider";
+
 
 type Props = {
   contactModal: boolean;

@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faInstagram, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+
 
 function TransparentNavbar() {
   const [showProgramsDropdown, setShowProgramsDropdown] = useState(false);
@@ -104,33 +103,20 @@ function TransparentNavbar() {
           {/* Social Icons and Free Evaluation Button */}
           <ul className="navbar-nav ms-auto d-none d-lg-flex align-items-center" style={{ gap: '10px' }}>
             <li className="nav-item">
-              <a className="nav-link" href="https://www.facebook.com/profile.php?id=61558229676688" style={{ color: '#f8f9fa' }}>
-                <FontAwesomeIcon icon={faFacebook} />
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="https://www.instagram.com/enmotionfit/" style={{ color: '#f8f9fa' }}>
-                <FontAwesomeIcon icon={faInstagram} />
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="https://www.instagram.com/enmotionfit/" style={{ color: '#f8f9fa' }}>
-                <FontAwesomeIcon icon={faXTwitter} />
-              </a>
-            </li>
-            <li className="nav-item">
               <a className="nav-link" href="tel:786-925-8086" style={{ color: '#f8f9fa' }}>
                 (786) 925-8086
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link freeEvaluationBtn" href="#" style={{ color: '#f8f9fa', backgroundColor: '#e74c3c' }}>
-                Free Evaluation
-              </a>
-            </li>
+  <a className="nav-link freeEvaluationBtn rounded-pill" href="#" style={{ color: '#f8f9fa', backgroundColor: '#ac161e' }}>
+    Free Evaluation
+  </a>
+</li>
           </ul>
         </div>
       </nav>
+
+    
 
       {/* Hamburger Menu */}
       <div
@@ -192,21 +178,6 @@ function TransparentNavbar() {
             </li>
           </ul>
           <ul className="navbar-nav" style={{ gap: '1rem' }}>
-            <li className="nav-item">
-              <a className="nav-link" href="https://www.facebook.com/profile.php?id=61558229676688" style={{ color: '#f8f9fa' }}>
-                <FontAwesomeIcon icon={faFacebook} />
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="https://www.instagram.com/enmotionfit/" style={{ color: '#f8f9fa' }}>
-                <FontAwesomeIcon icon={faInstagram} />
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="https://www.instagram.com/enmotionfit/" style={{ color: '#f8f9fa' }}>
-                <FontAwesomeIcon icon={faXTwitter} />
-              </a>
-            </li>
             <li className="nav-item">
               <a className="nav-link" href="tel:786-925-8086" style={{ color: '#f8f9fa' }}>
                 (786) 925-8086

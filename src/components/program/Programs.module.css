@@ -117,7 +117,23 @@
 }
 
 .buyTicketsBtn:hover {
-  background-color: var(--primary-color); /* Bright blue on hover */
+  background-color: #ac161e; /* Bright blue on hover */
+}
+
+/* Social Media Icons Container */
+.socialMediaIcons {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.socialMediaIcons a {
+  color: var(--text-color); /* Ensure the text color is white */
+  font-size: 2rem;
 }
 
 @media (max-width: 768px) {

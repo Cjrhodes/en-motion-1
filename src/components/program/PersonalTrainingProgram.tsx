@@ -4,6 +4,8 @@ import styles from './Programs.module.css';
 import { toggleContactModalOpen } from "@/redux/features/contactModalSlice";
 import { useAppDispatch } from "@/redux/hooks";
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faInstagram, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 
 const PersonalTrainingProgram: React.FC = () => {
   const title = 'Personal Training';
@@ -53,6 +55,17 @@ const PersonalTrainingProgram: React.FC = () => {
             </Link>
           </div>
         </div>
+      </div>
+      <div className={styles.socialMediaIcons}>
+        <a href="https://www.facebook.com/profile.php?id=61558229676688">
+          <FontAwesomeIcon icon={faFacebook} />
+        </a>
+        <a href="https://www.instagram.com/enmotionfit/">
+          <FontAwesomeIcon icon={faInstagram} />
+        </a>
+        <a href="https://twitter.com/enmotionfit">
+          <FontAwesomeIcon icon={faXTwitter} />
+        </a>
       </div>
     </section>
   );

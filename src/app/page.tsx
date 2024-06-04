@@ -2,29 +2,22 @@ import React from "react";
 import HeaderSection from "@/components/header/HeaderSection";
 import AboutSection3 from "@/components/about/AboutSection3";
 import FooterSection3 from "@/components/footer/FooterSection3";
-import CTASection from "@/components/cta/CallToAction";
 import ContactFormModal from "@/components/modal/ContactFormModal";
 import HeroSlider from "@/components/hero/HeroSlider";
-
 import GradientDivider from "@/components/decoline/gradient";
 import { spaceGrotesk } from "./fonts";
 import FounderSection from "@/components/founder/FounderSection";
 import DecoLineSection from "@/components/about/decoline/DecolineSection";
-import VideoSection3 from "@/components/video/VideoSection3";
 import VideoModal from "@/components/modal/VideoModal";
 import PersonalTrainingProgram from "@/components/program/PersonalTrainingProgram";
 import SelfDefense from "@/components/program/SelfDefense";
 import CorporateWellness from "@/components/program/CorporateWellness";
 import OnlineTraining from "@/components/program/OnlineTrainingProgram";
-
 import TestimonialSection3 from "@/components/testimonials/TestimonialSection3";
-
-
-
 
 export const metadata = {
   title: "En Motion",
-  description: "Developed by Chris Rhodes",
+  description: "Fitness and self-defense training in Miami, FL",
 };
 
 export default function Home() {

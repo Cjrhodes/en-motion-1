@@ -6,6 +6,8 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import Link from "next/link";
 import { toggleContactModalOpen } from "@/redux/features/contactModalSlice";
 import { useAppDispatch } from "@/redux/hooks";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faInstagram, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 
 
 
@@ -18,7 +20,7 @@ const HeroSlider: React.FC = () => {
 
   return (
     <>
-      <div className="hero-slider-area">
+
         <Swiper
           pagination={{
             clickable: true,
@@ -128,9 +130,14 @@ const HeroSlider: React.FC = () => {
             </div>
           </SwiperSlide>
 
+        
+     
+ 
+
         </Swiper>
+
       
-      </div>
+    
     </>
   );
 };

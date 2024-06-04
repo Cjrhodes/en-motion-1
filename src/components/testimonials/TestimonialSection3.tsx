@@ -47,27 +47,14 @@ const TestimonialSection3 = () => {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-8">
-              <motion.div 
-              className="section-heading-10 text-center"
-              initial={{
-                opacity: 0
-              }}
-              whileInView={{
-                opacity: 1
-              }}
-              viewport={{once: true}}
-              transition={{duration: 1.2}}
-              >
-                <h2 className="mb-4"><CustomGsapTextSplit children="testimonials"/></h2>
-                
-              </motion.div>
+             
             </div>
           </div>
           <div className="testimonial-8-slider-wrap" >
             <Slider {...sliderSettings} className="testimonial-8-slider">
               {testimonialData3.map((item) => (
                 <div className="single-testimonial" key={item.id} style={{ minHeight: '60px' }}>
-                  <div className={`row ${item.id % 2 === 0 ? '' : 'justify-content-end'}`}>
+                  <div className={`row ${item.id % 2 === 0 }`}>
                     <div className="col-lg-8">
                       <div className="row align-items-center">
                         <div className={`col-4 ${item.id % 2 === 0 ? '' : 'order-2'}`}>
