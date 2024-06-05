@@ -1,19 +1,13 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-
+import styles from './Navbar.module.css';
 
 function TransparentNavbar() {
-  const [showProgramsDropdown, setShowProgramsDropdown] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
-  };
-
-  const handleDropdownLinkClick = () => {
-    setShowMenu(false);
-    setShowProgramsDropdown(false);
   };
 
   useEffect(() => {
@@ -39,8 +33,8 @@ function TransparentNavbar() {
         <div className="container-fluid">
           {/* Logo */}
           <a className="navbar-brand" href="#">
-  <img src="/img/whitelogo.png" alt="Logo" className="img-fluid logoImg" />
-</a>
+            <img src="/img/whitelogo.png" alt="Logo" className="img-fluid logoImg" />
+          </a>
 
           {/* Nav Links */}
           <div className={`collapse navbar-collapse ${showMenu ? 'show' : ''}`} id="navbarNav">
@@ -50,40 +44,25 @@ function TransparentNavbar() {
                   About
                 </a>
               </li>
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded={showProgramsDropdown}
-                  onClick={() => setShowProgramsDropdown(!showProgramsDropdown)}
-                  style={{ color: '#f8f9fa' }}
-                >
-                  Programs
+              <li className="nav-item">
+                <a className="nav-link" href="#Self-Defense" style={{ color: '#f8f9fa' }}>
+                  Self-Defense
                 </a>
-                <ul className={`dropdown-menu ${showProgramsDropdown ? 'show' : ''}`}>
-                  <li>
-                    <a className="dropdown-item" href="#Self-Defense" onClick={handleDropdownLinkClick}>
-                      Self-Defense
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#OnlineTraining" onClick={handleDropdownLinkClick}>
-                      Online Training
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#PersonalTraining" onClick={handleDropdownLinkClick}>
-                      Personal Training
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#CorporateWellness" onClick={handleDropdownLinkClick}>
-                      Corporate Wellness
-                    </a>
-                  </li>
-                </ul>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#OnlineTraining" style={{ color: '#f8f9fa' }}>
+                  Online Training
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#PersonalTraining" style={{ color: '#f8f9fa' }}>
+                  Personal Training
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#CorporateWellness" style={{ color: '#f8f9fa' }}>
+                  Corporate Wellness
+                </a>
               </li>
             </ul>
           </div>
@@ -100,7 +79,7 @@ function TransparentNavbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          {/* Social Icons and Free Evaluation Button */}
+          {/* Social Icons, Phone Number, and Free Evaluation Button */}
           <ul className="navbar-nav ms-auto d-none d-lg-flex align-items-center" style={{ gap: '10px' }}>
             <li className="nav-item">
               <a className="nav-link" href="tel:786-925-8086" style={{ color: '#f8f9fa' }}>
@@ -108,15 +87,13 @@ function TransparentNavbar() {
               </a>
             </li>
             <li className="nav-item">
-  <a className="nav-link freeEvaluationBtn rounded-pill" href="#" style={{ color: '#f8f9fa', backgroundColor: '#ac161e' }}>
-    Free Evaluation
-  </a>
-</li>
+              <a className="nav-link freeEvaluationBtn rounded-pill" href="#" style={{ color: '#f8f9fa', backgroundColor: '#ac161e' }}>
+                Free Evaluation
+              </a>
+            </li>
           </ul>
         </div>
       </nav>
-
-    
 
       {/* Hamburger Menu */}
       <div
@@ -141,40 +118,25 @@ function TransparentNavbar() {
                 About
               </a>
             </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded={showProgramsDropdown}
-                onClick={() => setShowProgramsDropdown(!showProgramsDropdown)}
-                style={{ color: '#f8f9fa' }}
-              >
-                Programs
+            <li className="nav-item">
+              <a className="nav-link" href="#Self-Defense" onClick={toggleMenu} style={{ color: '#f8f9fa' }}>
+                Self-Defense
               </a>
-              <ul className={`dropdown-menu ${showProgramsDropdown ? 'show' : ''}`}>
-                <li>
-                  <a className="dropdown-item" href="#Self-Defense" onClick={handleDropdownLinkClick}>
-                    Self-Defense
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#OnlineTraining" onClick={handleDropdownLinkClick}>
-                    Online Training
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#PersonalTraining" onClick={handleDropdownLinkClick}>
-                    Personal Training
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#CorporateWellness" onClick={handleDropdownLinkClick}>
-                    Corporate Wellness
-                  </a>
-                </li>
-              </ul>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#OnlineTraining" onClick={toggleMenu} style={{ color: '#f8f9fa' }}>
+                Online Training
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#PersonalTraining" onClick={toggleMenu} style={{ color: '#f8f9fa' }}>
+                Personal Training
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#CorporateWellness" onClick={toggleMenu} style={{ color: '#f8f9fa' }}>
+                Corporate Wellness
+              </a>
             </li>
           </ul>
           <ul className="navbar-nav" style={{ gap: '1rem' }}>

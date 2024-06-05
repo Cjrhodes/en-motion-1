@@ -56,17 +56,7 @@ const PersonalTrainingProgram: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className={styles.socialMediaIcons}>
-        <a href="https://www.facebook.com/profile.php?id=61558229676688">
-          <FontAwesomeIcon icon={faFacebook} />
-        </a>
-        <a href="https://www.instagram.com/enmotionfit/">
-          <FontAwesomeIcon icon={faInstagram} />
-        </a>
-        <a href="https://twitter.com/enmotionfit">
-          <FontAwesomeIcon icon={faXTwitter} />
-        </a>
-      </div>
+     
     </section>
   );
 };

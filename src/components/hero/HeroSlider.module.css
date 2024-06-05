@@ -1,48 +1,25 @@
 .hero-slider {
-  --swiper-theme-color: #869791; /* Define a custom property for the theme color */
-  width: 50vw; /* Set the slider's width to 50% of the viewport width */
-  margin: 0 auto; 
-  height: 50px;/* Center the slider horizontally */
-}
-
-.swiper-slide.swiper-slide-active .hero-slider-text {
-  text-align: center;
+  --swiper-theme-color: #869791;
   width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  height: 100vh; /* Set the height to 100% of the viewport height */
+  margin: 0 auto;
+}
+
+.swiper-slide {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  color: #ffffff;
-  padding: 1rem;
-  font-family: 'Inter', sans-serif; /* Add a modern font family */
-}
-
-.swiper-slide.swiper-slide-active .hero-slider-text h1 {
-  color: var(--swiper-theme-color); /* Use the custom property for consistency */
-  margin-bottom: 1rem;
-  font-size: 2.5rem; /* Use a more modern font size unit */
-  font-weight: 700; /* Add font weight for better readability */
-}
-
-.swiper-slide.swiper-slide-active .hero-slider-text p {
-  font-size: 1rem; /* Use a more modern font size unit */
-  color: #ffffff;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  align-items: center;
+  height: 100%; /* Ensure each slide takes the full height */
 }
 
 .hero-slider-item {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 75vh; /* Maintain the height as 75vh */
+  width: 100%; /* Ensure the item takes the full width */
+  height: 100%; /* Ensure the item takes the full height */
   position: relative;
-  display: flex; /* Keep flexbox for layout */
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -56,5 +33,56 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: 'Inter', sans-serif; /* Maintain the modern font family */
+  font-family: 'Inter', sans-serif;
+  color: #ffffff; /* Ensure text color is white */
+}
+
+.swiper-slide.swiper-slide-active .hero-slider-text {
+  color: #ffffff; /* Ensure text color is white */
+  padding: 1rem;
+}
+
+.swiper-slide.swiper-slide-active .hero-slider-text h1 {
+  color: #ffffff; /* Ensure text color is white */
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.swiper-slide.swiper-slide-active .hero-slider-text p {
+  font-size: 1rem;
+  color: #ffffff; /* Ensure text color is white */
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.social-wrap {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 10;
+  transition: opacity 0.3s ease; /* Add transition for smooth hide/show */
+  display: flex; /* Align icons horizontally */
+  align-items: center;
+}
+
+.social-wrap.hidden {
+  opacity: 0;
+}
+
+.social-wrap .follow-us {
+  color: #ffffff; /* Set "Follow Us" text color to white */
+  margin-right: 10px;
+}
+
+.social-wrap ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-wrap ul li {
+  margin-right: 15px;
 }
