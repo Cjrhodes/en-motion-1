@@ -13,7 +13,9 @@ import PersonalTrainingProgram from "@/components/program/PersonalTrainingProgra
 import SelfDefense from "@/components/program/SelfDefense";
 import CorporateWellness from "@/components/program/CorporateWellness";
 import OnlineTraining from "@/components/program/OnlineTrainingProgram";
-import TestimonialSection3 from "@/components/testimonials/TestimonialSection3";
+import dynamic from 'next/dynamic';
+
+const TestimonialSection3 = dynamic(() => import('@/components/testimonials/TestimonialSection3'), { ssr: false });
 
 export const metadata = {
   title: "En Motion",
@@ -23,72 +25,62 @@ export const metadata = {
 export default function Home() {
   return (
     <main className={`home-11 trainer-home ${spaceGrotesk.className}`}>   
-
       <div id="mainContent">
         <HeaderSection contactModal={true} />
         <HeroSlider />
         <GradientDivider
-  height="12px"
-  gradient="linear-gradient(to right, #8b008b, #4b0082)"
-  style={{ backgroundImage: 'solid' }}
-/>
+          height="12px"
+          gradient="linear-gradient(to right, #8b008b, #4b0082)"
+          style={{ backgroundImage: 'solid' }}
+        />
         <AboutSection3 />
-
-<GradientDivider
-  height="5px"
-  gradient="linear-gradient(to right, #800000, #330000)"
-  style={{
-    backgroundImage: 'dotted',
-    backgroundSize: '4px 4px',
-    backgroundPosition: '0 0, 2px 2px',
-  }}
-/>
-
-
+        <GradientDivider
+          height="5px"
+          gradient="linear-gradient(to right, #800000, #330000)"
+          style={{
+            backgroundImage: 'dotted',
+            backgroundSize: '4px 4px',
+            backgroundPosition: '0 0, 2px 2px',
+          }}
+        />
         <PersonalTrainingProgram />
         <GradientDivider
-  height="5px"
-  gradient="linear-gradient(to right, #800000, #330000)"
-  style={{
-    backgroundImage: 'dotted',
-    backgroundSize: '4px 4px',
-    backgroundPosition: '0 0, 2px 2px',
-  }}
-/>
-      
+          height="5px"
+          gradient="linear-gradient(to right, #800000, #330000)"
+          style={{
+            backgroundImage: 'dotted',
+            backgroundSize: '4px 4px',
+            backgroundPosition: '0 0, 2px 2px',
+          }}
+        />
         <SelfDefense />
         <GradientDivider
-  height="5px"
-  gradient="linear-gradient(to right, #800000, #330000)"
-  style={{
-    backgroundImage: 'dotted',
-    backgroundSize: '4px 4px',
-    backgroundPosition: '0 0, 2px 2px',
-  }}
-/>
+          height="5px"
+          gradient="linear-gradient(to right, #800000, #330000)"
+          style={{
+            backgroundImage: 'dotted',
+            backgroundSize: '4px 4px',
+            backgroundPosition: '0 0, 2px 2px',
+          }}
+        />
         <CorporateWellness />
         <GradientDivider
-  height="5px"
-  gradient="linear-gradient(to right, #800000, #330000)"
-  style={{
-    backgroundImage: 'dotted',
-    backgroundSize: '4px 4px',
-    backgroundPosition: '0 0, 2px 2px',
-  }}
-/>
-    
+          height="5px"
+          gradient="linear-gradient(to right, #800000, #330000)"
+          style={{
+            backgroundImage: 'dotted',
+            backgroundSize: '4px 4px',
+            backgroundPosition: '0 0, 2px 2px',
+          }}
+        />
         <OnlineTraining />
-
-      
         <FounderSection />
         <DecoLineSection />   
-        <TestimonialSection3/>
+        <TestimonialSection3 />
         <FooterSection3 />
       </div>
       <ContactFormModal />
-    
       <VideoModal videoUrl="https://www.youtube.com/embed/wV5yw3cqEs8?si=JcRR0qB7_lkdlX4h" />
-      
     </main>
   );
 }

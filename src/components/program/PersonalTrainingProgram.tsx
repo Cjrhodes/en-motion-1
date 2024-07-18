@@ -36,7 +36,7 @@ const PersonalTrainingProgram: React.FC = () => {
             <p>{system}</p>
           </div>
           <div className={styles.programFeatures}>
-            <h3 className={styles.programSectionHeading}>Program Features</h3>
+            <h3 className={styles.programSectionFeature}>Program Features</h3>
             <ul>
               {features.map((feature, index) => (
                 <li key={index} className={styles.programFeature}>

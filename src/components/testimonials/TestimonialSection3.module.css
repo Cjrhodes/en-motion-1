@@ -1,0 +1,100 @@
+.testimonialSection {
+    background-color: #f8f9fa;
+    padding: 80px 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .sectionTitle {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+  }
+  
+  .testimonialSlide {
+    padding: 20px;
+  }
+  
+  .testimonialContent {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .testimonialImage {
+    flex: 0 0 200px;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .testimonialImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .testimonialText {
+    flex: 1;
+    padding: 30px;
+  }
+  
+  .quote {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  
+  .clientName {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .clientTitle {
+    font-size: 1rem;
+    color: #777;
+  }
+  
+  .sliderContainer {
+    position: relative;
+  }
+  
+  .sliderContainer :global .slick-dots {
+    bottom: -40px;
+  }
+  
+  .sliderContainer :global .slick-dots li button:before {
+    font-size: 12px;
+    color: #333;
+  }
+  
+  .sliderContainer :global .slick-dots li.slick-active button:before {
+    color: #007bff;
+  }
+  
+  @media (max-width: 768px) {
+    .testimonialContent {
+      flex-direction: column;
+    }
+  
+    .testimonialImage {
+      flex: 0 0 150px;
+      height: 150px;
+      margin-bottom: 20px;
+    }
+  
+    .testimonialText {
+      padding: 20px;
+    }
+  }
