@@ -5,7 +5,7 @@ const DecoLineSection = () => {
   const lineStyle = {
     border: 0,
     height: '3px',
-    backgroundImage: 'linear-gradient(to right, #f0f0f0, #8c8c8c, #f0f0f0)',
+   
     width: '100%', // Sets the width of the line; adjust as needed
     margin: 'auto' // Centers the line within the container
   };

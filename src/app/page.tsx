@@ -8,12 +8,13 @@ import GradientDivider from "@/components/decoline/gradient";
 import { spaceGrotesk } from "./fonts";
 import FounderSection from "@/components/founder/FounderSection";
 import DecoLineSection from "@/components/about/decoline/DecolineSection";
-import VideoModal from "@/components/modal/VideoModal";
+import Newsletter from "@/components/newsletter/Newsletter";
 import PersonalTrainingProgram from "@/components/program/PersonalTrainingProgram";
 import SelfDefense from "@/components/program/SelfDefense";
 import CorporateWellness from "@/components/program/CorporateWellness";
 import OnlineTraining from "@/components/program/OnlineTrainingProgram";
 import dynamic from 'next/dynamic';
+
 
 const TestimonialSection3 = dynamic(() => import('@/components/testimonials/TestimonialSection3'), { ssr: false });
 
@@ -34,53 +35,29 @@ export default function Home() {
           style={{ backgroundImage: 'solid' }}
         />
         <AboutSection3 />
-        <GradientDivider
-          height="5px"
-          gradient="linear-gradient(to right, #800000, #330000)"
-          style={{
-            backgroundImage: 'dotted',
-            backgroundSize: '4px 4px',
-            backgroundPosition: '0 0, 2px 2px',
-          }}
-        />
-        <PersonalTrainingProgram />
-        <GradientDivider
-          height="5px"
-          gradient="linear-gradient(to right, #800000, #330000)"
-          style={{
-            backgroundImage: 'dotted',
-            backgroundSize: '4px 4px',
-            backgroundPosition: '0 0, 2px 2px',
-          }}
-        />
+        <PersonalTrainingProgram />   
+        <DecoLineSection />      
         <SelfDefense />
-        <GradientDivider
-          height="5px"
-          gradient="linear-gradient(to right, #800000, #330000)"
-          style={{
-            backgroundImage: 'dotted',
-            backgroundSize: '4px 4px',
-            backgroundPosition: '0 0, 2px 2px',
-          }}
-        />
+        <DecoLineSection /> 
         <CorporateWellness />
-        <GradientDivider
-          height="5px"
-          gradient="linear-gradient(to right, #800000, #330000)"
-          style={{
-            backgroundImage: 'dotted',
-            backgroundSize: '4px 4px',
-            backgroundPosition: '0 0, 2px 2px',
-          }}
-        />
+        <DecoLineSection /> 
         <OnlineTraining />
+        <DecoLineSection /> 
         <FounderSection />
-        <DecoLineSection />   
+
         <TestimonialSection3 />
+        <GradientDivider
+          height="12px"
+          gradient="linear-gradient(to right, #8b008b, #4b0082)"
+          style={{ backgroundImage: 'solid' }}
+        />
+      
+        <Newsletter />
+
         <FooterSection3 />
       </div>
       <ContactFormModal />
-      <VideoModal videoUrl="https://www.youtube.com/embed/wV5yw3cqEs8?si=JcRR0qB7_lkdlX4h" />
+ 
     </main>
   );
 }

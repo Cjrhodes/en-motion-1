@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-
 import { useAppDispatch } from "@/redux/hooks";
 import { toggleContactModalOpen } from "@/redux/features/contactModalSlice";
 
@@ -10,149 +9,76 @@ const FooterSection3 = () => {
   const openContactModal = () => {
     dispatch(toggleContactModalOpen({ packageName: "", packageType: "" }));
   };
+
   return (
     <section>
       <footer className="footer-8">
         <div className="container">
           <div className="footer-top">
-            <div className="row justify-content-between gx-0 gy-lg-0 gy-1">
-              
-           
-                <button
-                  className="def-btn btn-hover def-btn-8"
-                  onClick={openContactModal}
-                >
-                  <span className="dot"></span>
-                  <span className="txt">
-                    Get Started Here{" "}
-                    <i className="fa-light fa-arrow-up-right"></i>
-                  </span>
-                </button>
-           <span className="footer-10-subtitle"></span>
-              <div className="col-lg-6">
-                <div className="row gx-5 gy-4 gy-sm-0">
-                  <motion.div
-                    className="col-12"
-                    initial={{
-                      y: -50,
-                      opacity: 0,
-                    }}
-                    whileInView={{
-                      y: 0,
-                      opacity: 1,
-                    }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.2 }}
-                  >
-                   
-                  </motion.div>
-                  <motion.div
-                    className="col-sm-6 col-12"
-                    initial={{
-                      y: 50,
-                      opacity: 0,
-                    }}
-                    whileInView={{
-                      y: 0,
-                      opacity: 1,
-                    }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.2 }}
-                  >
-                    <div className="footer-menu title-anim">
-                      <ul className="footer-menu-list mb-30">
-                        <li>
-                
-                        </li>
-                      </ul>
-                      <div className="footer-9-logo">
-                        <img src="img/enmotion.png" alt="logo" />
-                      </div>
-                    </div>
-                  </motion.div>
-                  <motion.div
-                    className="col-sm-4 col-6"
-                    initial={{
-                      y: 50,
-                      opacity: 0,
-                    }}
-                    whileInView={{
-                      y: 0,
-                      opacity: 1,
-                    }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.2 }}
-                  >
-                    <div className="footer-menu title-anim">
-                   
-                      <span className="footer-10-subtitle">Follow Us:</span>
-                      <div className="footer-10-social">
-                        <a href="https://www.facebook.com/profile.php?id=61558229676688" className="title-anim">
-                          <i className="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <a href="https://twitter.com/enmotionfit"  className="title-anim">
-                          <i className="fa-brands fa-x"></i>
-                        </a>
-                        <a href="https://www.instagram.com/enmotionfit/?hl=en" className="title-anim">
-                          <i className="fa-brands fa-instagram"></i>
-                        </a>
-      
-                      </div>
-                    </div>
-                  </motion.div>
-                  <motion.div
-                    className="col-sm-4 col-6"
-                    initial={{
-                      y: 50,
-                      opacity: 0,
-                    }}
-                    whileInView={{
-                      y: 0,
-                      opacity: 1,
-                    }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.2 }}
-                  >
-                   
-                  </motion.div>
+            <div className="row justify-content-between gy-5">
+              <motion.div
+                className="col-lg-4 col-md-6"
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1 }}
+              >
+                <div className="footer-widget">
+                  <div className="footer-logo">
+                    <img src="img/enmotion.png" alt="Enmotion Fitness Logo" className="img-fluid" style={{ maxWidth: "200px" }} />
+                  </div>
+                  <p className="mt-4">Empowering you to achieve your fitness goals with personalized training and unwavering support.</p>
                 </div>
-              </div>
+              </motion.div>
+
+              <motion.div
+                className="col-lg-4 col-md-6"
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.2 }}
+              >
+                <div className="footer-widget">
+                  <h4 className="footer-widget-title">Quick Links</h4>
+                  <ul className="footer-menu-list">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact" onClick={openContactModal}>Contact</a></li>
+                  </ul>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="col-lg-4 col-md-6"
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.4 }}
+              >
+                <div className="footer-widget">
+                  <h4 className="footer-widget-title">Follow Us</h4>
+                  <div className="footer-social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61558229676688" target="_blank" rel="noopener noreferrer">
+                      <i className="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com/enmotionfit" target="_blank" rel="noopener noreferrer">
+                      <i className="fa-brands fa-x"></i>
+                    </a>
+                    <a href="https://www.instagram.com/enmotionfit/?hl=en" target="_blank" rel="noopener noreferrer">
+                      <i className="fa-brands fa-instagram"></i>
+                    </a>
+                  </div>
+                  <p className="mt-4">Stay connected with us for the latest fitness tips and updates!</p>
+                </div>
+              </motion.div>
             </div>
           </div>
           <div className="footer-bottom">
-            <div className="row align-items-center gy-4">
-              <div className="col-lg-6 col-sm-4 col-12">
-                <motion.div
-                  className="footer-9-logo"
-                  initial={{
-                    x: -80,
-                    opacity: 0,
-                  }}
-                  whileInView={{
-                    x: 0,
-                    opacity: 1,
-                  }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.2 }}
-                >
-  
-                </motion.div>
+            <div className="row">
+              <div className="col-12 text-center">
+                <p className="copyright-text">&copy; {new Date().getFullYear()} Enmotion Fitness. All rights reserved.</p>
               </div>
-              <motion.div
-                className="col-lg-6 col-sm-8 col-12"
-                initial={{
-                  x: 80,
-                  opacity: 0,
-                }}
-                whileInView={{
-                  x: 0,
-                  opacity: 1,
-                }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2 }}
-              >
-    
-              </motion.div>
             </div>
           </div>
         </div>

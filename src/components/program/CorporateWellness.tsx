@@ -23,41 +23,39 @@ const CorporateWellness: React.FC = () => {
 
   return (
     <section id="CorporateWellness" className={styles.fullScreenContainer}>
-      <div className={styles.programContainer}>
-        <div className={styles.programImageContainer}>
-          <img src={image} alt={title} className={styles.programImage} />
-        </div>
-        <div className={styles.programContent}>
-          <h2 className={styles.programTitle}>{title}</h2>
-          <p className={styles.programDescription}>{description}</p>
-          <div className={styles.programPhilosophySystem}>
-            <h3 className={styles.programSectionHeading}>Philosophy</h3>
-            <p>{philosophy}</p>
-            <h3 className={styles.programSectionHeading}>System</h3>
-            <p>{system}</p>
-          </div>
-          <div className={styles.programFeatures}>
-            <h3 className={styles.programSectionHeading}>Program Features</h3>
-            <ul>
-              {features.map((feature, index) => (
-                <li key={index} className={styles.programFeature}>
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className={styles.sliderBtn}>
-            <Link
-              href="#"
-              className={styles.buyTicketsBtn}
-              onClick={openContactModal}
-            >
-              Get Started
-            </Link>
-          </div>
-        </div>
+    {/* Ensure image and overlay are correctly placed */}
+    <img src={image} alt={title} className={styles.backgroundImage} />
+    <div className={styles.backgroundOverlay}></div>
+    <div className={styles.programContainer}>
+      <h2 className={styles.programTitle}>{title}</h2>
+      <p className={styles.programDescription}>{description}</p>
+      <div className={styles.programPhilosophySystem}>
+        <h3 className={styles.programSectionHeading}>Philosophy</h3>
+        <p>{philosophy}</p>
+        <h3 className={styles.programSectionHeading}>System</h3>
+        <p>{system}</p>
       </div>
-    </section>
+      <div className={styles.programFeatures}>
+        <h3 className={styles.programSectionHeading}>Program Features</h3>
+        <ul>
+          {features.map((feature, index) => (
+            <li key={index} className={styles.programFeature}>
+              {feature}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className={styles.sliderBtn}>
+        <Link
+          href="#"
+          className={styles.buyTicketsBtn}
+          onClick={openContactModal}
+        >
+          Get Started
+        </Link>
+      </div>
+    </div>
+  </section>
   );
 };
 
