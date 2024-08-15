@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useAppDispatch } from "@/redux/hooks";
 import { toggleContactModalOpen } from "@/redux/features/contactModalSlice";
+import styles from "./FooterSection3.module.css";
 
 const FooterSection3 = () => {
   const dispatch = useAppDispatch();
@@ -39,7 +40,7 @@ const FooterSection3 = () => {
                 transition={{ duration: 1, delay: 0.2 }}
               >
                 <div className="footer-widget">
-                  <h4 className="footer-widget-title">Quick Links</h4>
+                  <h4 className="footer-heading">Quick Links</h4>
                   <ul className="footer-menu-list">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About Us</a></li>
@@ -57,18 +58,24 @@ const FooterSection3 = () => {
                 transition={{ duration: 1, delay: 0.4 }}
               >
                 <div className="footer-widget">
-                  <h4 className="footer-widget-title">Follow Us</h4>
-                  <div className="footer-social-icons">
-                    <a href="https://www.facebook.com/profile.php?id=61558229676688" target="_blank" rel="noopener noreferrer">
-                      <i className="fa-brands fa-facebook-f"></i>
-                    </a>
-                    <a href="https://twitter.com/enmotionfit" target="_blank" rel="noopener noreferrer">
-                      <i className="fa-brands fa-x"></i>
-                    </a>
-                    <a href="https://www.instagram.com/enmotionfit/?hl=en" target="_blank" rel="noopener noreferrer">
-                      <i className="fa-brands fa-instagram"></i>
-                    </a>
-                  </div>
+                  <h4 className="footer-heading">Follow Us</h4>
+                  <ul className={`social-network ${styles.socialIcons}`}>
+                    <li>
+                      <a href="https://www.facebook.com/profile.php?id=61558229676688" target="_blank" rel="noopener noreferrer">
+                        <i className="fa-brands fa-facebook-f"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://twitter.com/enmotionfit" target="_blank" rel="noopener noreferrer">
+                        <i className="fa-brands fa-x"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.instagram.com/enmotionfit/?hl=en" target="_blank" rel="noopener noreferrer">
+                        <i className="fa-brands fa-instagram"></i>
+                      </a>
+                    </li>
+                  </ul>
                   <p className="mt-4">Stay connected with us for the latest fitness tips and updates!</p>
                 </div>
               </motion.div>
