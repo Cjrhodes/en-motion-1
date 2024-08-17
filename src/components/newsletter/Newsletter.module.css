@@ -3,43 +3,86 @@
   padding: 60px 0;
   text-align: center;
 }
-
 .container {
-  max-width: 600px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
-
 .title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
   color: #ffffff;
 }
-
 .description {
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin-bottom: 2rem;
   color: #bbc4cc;
 }
-
-.form {
+.blogPosts {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.blogPost {
+  width: 30%;
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.blogPost:hover {
+  transform: translateY(-5px);
+}
+.blogPostImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.blogPostTitle {
+  font-size: 1.2rem;
+  color: #ffffff;
+  padding: 15px;
+  margin: 0;
+}
+.readMore {
+  display: inline-block;
+  margin: 10px 15px 15px;
+  color: #018AFF;
+  text-decoration: none;
+}
+.subscribeSection {
+  margin-top: 2rem;
+}
+.subscribeTitle {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+.subscribeDescription {
+  font-size: 1.1rem;
+  color: #bbc4cc;
+  margin-bottom: 1.5rem;
+}
+.subscribeForm {
   display: flex;
   justify-content: center;
   margin-bottom: 1rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
-
-.input {
+.emailInput {
   flex-grow: 1;
-  padding: 10px 15px;
+  padding: 12px 15px;
   font-size: 1rem;
   background-color: #2a2a2a;
   border: 1px solid #444;
   border-radius: 4px 0 0 4px;
   color: #ffffff;
 }
-
-.button {
-  padding: 10px 20px;
+.subscribeButton {
+  padding: 12px 20px;
   font-size: 1rem;
   background-color: #018AFF;
   color: white;
@@ -48,12 +91,36 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
-.button:hover {
+.subscribeButton:hover {
   background-color: #0056b3;
 }
-
+.subscribeButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
 .message {
   font-size: 1rem;
   color: #4cb950;
+  margin-top: 1rem;
+}
+@media (max-width: 768px) {
+  .blogPosts {
+    flex-direction: column;
+    align-items: center;
+  }
+  .blogPost {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+  }
+  .subscribeForm {
+    flex-direction: column;
+  }
+  .emailInput {
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  .subscribeButton {
+    border-radius: 4px;
+  }
 }

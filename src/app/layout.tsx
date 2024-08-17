@@ -13,7 +13,7 @@ import "../../public/css/style.css";
 import "../../public/css/responsive.css";
 import { Providers } from "@/redux/provider";
 import { ToastContainer } from "react-toastify";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import Script from 'next/script';
 
 export default function RootLayout({
   children,
@@ -22,10 +22,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          id="mcjs"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/fc417153d28f3861469938059/ae77c8e6a263344fe4c931182.js");`
+          }}
+        />
+      </head>
       <body>
         <Providers>
           {children}
-          <SpeedInsights />
           <ToastContainer />
         </Providers>
       </body>
