@@ -27,32 +27,20 @@ export default function Home() {
       <div id="mainContent">
         <HeaderSection contactModal={true} />
         <HeroSlider />
-        <DecoLineSection />
-   
-          <AboutSection3 />
-      
-     
-          <PersonalTrainingProgram />
- 
-        <DecoLineSection />      
-       
-          <SelfDefense />
-     
+        <DecoLineSection />   
+        <AboutSection3 />    
+        <PersonalTrainingProgram /> 
+        <DecoLineSection />             
+         <SelfDefense />     
         <DecoLineSection /> 
-     
-          <CorporateWellness />
-    
-        <DecoLineSection /> 
-       
-          <OnlineTraining />
-      
+        <CorporateWellness />    
+        <DecoLineSection />        
+        <OnlineTraining />      
         <DecoLineSection /> 
         <FounderSection />
         <TestimonialSection3 />
-        <DecoLineSection />
-      
-          <Newsletter />
-       
+        <DecoLineSection />      
+        <Newsletter />       
         <FooterSection3 />
       </div>
       <ContactFormModal />

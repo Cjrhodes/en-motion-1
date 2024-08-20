@@ -1,16 +1,21 @@
 "use client";
-import { toggleContactModalClose } from "@/redux/features/contactModalSlice";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import React from "react";
-import { Modal } from "react-bootstrap";
-import ContactForm from "../form/ContactForm";
 
-const ContactFormModal = () => {
+import React, { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { toggleContactModalClose } from "@/redux/features/contactModalSlice";
+import { Modal } from "react-bootstrap";
+import EvaluationForm from "../form/EvaluationForm";
+
+const ContactFormModal: React.FC = () => {
   const dispatch = useAppDispatch();
   const isContactModalOpen = useAppSelector((state) => state.contactModal.isContactModalOpen);
-  const selectedPackage = useAppSelector((state) => state.contactModal.selectedPackage);
+
+  useEffect(() => {
+    console.log('Modal open state:', isContactModalOpen);
+  }, [isContactModalOpen]);
 
   const closeContactModal = () => {
+    console.log('Closing modal');
     dispatch(toggleContactModalClose());
   };
 
@@ -23,12 +28,12 @@ const ContactFormModal = () => {
       contentClassName="modal-content-9"
       centered
     >
-      <Modal.Header>
-        <h3 className="modal-title">Contact Us</h3>
-        <button onClick={closeContactModal}></button>
+      <Modal.Header closeButton>
+        <Modal.Title>Contact Us</Modal.Title>
+
       </Modal.Header>
       <Modal.Body>
-        <ContactForm selectedPackage={selectedPackage} />
+        <EvaluationForm />
       </Modal.Body>
     </Modal>
   );

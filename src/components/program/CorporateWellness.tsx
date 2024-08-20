@@ -16,11 +16,9 @@ const CorporateWellness: React.FC = () => {
   const dispatch = useAppDispatch(); // Move the hook call inside the component
 
   const openContactModal = () => {
-    dispatch(toggleContactModalOpen({ packageName: "", packageType: "" }));
+    dispatch(toggleContactModalOpen());
   };
-
-
-
+  
   return (
     <section id="CorporateWellness" className={styles.fullScreenContainer}>
     {/* Ensure image and overlay are correctly placed */}

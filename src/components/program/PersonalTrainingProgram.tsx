@@ -15,7 +15,7 @@ const PersonalTrainingProgram: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const openContactModal = () => {
-    dispatch(toggleContactModalOpen({ packageName: "", packageType: "" }));
+    dispatch(toggleContactModalOpen());
   };
 
 

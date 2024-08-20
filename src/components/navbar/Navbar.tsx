@@ -3,6 +3,7 @@ import styles from './Navbar.module.css';
 import Link from 'next/link';
 import { useAppDispatch } from "@/redux/hooks";
 import { toggleContactModalOpen } from "@/redux/features/contactModalSlice";
+import ContactFormModal from '../modal/ContactFormModal'; 
 
 function TransparentNavbar() {
   const [showMenu, setShowMenu] = useState(false);
@@ -21,7 +22,8 @@ function TransparentNavbar() {
   };
 
   const openContactModal = () => {
-    dispatch(toggleContactModalOpen({ packageName: "", packageType: "" }));
+    console.log("Opening contact modal");
+    dispatch(toggleContactModalOpen());
   };
 
   useEffect(() => {
@@ -81,7 +83,6 @@ function TransparentNavbar() {
                   <li><a className="dropdown-item" href="#CorporateWellness">Corporate Wellness</a></li>
                 </ul>
               </li>
-     
             </ul>
           </div>
 
@@ -168,13 +169,18 @@ function TransparentNavbar() {
               </a>
             </li>
             <li className="nav-item">
-              <button className="nav-link freeEvaluationBtn" onClick={openContactModal} style={{ color: '#f8f9fa', backgroundColor: '#e74c3c' }}>
-                Free Evaluation
-              </button>
+            <button
+  className={`nav-link buyTicketsBtn rounded-pill ${styles.freeEvaluationBtn}`}
+  onClick={openContactModal}
+  style={{ color: '#f8f9fa', backgroundColor: '#ac161e' }}
+>
+  Free Evaluation
+</button>
             </li>
           </ul>
         </div>
       </div>
+      <ContactFormModal />
     </>
   );
 }

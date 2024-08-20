@@ -14,7 +14,7 @@ const HeroSlider = () => {
   const dispatch = useAppDispatch();
 
   const openContactModal = () => {
-    dispatch(toggleContactModalOpen({ packageName: "", packageType: "" }));
+    dispatch(toggleContactModalOpen());
   };
 
   const [showSocialLinks, setShowSocialLinks] = useState(true);

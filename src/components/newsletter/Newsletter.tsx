@@ -16,18 +16,19 @@ const Newsletter: React.FC = () => {
   const handleSubscribeClick = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('loading');
-
     try {
       const response = await fetch('/api/subscribe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ 
+          email, 
+          formType: 'newsletter',
+          tag: 'Newsletter'  // Add this line
+        }),
       });
-
       const data = await response.json();
-
       if (response.ok) {
         setStatus('success');
         setEmail('');
@@ -47,24 +48,60 @@ const Newsletter: React.FC = () => {
     { id: 3, title: "Nutrition Myths Debunked", imageUrl: "/img/blog-post-3.jpg" },
   ];
 
+  // Inline styles (you can move these to your CSS module if preferred)
+  const formStyles: React.CSSProperties = {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '1rem',
+    maxWidth: '400px',
+    margin: '0 auto',
+  };
+
+  const inputStyles: React.CSSProperties = {
+    padding: '0.5rem',
+    fontSize: '1rem',
+    border: '1px solid #ccc',
+    borderRadius: '4px',
+  };
+
+  const buttonStyles: React.CSSProperties = {
+    padding: '0.5rem 1rem',
+    fontSize: '1rem',
+    backgroundColor: '#ac161e',
+    color: 'white',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s ease',
+  };
+
+  const disabledButtonStyles: React.CSSProperties = {
+    ...buttonStyles,
+    backgroundColor: '#cccccc',
+    cursor: 'not-allowed',
+  };
+
   return (
     <section id="newsletter" className={styles.newsletterSection}>
       <div className={styles.container}>
-        
         <div className={styles.subscribeSection}>
           <h3 className={styles.subscribeTitle}>Subscribe to Our Newsletter</h3>
           <p className={styles.subscribeDescription}>Get the latest fitness tips and articles delivered to your inbox.</p>
-          
-          <form onSubmit={handleSubscribeClick} className={styles.subscribeForm}>
+         
+          <form onSubmit={handleSubscribeClick} style={formStyles}>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               required
-              className={styles.emailInput}
+              style={inputStyles}
             />
-            <button type="submit" disabled={status === 'loading'} className={styles.subscribeButton}>
+            <button 
+              type="submit" 
+              disabled={status === 'loading'} 
+              style={status === 'loading' ? disabledButtonStyles : buttonStyles}
+            >
               {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
             </button>
           </form>
