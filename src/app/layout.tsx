@@ -31,14 +31,7 @@ export default function RootLayout({
           {children}
           <ToastContainer />
         </Providers>
-      </body>
-      <Script
-        id="mcjs"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/fc417153d28f3861469938059/ae77c8e6a263344fe4c931182.js");`
-        }}
-      />
+      </body> 
     </html>
   );
 }

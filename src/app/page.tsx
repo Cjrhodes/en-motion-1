@@ -14,6 +14,7 @@ import CorporateWellness from "@/components/program/CorporateWellness";
 import OnlineTraining from "@/components/program/OnlineTrainingProgram";
 import dynamic from 'next/dynamic';
 
+
 const TestimonialSection3 = dynamic(() => import('@/components/testimonials/TestimonialSection3'), { ssr: false });
 
 export const metadata = {
@@ -28,6 +29,8 @@ export default function Home() {
         <HeaderSection contactModal={true} />
         <HeroSlider />
         <DecoLineSection />   
+        <SelfDefense />
+
         <AboutSection3 />    
         <PersonalTrainingProgram /> 
         <DecoLineSection />             

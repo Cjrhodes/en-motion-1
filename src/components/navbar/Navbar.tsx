@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './Navbar.module.css';
 import Link from 'next/link';
@@ -83,6 +84,12 @@ function TransparentNavbar() {
                   <li><a className="dropdown-item" href="#CorporateWellness">Corporate Wellness</a></li>
                 </ul>
               </li>
+              {/* Add Self-Defense Event link */}
+              <li className="nav-item">
+                <Link href="/self-defense-event" className={`nav-link ${styles['nav-link']}`} style={{ color: '#f8f9fa' }}>
+                  Self-Defense Seminar
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -156,6 +163,12 @@ function TransparentNavbar() {
                 <li><a className="dropdown-item" href="#CorporateWellness" onClick={toggleMenu}>Corporate Wellness</a></li>
               </ul>
             </li>
+            {/* Add Self-Defense Event link to mobile menu */}
+            <li className="nav-item">
+              <Link href="/self-defense-event" className="nav-link" onClick={toggleMenu} style={{ color: '#f8f9fa' }}>
+                Self-Defense Event
+              </Link>
+            </li>
             <li className="nav-item">
               <Link href="/blog" className="nav-link" onClick={toggleMenu} style={{ color: '#f8f9fa' }}>
                 Blog
@@ -169,13 +182,13 @@ function TransparentNavbar() {
               </a>
             </li>
             <li className="nav-item">
-            <button
-  className={`nav-link buyTicketsBtn rounded-pill ${styles.freeEvaluationBtn}`}
-  onClick={openContactModal}
-  style={{ color: '#f8f9fa', backgroundColor: '#ac161e' }}
->
-  Free Evaluation
-</button>
+              <button
+                className={`nav-link buyTicketsBtn rounded-pill ${styles.freeEvaluationBtn}`}
+                onClick={openContactModal}
+                style={{ color: '#f8f9fa', backgroundColor: '#ac161e' }}
+              >
+                Free Evaluation
+              </button>
             </li>
           </ul>
         </div>

@@ -1,0 +1,189 @@
+.eventContainer {
+    background-image: url('/img/self-defense-seminar.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: calc(100vh - 80px); /* Adjust 80px to match your navbar height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px; /* Should match your navbar height */
+  }
+  
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .headerSection {
+    text-align: center;
+    max-width: 800px;
+    margin-bottom: 2rem;
+  }
+  
+  .title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #f8f9fa;
+    font-weight: bold;
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #ac161e;
+  }
+  
+  .description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #f8f9fa;
+    margin-bottom: 2rem;
+  }
+  
+  .features {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  .features h3 {
+    color: #ac161e;
+    margin-bottom: 1rem;
+  }
+  
+  .features ul {
+    list-style-type: none;
+    padding: 0;
+    display: inline-block;
+    text-align: left;
+  }
+  
+  .features li {
+    color: #f8f9fa;
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 20px;
+  }
+  
+  .features li::before {
+    content: '•';
+    color: #ac161e;
+    position: absolute;
+    left: 0;
+  }
+  
+  .eventDetails {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .eventName {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #ac161e;
+  }
+  
+  .eventDetails p {
+    color: #f8f9fa;
+  }
+  
+  .price {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .price p {
+    color: #f8f9fa;
+  }
+  
+  .priceAmount {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ac161e;
+  }
+  
+  .formContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .registerForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .emailInput {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+  
+  .registerButton {
+    background-color: #ac161e;
+    color: #f8f9fa;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  .registerButton:hover {
+    background-color: #8e1119;
+  }
+  
+  .registerButton:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .successMessage {
+    color: #4caf50;
+    margin-top: 1rem;
+  }
+  
+  .errorMessage {
+    color: #ff0000;
+    margin-top: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .eventContainer, .overlay {
+      min-height: auto;
+    }
+  
+    .title {
+      font-size: 2rem;
+    }
+  
+    .subtitle {
+      font-size: 1.2rem;
+    }
+  
+    .features, .registerForm {
+      width: 90%;
+    }
+  }
