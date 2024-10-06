@@ -62,7 +62,7 @@ const SelfDefenseEvent = () => {
         </div>
         <div className={styles.eventDetails}>
           <h3 className={styles.eventName}>SURVIVOR'S PATHWAY</h3>
-          <p>OCTOBER 11, 2024 3:00PM-6:00PM</p>
+          <p>OCTOBER 25, 2024 2:00PM-5:00PM</p>
           <p>33 SW 2ND AVE SUITE 101</p>
           <p>MIAMI, FLORIDA</p>
         </div>
