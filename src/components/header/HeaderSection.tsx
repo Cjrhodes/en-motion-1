@@ -1,13 +1,10 @@
 "use client";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-
 import React, { useEffect, useState } from "react";
-
 import { toggleContactModalOpen } from "@/redux/features/contactModalSlice";
 import { toggleSidebarOpen } from "@/redux/features/sidebarSlice";
 import { usePathname } from "next/navigation";
 import TransparentNavbar from "@/components/navbar/Navbar";
-
 
 type Props = {
   contactModal: boolean;
@@ -46,9 +43,8 @@ const HeaderSection = ({ contactModal }: Props) => {
 
   return (
     <header className={`header ${isHeaderFixed ? "fixed" : ""}`}>
-    <TransparentNavbar />
-  
-  </header>
+      <TransparentNavbar />
+    </header>
   );
 };
 

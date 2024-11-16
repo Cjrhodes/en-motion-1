@@ -3,6 +3,7 @@
   width: 100%;
   height: 100vh;
   margin: 0 auto;
+  background-color: #000;
 }
 
 .hero-slider-item {
@@ -15,6 +16,36 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  transition: opacity 2s ease-in-out, transform 2s ease-out;
+  -webkit-transition: opacity 2s ease-in-out, transform 2s ease-out;
+  -moz-transition: opacity 2s ease-in-out, transform 2s ease-out;
+}
+
+.hero-slider-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+:global(.swiper-slide) .hero-slider-item {
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+:global(.swiper-slide-active) .hero-slider-item {
+  opacity: 1;
+  transform: scale(1);
+}
+
+:global(.swiper-slide-prev) .hero-slider-item,
+:global(.swiper-slide-next) .hero-slider-item {
+  opacity: 0;
 }
 
 .hero-slider-text {
@@ -28,6 +59,15 @@
   transform: translate(-50%, -50%);
   font-family: 'Inter', sans-serif;
   color: #ffffff;
+  opacity: 0;
+  z-index: 2;
+  transition: all 1.2s ease 0.8s;
+  -webkit-transition: all 1.2s ease 0.8s;
+  -moz-transition: all 1.2s ease 0.8s;
+}
+
+:global(.swiper-slide-active) .hero-slider-text {
+  opacity: 1;
 }
 
 .hero-slider-text h1 {
@@ -35,31 +75,49 @@
   margin-bottom: 1rem;
   font-size: 2.5rem;
   font-weight: 700;
+  transform: translateY(20px);
+  transition: transform 1.2s ease 1s;
+}
+
+:global(.swiper-slide-active) .hero-slider-text h1 {
+  transform: translateY(0);
 }
 
 .hero-slider-text p {
   font-size: 1rem;
   color: #ffffff;
   margin-bottom: 1.5rem;
+  transform: translateY(20px);
+  transition: transform 1.2s ease 1.2s;
 }
 
-.slider-btn {
-  margin-top: 1.5rem;
+:global(.swiper-slide-active) .hero-slider-text p {
+  transform: translateY(0);
 }
 
-.buyTicketsBtn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
+.sliderButton {
   background-color: #ac161e;
   color: #ffffff;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 500;
   text-decoration: none;
-  border-radius: 5px;
-  font-weight: 600;
+  border: none;
+  cursor: pointer;
   transition: background-color 0.3s ease;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 1.2s ease 1.4s, opacity 1.2s ease 1.4s, background-color 0.3s ease;
 }
 
-.buyTicketsBtn:hover {
-  background-color: #8a1219;
+.sliderButton:hover {
+  background-color: #8f1219;
+}
+
+:global(.swiper-slide-active) .sliderButton {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .social-wrap {
@@ -92,17 +150,10 @@
   margin-right: 15px;
 }
 
-.social-icon {
-  color: #ffffff;
-  font-size: 1.2rem;
-}
-
 @media (max-width: 768px) {
   .hero-slider-text {
     max-width: 90%;
     padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
   }
 
   .hero-slider-text h1 {
@@ -115,25 +166,8 @@
     margin-bottom: 1rem;
   }
 
-  .slider-btn {
-    margin-top: 1rem;
-  }
-
-  .buyTicketsBtn {
-    padding: 0.5rem 1rem;
+  .sliderButton {
+    padding: 10px 25px;
     font-size: 0.9rem;
-  }
-
-  .social-wrap {
-    bottom: 10px;
-    left: 10px;
-  }
-
-  .social-wrap .follow-us {
-    font-size: 0.8rem;
-  }
-
-  .social-icon {
-    font-size: 1rem;
   }
 }

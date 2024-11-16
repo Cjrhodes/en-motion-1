@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { NextResponse } from 'next/server';
 import mailchimp from '@mailchimp/mailchimp_marketing';
 import crypto from 'crypto';
 
@@ -7,27 +7,27 @@ mailchimp.setConfig({
   server: process.env.MAILCHIMP_SERVER_PREFIX,
 });
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-
-  const { email, phone, formType, tag } = req.body;
-
-  if (!email) {
-    return res.status(400).json({ error: 'Email is required' });
-  }
-
-  const audienceId = process.env.MAILCHIMP_AUDIENCE_ID;
-  if (!audienceId) {
-    console.error('MAILCHIMP_AUDIENCE_ID is not defined');
-    return res.status(500).json({ error: 'Server configuration error' });
-  }
-
+export async function POST(request: Request) {
   try {
+    const body = await request.json();
+    const { email, phone, formType, tag } = body;
+
+    if (!email) {
+      return NextResponse.json(
+        { success: false, error: 'Email is required' },
+        { status: 400 }
+      );
+    }
+
+    const audienceId = process.env.MAILCHIMP_AUDIENCE_ID;
+    if (!audienceId) {
+      console.error('MAILCHIMP_AUDIENCE_ID is not defined');
+      return NextResponse.json(
+        { success: false, error: 'Server configuration error' },
+        { status: 500 }
+      );
+    }
+
     const subscriberHash = crypto.createHash('md5').update(email.toLowerCase()).digest('hex');
     
     // Add or update the subscriber
@@ -49,9 +49,15 @@ export default async function handler(
     }
 
     console.log(`Subscriber ${email} added/updated with tag: ${tag}`);
-    return res.status(200).json({ message: 'Successfully subscribed and tagged' });
+    return NextResponse.json({ 
+      success: true, 
+      message: 'Successfully subscribed and tagged' 
+    });
   } catch (error) {
     console.error('Error subscribing to newsletter:', error);
-    return res.status(500).json({ error: 'Error subscribing to newsletter' });
+    return NextResponse.json(
+      { success: false, error: 'Error subscribing to newsletter' },
+      { status: 500 }
+    );
   }
 }

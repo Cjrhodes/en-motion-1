@@ -2,22 +2,24 @@
 
 import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import Link from "next/link";
-import { toggleContactModalOpen } from "@/redux/features/contactModalSlice";
-import { useAppDispatch } from "@/redux/hooks";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faInstagram, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
+import { useAppDispatch } from '@/redux/hooks';
+import { toggleContactModalOpen } from '@/redux/features/contactModalSlice';
 import styles from './HeroSlider.module.css';
 
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
+
 const HeroSlider = () => {
+  const [showSocialLinks, setShowSocialLinks] = useState(true);
   const dispatch = useAppDispatch();
 
   const openContactModal = () => {
     dispatch(toggleContactModalOpen());
   };
-
-  const [showSocialLinks, setShowSocialLinks] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,17 +50,19 @@ const HeroSlider = () => {
   return (
     <>
       <Swiper 
+        effect={'fade'}
+        fadeEffect={{ crossFade: true }}
         pagination={{
           clickable: true,
         }}
         navigation={true}
-        speed={1500}
+        speed={1000}
         autoplay={{
           delay: 6500,
           disableOnInteraction: true,
           pauseOnMouseEnter: true,
         }}
-        modules={[Navigation, Pagination, Autoplay]}
+        modules={[Navigation, Pagination, Autoplay, EffectFade]}
         className={styles['hero-slider']}
       >
         <SwiperSlide>
@@ -74,13 +78,12 @@ const HeroSlider = () => {
                 Our staff at En Motion comes with extensive martial arts experience. Take classes that mix self-defense training with personal training, or choose dedicated self-defense classes. Get a free evaluation and personalized fitness plan today!
               </p>
               <div className="slider-btn">
-                <Link
-                  href="#"
-                  className="buyTicketsBtn"
+                <button
                   onClick={openContactModal}
+                  className={styles.sliderButton}
                 >
                   Get Started
-                </Link>
+                </button>
               </div>
             </div>
           </div>
@@ -98,13 +101,12 @@ const HeroSlider = () => {
                 Enhance your company's success by investing in employee well-being through our corporate wellness programs. Schedule a free evaluation and get a tailored fitness plan for your team!
               </p>
               <div className="slider-btn">
-                <Link
-                  href="#"
-                  className="buyTicketsBtn"
+                <button
                   onClick={openContactModal}
+                  className={styles.sliderButton}
                 >
                   Free Quote
-                </Link>
+                </button>
               </div>
             </div>
           </div>
@@ -122,13 +124,12 @@ const HeroSlider = () => {
                 Unlock your potential with personalized training sessions tailored to your goals. Start today with a free evaluation and receive a customized fitness plan just for you!
               </p>
               <div className="slider-btn">
-                <Link
-                  href="#"
-                  className="buyTicketsBtn"
+                <button
                   onClick={openContactModal}
+                  className={styles.sliderButton}
                 >
                   Free Evaluation
-                </Link>
+                </button>
               </div>
             </div>
           </div>
@@ -140,23 +141,19 @@ const HeroSlider = () => {
         <span className={styles['follow-us']}>Follow Us:</span>
         <ul>
           <li>
-          <a href="https://www.facebook.com/profile.php?id=61558229676688" className="title-anim">
-                          <i className="fa-brands fa-facebook-f"></i>
-                        </a>
+            <a href="https://www.facebook.com/profile.php?id=61558229676688" className="title-anim">
+              <i className="fa-brands fa-facebook-f"></i>
+            </a>
           </li>
           <li>
-          <a href="https://twitter.com/enmotionfit"  className="title-anim">
-                          <i className="fa-brands fa-x"></i>
-                        </a>
+            <a href="https://twitter.com/enmotionfit" className="title-anim">
+              <i className="fa-brands fa-x"></i>
+            </a>
           </li>
           <li>
-          <a href="https://www.instagram.com/enmotionfit/?hl=en" className="title-anim">
-                          <i className="fa-brands fa-instagram"></i>
-                        </a>
-          </li>
-          <li>
-        
-       
+            <a href="https://www.instagram.com/enmotionfit/?hl=en" className="title-anim">
+              <i className="fa-brands fa-instagram"></i>
+            </a>
           </li>
         </ul>
       </div>

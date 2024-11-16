@@ -1,21 +1,20 @@
 import React from "react";
-import HeaderSection from "@/components/header/HeaderSection";
-import AboutSection3 from "@/components/about/AboutSection3";
-import FooterSection3 from "@/components/footer/FooterSection3";
-import ContactFormModal from "@/components/modal/ContactFormModal";
-import HeroSlider from "@/components/hero/HeroSlider";
+import HeaderSection from "src/components/header/HeaderSection";
+import AboutSection3 from "src/components/about/AboutSection3";
+import FooterSection3 from "src/components/footer/FooterSection3";
+import ContactFormModal from "src/components/modal/ContactFormModal";
+import HeroSlider from "src/components/hero/HeroSlider";
 import { spaceGrotesk } from "./fonts";
-import FounderSection from "@/components/founder/FounderSection";
-import DecoLineSection from "@/components/decoline/DecolineSection";
-import Newsletter from "@/components/newsletter/Newsletter";
-import PersonalTrainingProgram from "@/components/program/PersonalTrainingProgram";
-import SelfDefense from "@/components/program/SelfDefense";
-import CorporateWellness from "@/components/program/CorporateWellness";
-import OnlineTraining from "@/components/program/OnlineTrainingProgram";
+import FounderSection from "src/components/founder/FounderSection";
+import DecoLineSection from "src/components/decoline/DecolineSection";
+import Newsletter from "src/components/newsletter/Newsletter";
+import PersonalTrainingProgram from "src/components/program/PersonalTrainingProgram";
+import SelfDefense from "src/components/program/SelfDefense";
+import CorporateWellness from "src/components/program/CorporateWellness";
+import OnlineTraining from "src/components/program/OnlineTrainingProgram";
 import dynamic from 'next/dynamic';
 
-
-const TestimonialSection3 = dynamic(() => import('@/components/testimonials/TestimonialSection3'), { ssr: false });
+const TestimonialSection3 = dynamic(() => import('src/components/testimonials/TestimonialSection3'), { ssr: false });
 
 export const metadata = {
   title: "En Motion",
@@ -30,11 +29,10 @@ export default function Home() {
         <HeroSlider />
         <DecoLineSection />   
         <SelfDefense />
-
         <AboutSection3 />    
         <PersonalTrainingProgram /> 
         <DecoLineSection />             
-         <SelfDefense />     
+        <SelfDefense />     
         <DecoLineSection /> 
         <CorporateWellness />    
         <DecoLineSection />        

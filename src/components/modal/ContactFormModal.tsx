@@ -30,7 +30,6 @@ const ContactFormModal: React.FC = () => {
     >
       <Modal.Header closeButton>
         <Modal.Title>Contact Us</Modal.Title>
-
       </Modal.Header>
       <Modal.Body>
         <EvaluationForm />
