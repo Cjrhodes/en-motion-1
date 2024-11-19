@@ -5,7 +5,6 @@ import FooterSection3 from "src/components/footer/FooterSection3";
 import ContactFormModal from "src/components/modal/ContactFormModal";
 import HeroSlider from "src/components/hero/HeroSlider";
 import { spaceGrotesk } from "./fonts";
-import FounderSection from "src/components/founder/FounderSection";
 import DecoLineSection from "src/components/decoline/DecolineSection";
 import Newsletter from "src/components/newsletter/Newsletter";
 import PersonalTrainingProgram from "src/components/program/PersonalTrainingProgram";
@@ -15,6 +14,7 @@ import OnlineTraining from "src/components/program/OnlineTrainingProgram";
 import dynamic from 'next/dynamic';
 
 const TestimonialSection3 = dynamic(() => import('src/components/testimonials/TestimonialSection3'), { ssr: false });
+const FounderSection = dynamic(() => import('src/components/founder/FounderSection'), { ssr: false });
 
 export const metadata = {
   title: "En Motion",

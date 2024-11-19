@@ -5,6 +5,10 @@ const nextConfig = {
   experimental: {
     outputFileTracingRoot: __dirname,
   },
+  images: {
+    unoptimized: true,
+    domains: ['localhost'],
+  },
   webpack: (config, { isServer }) => {
     // Configure module resolution
     config.resolve.alias = {

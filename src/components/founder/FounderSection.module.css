@@ -1,0 +1,51 @@
+.founder {
+  background-color: #1a1a1a;
+  padding: 120px 0;
+}
+
+.title {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 28px;
+}
+
+.imageWrapper {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.name {
+  color: #fff;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 24px;
+}
+
+.text {
+  color: #fff;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+}
+
+.listItem {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.checkmark {
+  color: #ff4a17;
+  margin-right: 10px;
+}
