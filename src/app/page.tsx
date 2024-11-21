@@ -28,8 +28,8 @@ export default function Home() {
         <HeaderSection contactModal={true} />
         <HeroSlider />
         <DecoLineSection />   
-        <SelfDefense />
-        <AboutSection3 />    
+        <AboutSection3 />   
+        <SelfDefense />        
         <PersonalTrainingProgram /> 
         <DecoLineSection />             
         <SelfDefense />     
