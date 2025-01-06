@@ -157,6 +157,24 @@ const HeroSlider = () => {
           </li>
         </ul>
       </div>
+      {/* Video Section */}
+      <div className={styles['video-section']}>
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          controls
+          playsInline
+          preload="auto"
+          className={styles['promo-video']}
+          width="100%"
+          height="100%"
+        >
+          <source src="/img/promovidenmotion.mp4" type="video/mp4" />
+          <source src="/img/promovidenmotion.MOV" type="video/quicktime" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </>
   );
 };

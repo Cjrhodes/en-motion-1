@@ -27,8 +27,7 @@ export default function Home() {
       <div id="mainContent">
         <HeaderSection contactModal={true} />
         <HeroSlider />
-        <DecoLineSection />   
-        <AboutSection3 />   
+        <DecoLineSection />    
         <SelfDefense />        
         <PersonalTrainingProgram /> 
         <DecoLineSection />             

@@ -24,6 +24,15 @@ const nextConfig = {
       },
     });
 
+    // Handle video files
+    config.module.rules.push({
+      test: /\.(mov|mp4)$/i,
+      type: 'asset/resource',
+      generator: {
+        filename: 'static/media/[name][ext]'
+      }
+    });
+
     // New configuration to ignore source map warnings
     if (!isServer) {
       config.resolve.fallback = {
