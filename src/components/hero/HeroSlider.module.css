@@ -194,3 +194,20 @@
   top: 0;
   left: 0;
 }
+
+@media (max-width: 768px) {
+  .video-section {
+    height: 50vh;
+    padding: 1rem 0;
+  }
+
+  .promo-video {
+    object-position: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-section {
+    height: 40vh;
+  }
+}
