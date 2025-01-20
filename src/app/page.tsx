@@ -11,6 +11,7 @@ import PersonalTrainingProgram from "src/components/program/PersonalTrainingProg
 import SelfDefense from "src/components/program/SelfDefense";
 import CorporateWellness from "src/components/program/CorporateWellness";
 import OnlineTraining from "src/components/program/OnlineTrainingProgram";
+import PricingSection from "src/components/pricing/PricingSection";
 import dynamic from 'next/dynamic';
 
 const TestimonialSection3 = dynamic(() => import('src/components/testimonials/TestimonialSection3'), { ssr: false });
@@ -30,13 +31,13 @@ export default function Home() {
         <DecoLineSection />    
         <SelfDefense />        
         <PersonalTrainingProgram /> 
-        <DecoLineSection />             
-        <SelfDefense />     
-        <DecoLineSection /> 
+        <DecoLineSection />         
         <CorporateWellness />    
         <DecoLineSection />        
         <OnlineTraining />      
-        <DecoLineSection /> 
+        <DecoLineSection />
+        <PricingSection />
+        <DecoLineSection />
         <FounderSection />
         <TestimonialSection3 />
         <DecoLineSection />      
