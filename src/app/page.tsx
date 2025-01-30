@@ -34,9 +34,7 @@ export default function Home() {
         <DecoLineSection />         
         <CorporateWellness />    
         <DecoLineSection />        
-        <OnlineTraining />      
-        <DecoLineSection />
-        <PricingSection />
+        <OnlineTraining />
         <DecoLineSection />
         <FounderSection />
         <TestimonialSection3 />
