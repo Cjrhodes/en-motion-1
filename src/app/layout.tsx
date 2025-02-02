@@ -1,6 +1,8 @@
 import { Providers } from "@/redux/provider";
 import { ToastContainer } from "react-toastify";
 import Script from 'next/script';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from "@vercel/analytics/react"
 
 // Third-party CSS
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -50,6 +52,8 @@ export default function RootLayout({
         </Script>
       </head>
       <body>
+        <SpeedInsights/>
+        <Analytics />
         <Providers>
           {children}
           <ToastContainer />
