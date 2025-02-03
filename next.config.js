@@ -2,27 +2,18 @@ const path = require('path');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    outputFileTracingRoot: __dirname,
-  },
   images: {
-    unoptimized: true,
+    unoptimized: false,
     domains: ['localhost'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    formats: ['image/webp'],
   },
   webpack: (config, { isServer }) => {
-    // Configure module resolution
     config.resolve.alias = {
       ...config.resolve.alias,
       '@': path.resolve(__dirname, 'src'),
     };
-
-    // Ensure Swiper modules are transpiled
-    config.module.rules.push({
-      test: /swiper\.esm\.js/,
-      resolve: {
-        fullySpecified: false,
-      },
-    });
 
     // Handle video files
     config.module.rules.push({
@@ -33,7 +24,7 @@ const nextConfig = {
       }
     });
 
-    // New configuration to ignore source map warnings
+    // Fallback for client-side
     if (!isServer) {
       config.resolve.fallback = {
         ...config.resolve.fallback,
@@ -41,18 +32,47 @@ const nextConfig = {
       };
     }
 
-    // Ignore source map warnings for specific packages
+    // Ignore source map warnings
     config.ignoreWarnings = [
       { message: /Failed to parse source map/ },
     ];
 
     return config;
   },
-  // Add this to help with the preload warning
+  // Optimize page loading
   onDemandEntries: {
     maxInactiveAge: 25 * 1000,
     pagesBufferLength: 2,
   },
+  // Add compression
+  compress: true,
+  // Enable React strict mode for better performance
+  reactStrictMode: true,
+  // Optimize production builds
+  swcMinify: true,
+  // Configure headers for better caching
+  async headers() {
+    return [
+      {
+        source: '/:all*(svg|jpg|png)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          }
+        ]
+      },
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, must-revalidate'
+          }
+        ]
+      }
+    ];
+  }
 };
 
 module.exports = nextConfig;
