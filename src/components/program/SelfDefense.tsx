@@ -17,7 +17,7 @@ const SelfDefense: React.FC = () => {
   const dispatch = useAppDispatch(); // Move the hook call inside the component
 
   const openContactModal = () => {
-    dispatch(toggleContactModalOpen());
+    dispatch(toggleContactModalOpen(""));
   };
 
 

@@ -9,8 +9,9 @@
   overflow: hidden;
   padding: 2rem;
   border-bottom: 24px solid #000;
+  /* Ensure z-index is lower than bootstrap modal (default z-index for modal backdrop is 1040, modal is 1050) */
+  z-index: 10; /* Adjust if needed, but keep it lower than 1040 */
 }
-
 .backgroundImage {
   position: absolute;
   top: 0;

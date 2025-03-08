@@ -1,35 +1,23 @@
 "use client";
-
-import React, { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { toggleContactModalClose } from "@/redux/features/contactModalSlice";
-import { Modal } from "react-bootstrap";
-import EvaluationForm from "../form/EvaluationForm";
+import React from 'react';
+import { Modal } from 'react-bootstrap';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleContactModalOpen } from 'src/redux/features/contactModalSlice';
+import EvaluationForm from 'src/components/form/EvaluationForm';
 
 const ContactFormModal: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const isContactModalOpen = useAppSelector((state) => state.contactModal.isContactModalOpen);
+  const dispatch = useDispatch();
+  const isOpen = useSelector((state: any) => state.contactModal.isOpen);
+  const selectedPackage = useSelector((state: any) => state.contactModal.selectedPackage);
 
-  useEffect(() => {
-    console.log('Modal open state:', isContactModalOpen);
-  }, [isContactModalOpen]);
-
-  const closeContactModal = () => {
-    console.log('Closing modal');
-    dispatch(toggleContactModalClose());
+  const handleClose = () => {
+    dispatch(toggleContactModalOpen(null));
   };
 
   return (
-    <Modal
-      className={`contact-modal modal fade ${isContactModalOpen ? "show" : ""}`}
-      id="contactModal"
-      onHide={closeContactModal}
-      show={isContactModalOpen}
-      contentClassName="modal-content-9"
-      centered
-    >
+    <Modal show={isOpen} onHide={handleClose} centered>
       <Modal.Header closeButton>
-        <Modal.Title>Contact Us</Modal.Title>
+        <Modal.Title>Get Free Evaluation</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <EvaluationForm />

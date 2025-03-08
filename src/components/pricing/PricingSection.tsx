@@ -1,21 +1,192 @@
 "use client";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './PricingSection.module.css';
-import { toggleContactModalOpen } from "@/redux/features/contactModalSlice";
-import { useAppDispatch } from "@/redux/hooks";
 import Link from 'next/link';
 
-const PricingSection: React.FC = () => {
-  const dispatch = useAppDispatch();
+// Simple modal component
+const Modal: React.FC<{
+  isOpen: boolean;
+  onClose: () => void;
+  packageName: string;
+}> = ({ isOpen, onClose, packageName }) => {
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
-  const openContactModal = () => {
-    dispatch(toggleContactModalOpen());
+  if (!isOpen) return null;
+  
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get('email') as string;
+    const phone = formData.get('phone') as string;
+    
+    console.log('Form submitted with:', {
+      email,
+      phone,
+      packageName
+    });
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+          email, 
+          phone,
+          formType: 'pricing',
+          tag: packageName,
+          packageType: packageName // Use this for the PLAN merge field in Mailchimp
+        }),
+      });
+
+      if (response.ok) {
+        setSuccessMessage('Thank you for subscribing! Please check your email for further information.');
+      } else {
+        const data = await response.json();
+        alert(`Error: ${data.error}`);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('An error occurred. Please try again.');
+    }
+  };
+  
+  return (
+    <div 
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 9999,
+      }}
+      onClick={onClose}
+    >
+      <div 
+        style={{
+          backgroundColor: 'white',
+          borderRadius: '5px',
+          maxWidth: '500px',
+          width: '100%',
+          padding: '20px',
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+          color: '#333',
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div 
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginBottom: '15px',
+            paddingBottom: '10px',
+            borderBottom: '1px solid #e9ecef',
+          }}
+        >
+          <h2 style={{ margin: 0 }}>Get Free Evaluation</h2>
+          <button 
+            style={{
+              background: 'none',
+              border: 'none',
+              fontSize: '1.5rem',
+              cursor: 'pointer',
+              padding: 0,
+            }}
+            onClick={onClose}
+          >
+            &times;
+          </button>
+        </div>
+        <div>
+          <p>Selected package: {packageName}</p>
+          {successMessage ? (
+            <p>{successMessage}</p>
+          ) : (
+            <form onSubmit={handleSubmit}>
+              <div style={{ marginBottom: '15px' }}>
+                <label style={{ display: 'block', marginBottom: '5px' }}>
+                  Email Address
+                </label>
+                <input 
+                  type="email" 
+                  name="email"
+                  required
+                  style={{
+                    width: '100%',
+                    padding: '8px',
+                    border: '1px solid #ddd',
+                    borderRadius: '4px',
+                  }}
+                />
+              </div>
+              <div style={{ marginBottom: '15px' }}>
+                <label style={{ display: 'block', marginBottom: '5px' }}>
+                  Phone Number (optional)
+                </label>
+                <input 
+                  type="tel" 
+                  name="phone"
+                  style={{
+                    width: '100%',
+                    padding: '8px',
+                    border: '1px solid #ddd',
+                    borderRadius: '4px',
+                  }}
+                />
+              </div>
+              <button 
+                type="submit"
+                style={{
+                  padding: '0.5rem 1rem',
+                  backgroundColor: '#ff4d4d',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '4px',
+                  cursor: 'pointer'
+                }}
+              >
+                Submit
+              </button>
+            </form>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const PricingSection: React.FC = () => {
+  const [description, setDescription] = useState("Choose the perfect training option for your goals"); // Default for SSR
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
+
+  useEffect(() => {
+    setDescription("Choose the perfect training option for your goals");
+  }, []);
+  
+  const openContactModal = (packageName: string) => {
+    console.log('Opening contact modal with package:', packageName);
+    setSelectedPackage(packageName);
+    setIsModalOpen(true);
+  };
+  
+  const closeModal = () => {
+    console.log('Closing modal');
+    setIsModalOpen(false);
   };
 
   const pricingPlans = [
     {
       name: "Individual Training",
       price: "$90",
+      plan: "individual",
       period: "per hour",
       description: "One-on-one self-defense training",
       features: [
@@ -30,6 +201,7 @@ const PricingSection: React.FC = () => {
     },
     {
       name: "10-Session Package",
+      plan: "tenpack",
       price: "$850",
       period: "save $50",
       description: "Best value for consistent training",
@@ -45,6 +217,7 @@ const PricingSection: React.FC = () => {
     },
     {
       name: "Monthly Subscription",
+      plan: "MonthlySub",
       price: "$340",
       period: "per month",
       description: "Ongoing training & support",
@@ -61,13 +234,13 @@ const PricingSection: React.FC = () => {
   ];
 
   return (
-    <section id="Pricing" className={`${styles.pricingSection} ${styles.fullScreenContainer}`}>
+    <section id="Pricing" className={`${styles.fullScreenContainer}`}>
       <img src="/img/counter_bg6.jpg" alt="background" className={styles.backgroundImage} />
       <div className={styles.backgroundOverlay}></div>
-      <div className={`${styles.container} ${styles.programContainer}`}>
+      <div className={styles.programContainer}>
         <div className={styles.sectionHeader}>
           <h2 className={styles.programTitle}>Training Plans</h2>
-          <p className={styles.programDescription}>Choose the perfect self-defense training option for your goals</p>
+          <p className={styles.programDescription}>{description}</p>
         </div>
         <div className={styles.pricingGrid}>
           {pricingPlans.map((plan, index) => (
@@ -95,8 +268,11 @@ const PricingSection: React.FC = () => {
               <div className={styles.sliderBtn}>
                 <Link
                   href="#"
-                  className={`${styles.actionButton} ${plan.popular ? styles.popularButton : ''} ${styles.buyTicketsBtn}`}
-                  onClick={openContactModal}
+                  className={`${styles.buyTicketsBtn} ${plan.popular ? styles.popularButton : ''}`}
+                  onClick={(e) => {
+                    e.preventDefault(); // Prevent default link behavior
+                    openContactModal(plan.plan);
+                  }}
                 >
                   {plan.buttonText}
                 </Link>
@@ -105,6 +281,15 @@ const PricingSection: React.FC = () => {
           ))}
         </div>
       </div>
+      
+      {/* Render the modal */}
+      {selectedPackage && (
+        <Modal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          packageName={selectedPackage}
+        />
+      )}
     </section>
   );
 };

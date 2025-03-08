@@ -8,7 +8,7 @@ import styles from "./FooterSection3.module.css";
 const FooterSection3 = () => {
   const dispatch = useAppDispatch();
   const openContactModal = () => {
-    dispatch(toggleContactModalOpen());
+    dispatch(toggleContactModalOpen(""));
   };
 
   return (

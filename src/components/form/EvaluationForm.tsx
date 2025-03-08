@@ -1,20 +1,24 @@
 "use client";
 
 import React, { useState } from 'react';
+import { useAppSelector } from '@/redux/hooks';
 
 const EvaluationForm: React.FC = () => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const selectedPackage = useAppSelector((state) => state.contactModal.selectedPackage);
+
+  console.log('Selected package in EvaluationForm:', selectedPackage); // Log the Redux state
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form submission started');
+    console.log('Form submission started with package:', selectedPackage);
     setStatus('loading');
     
     try {
-      console.log('Sending request to /api/subscribe');
+      console.log('Sending request to /api/subscribe with package:', selectedPackage);
       const response = await fetch('/api/subscribe', {
         method: 'POST',
         headers: {
@@ -24,7 +28,8 @@ const EvaluationForm: React.FC = () => {
           email, 
           phone,
           formType: 'evaluation',
-          tag: 'FreeEval'
+          tag: selectedPackage || 'FreeEval',
+          packageType: selectedPackage // Use this for the PLAN merge field in Mailchimp
         }),
       });
 
@@ -35,7 +40,7 @@ const EvaluationForm: React.FC = () => {
       }
 
       const data = await response.json();
-      console.log('Response data:', data);
+      console.log('Response data from Mailchimp:', data);
 
       setStatus('success');
       setEmail('');

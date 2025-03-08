@@ -1,26 +1,27 @@
+// ContactForm.tsx
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { toast } from 'react-toastify';
-
-interface ContactFormProps {
-  selectedPackage: string;
-}
 
 interface Inputs {
   fullName: string;
   email: string;
-  phone: string;
-  subject: string;
   message: string;
 }
 
-const ContactForm: React.FC<ContactFormProps> = ({ selectedPackage }) => {
+const ContactForm: React.FC = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<Inputs>();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const selectedPackage = useSelector((state: any) => state.contactModal.selectedPackage);
+
+  console.log('Selected Package in ContactForm:', selectedPackage); // Add this for debugging
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     setIsSubmitting(true);
+
+    console.log('Form Data being submitted:', data, 'Package:', selectedPackage); // Debug log
 
     try {
       const response = await fetch("/api/send-email", {
@@ -33,25 +34,34 @@ const ContactForm: React.FC<ContactFormProps> = ({ selectedPackage }) => {
           to: ['miguelricaurte@hotmail.com', 'chrisxrhodes@gmail.com', 'enmotionfit@gmail.com'],
           subject: `New message from ${data.fullName}`,
           html: `
-      
             <p>Email: ${data.email}</p>
-           
             <p>Message: ${data.message}</p>
-            ${selectedPackage && `<p>Selected Package: ${selectedPackage}</p>`}
+            ${selectedPackage ? `<p>Selected Package: ${selectedPackage}</p>` : ''}
           `,
+          packageType: selectedPackage
         }),
       });
 
       if (response.ok) {
-        console.log("Form submitted successfully!");
+        await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: data.email,
+            formType: 'contact',
+            tag: selectedPackage,
+            packageType: selectedPackage
+          }),
+        });
         toast.success("Form submitted successfully!");
         reset();
       } else {
-        const errorData = await response.json();
-        console.error(errorData.message || "Failed to send email");
-        throw new Error(errorData.message || "Failed to send email");
+        throw new Error("Failed to send email");
       }
     } catch (error) {
+      console.error('Error submitting form:', error);
       toast.error("Failed to submit the form. Please try again.");
     } finally {
       setIsSubmitting(false);
@@ -60,9 +70,17 @@ const ContactForm: React.FC<ContactFormProps> = ({ selectedPackage }) => {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      
+      <Form.Group controlId="formFullName">
+        <Form.Label>Full Name</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="Enter your full name"
+          {...register('fullName', { required: true })}
+        />
+        {errors.fullName && <span className="text-danger">This field is required</span>}
+      </Form.Group>
 
-      <Form.Group controlId="formEmail">
+      <Form.Group controlId="formEmail" className="mt-3">
         <Form.Label>Email</Form.Label>
         <Form.Control
           type="email"
@@ -72,8 +90,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ selectedPackage }) => {
         {errors.email && <span className="text-danger">This field is required</span>}
       </Form.Group>
 
-     
-      <Form.Group controlId="formMessage">
+      <Form.Group controlId="formMessage" className="mt-3">
         <Form.Label>Message</Form.Label>
         <Form.Control
           as="textarea"

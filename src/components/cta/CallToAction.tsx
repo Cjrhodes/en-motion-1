@@ -8,7 +8,7 @@ const CTASection = () => {
 
   // Handler to open the contact modal
   const openContactModal = () => {
-    dispatch(toggleContactModalOpen());
+    dispatch(toggleContactModalOpen(""));
   };
 
   return (

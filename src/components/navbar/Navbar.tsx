@@ -4,7 +4,6 @@ import styles from './Navbar.module.css';
 import Link from 'next/link';
 import { useAppDispatch } from "@/redux/hooks";
 import { toggleContactModalOpen } from "@/redux/features/contactModalSlice";
-import ContactFormModal from '../modal/ContactFormModal'; 
 
 function TransparentNavbar() {
   const [showMenu, setShowMenu] = useState(false);
@@ -24,7 +23,7 @@ function TransparentNavbar() {
 
   const openContactModal = () => {
     console.log("Opening contact modal");
-    dispatch(toggleContactModalOpen());
+    dispatch(toggleContactModalOpen(""));
   };
 
   useEffect(() => {
@@ -193,7 +192,6 @@ function TransparentNavbar() {
           </ul>
         </div>
       </div>
-      <ContactFormModal />
     </>
   );
 }
