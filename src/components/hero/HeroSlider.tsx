@@ -143,7 +143,6 @@ const HeroSlider = () => {
           muted 
           playsInline
           preload="metadata"
-          poster="/img/video-preview.jpg"
           className={styles['promo-video']}
           width="100%"
           height="100%"
