@@ -148,7 +148,7 @@ const HeroSlider = () => {
           height="100%"
         >
           <source 
-            src="/img/promovidenmotion.mp4" 
+            src="/videos/promovideo.mp4" // Ensure this path matches the actual location of the video file
             type="video/mp4" 
           />
           Your browser does not support the video tag.

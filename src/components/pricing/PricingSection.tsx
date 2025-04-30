@@ -230,6 +230,70 @@ const PricingSection: React.FC = () => {
       ],
       buttonText: "Subscribe",
       popular: false
+    },
+    {
+      name: "CrossFit Training",
+      plan: "crossfit",
+      price: "$120",
+      period: "per session",
+      description: "High-intensity functional fitness training",
+      features: [
+        "Group-based workouts",
+        "Strength and conditioning",
+        "Scalable exercises",
+        "Certified trainers",
+        "Community support"
+      ],
+      buttonText: "Join Now",
+      popular: false
+    },
+    {
+      name: "Self-Defense Training",
+      plan: "selfdefense",
+      price: "$100",
+      period: "per session",
+      description: "Learn practical self-defense techniques",
+      features: [
+        "Real-world scenarios",
+        "Personal safety skills",
+        "Confidence building",
+        "Expert instructors",
+        "Flexible scheduling"
+      ],
+      buttonText: "Enroll Today",
+      popular: false
+    },
+    {
+      name: "Functional Fitness",
+      plan: "functionalfitness",
+      price: "$110",
+      period: "per session",
+      description: "Improve strength and mobility for daily life",
+      features: [
+        "Customized workouts",
+        "Focus on core strength",
+        "Balance and stability",
+        "Injury prevention",
+        "Expert guidance"
+      ],
+      buttonText: "Start Training",
+      popular: false
+    },
+    {
+      name: "Mobility Training",
+      plan: "mobility",
+      price: "$90",
+      period: "per session",
+      description: "Enhance flexibility and joint health",
+      features: [
+        "Stretching routines",
+        "Joint mobility drills",
+        "Posture improvement",
+        "Pain relief techniques",
+        "Certified trainers"
+      ],
+      buttonText: "Get Started",
+      popular: false
     }
   ];
 
