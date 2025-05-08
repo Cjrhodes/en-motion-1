@@ -299,7 +299,7 @@ const PricingSection: React.FC = () => {
 
   return (
     <section id="Pricing" className={`${styles.fullScreenContainer}`}>
-      <img src="/img/counter_bg6.jpg" alt="background" className={styles.backgroundImage} />
+      <img src="/public/img/counter_bg6.jpg" alt="background" className={styles.backgroundImage} />
       <div className={styles.backgroundOverlay}></div>
       <div className={styles.programContainer}>
         <div className={styles.sectionHeader}>
