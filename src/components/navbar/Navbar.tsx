@@ -83,6 +83,11 @@ function TransparentNavbar() {
                   <li><a className="dropdown-item" href="#CorporateWellness">Corporate Wellness</a></li>
                 </ul>
               </li>
+              <li className="nav-item">
+                <Link href="/pricing" className={`nav-link ${styles['nav-link']}`} style={{ color: '#f8f9fa' }}>
+                  Pricing
+                </Link>
+              </li>
               {/* Add Self-Defense Event link */}
               <li className="nav-item">
                 <Link href="/self-defense-event" className={`nav-link ${styles['nav-link']}`} style={{ color: '#f8f9fa' }}>
@@ -166,6 +171,11 @@ function TransparentNavbar() {
             <li className="nav-item">
               <Link href="/self-defense-event" className="nav-link" onClick={toggleMenu} style={{ color: '#f8f9fa' }}>
                 Self-Defense Event
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link href="/pricing" className="nav-link" onClick={toggleMenu} style={{ color: '#f8f9fa' }}>
+                Pricing
               </Link>
             </li>
             <li className="nav-item">

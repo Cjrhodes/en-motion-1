@@ -113,6 +113,7 @@ const HeroSlider = () => {
               </div>
         </DynamicSwiperWrapper>
       </div>
+
       {/* Social Wrap */}
       <div className={styles['social-wrap']}>
         <span className={styles['follow-us']}>Follow Us:</span>

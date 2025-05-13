@@ -185,7 +185,7 @@ const PricingSection: React.FC = () => {
   const pricingPlans = [
     {
       name: "Individual Training",
-      price: "$90",
+      price: "$75", // Decreased from $90
       plan: "individual",
       period: "per hour",
       description: "One-on-one self-defense training",
@@ -202,7 +202,7 @@ const PricingSection: React.FC = () => {
     {
       name: "10-Session Package",
       plan: "tenpack",
-      price: "$850",
+      price: "$835", // Decreased from $850
       period: "save $50",
       description: "Best value for consistent training",
       features: [
@@ -218,7 +218,7 @@ const PricingSection: React.FC = () => {
     {
       name: "Monthly Subscription",
       plan: "MonthlySub",
-      price: "$340",
+      price: "$325", // Decreased from $340
       period: "per month",
       description: "Ongoing training & support",
       features: [
@@ -234,7 +234,7 @@ const PricingSection: React.FC = () => {
     {
       name: "CrossFit Training",
       plan: "crossfit",
-      price: "$120",
+      price: "$105", // Decreased from $120
       period: "per session",
       description: "High-intensity functional fitness training",
       features: [
@@ -250,7 +250,7 @@ const PricingSection: React.FC = () => {
     {
       name: "Self-Defense Training",
       plan: "selfdefense",
-      price: "$100",
+      price: "$85", // Decreased from $100
       period: "per session",
       description: "Learn practical self-defense techniques",
       features: [
@@ -266,7 +266,7 @@ const PricingSection: React.FC = () => {
     {
       name: "Functional Fitness",
       plan: "functionalfitness",
-      price: "$110",
+      price: "$95", // Decreased from $110
       period: "per session",
       description: "Improve strength and mobility for daily life",
       features: [
@@ -282,7 +282,7 @@ const PricingSection: React.FC = () => {
     {
       name: "Mobility Training",
       plan: "mobility",
-      price: "$90",
+      price: "$75", // Decreased from $90
       period: "per session",
       description: "Enhance flexibility and joint health",
       features: [
