@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './PricingSection.module.css';
 import Link from 'next/link';
+import { useAppDispatch } from "@/redux/hooks";
 
 // Simple modal component
 const Modal: React.FC<{
@@ -163,12 +164,16 @@ const Modal: React.FC<{
 };
 
 const PricingSection: React.FC = () => {
-  const [description, setDescription] = useState("Choose the perfect training option for your goals"); // Default for SSR
+  const [description, setDescription] = useState("Choose the perfect training option for your goals");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
-
+  
   useEffect(() => {
     setDescription("Choose the perfect training option for your goals");
+    
+    // Force the window to scroll a bit to trigger the navbar solid background
+    window.scrollTo(0, 1);
+    
   }, []);
   
   const openContactModal = (packageName: string) => {
@@ -185,7 +190,7 @@ const PricingSection: React.FC = () => {
   const pricingPlans = [
     {
       name: "Individual Training",
-      price: "$75", // Decreased from $90
+      price: "$75",
       plan: "individual",
       period: "per hour",
       description: "One-on-one self-defense training",
@@ -202,7 +207,7 @@ const PricingSection: React.FC = () => {
     {
       name: "10-Session Package",
       plan: "tenpack",
-      price: "$835", // Decreased from $850
+      price: "$835",
       period: "save $50",
       description: "Best value for consistent training",
       features: [
@@ -218,7 +223,7 @@ const PricingSection: React.FC = () => {
     {
       name: "Monthly Subscription",
       plan: "MonthlySub",
-      price: "$325", // Decreased from $340
+      price: "$325",
       period: "per month",
       description: "Ongoing training & support",
       features: [
@@ -234,7 +239,7 @@ const PricingSection: React.FC = () => {
     {
       name: "CrossFit Training",
       plan: "crossfit",
-      price: "$105", // Decreased from $120
+      price: "$105",
       period: "per session",
       description: "High-intensity functional fitness training",
       features: [
@@ -250,7 +255,7 @@ const PricingSection: React.FC = () => {
     {
       name: "Self-Defense Training",
       plan: "selfdefense",
-      price: "$85", // Decreased from $100
+      price: "$85",
       period: "per session",
       description: "Learn practical self-defense techniques",
       features: [
@@ -266,7 +271,7 @@ const PricingSection: React.FC = () => {
     {
       name: "Functional Fitness",
       plan: "functionalfitness",
-      price: "$95", // Decreased from $110
+      price: "$95",
       period: "per session",
       description: "Improve strength and mobility for daily life",
       features: [
@@ -282,7 +287,7 @@ const PricingSection: React.FC = () => {
     {
       name: "Mobility Training",
       plan: "mobility",
-      price: "$75", // Decreased from $90
+      price: "$75",
       period: "per session",
       description: "Enhance flexibility and joint health",
       features: [
@@ -298,9 +303,8 @@ const PricingSection: React.FC = () => {
   ];
 
   return (
-    <section id="Pricing" className={`${styles.fullScreenContainer}`}>
-      <img src="/public/img/counter_bg6.jpg" alt="background" className={styles.backgroundImage} />
-      <div className={styles.backgroundOverlay}></div>
+    <section id="Pricing" className={`${styles.fullScreenContainer} ${styles.pricingPage}`}>
+      <div className={styles.navbarSpacer}></div>
       <div className={styles.programContainer}>
         <div className={styles.sectionHeader}>
           <h2 className={styles.programTitle}>Training Plans</h2>
@@ -334,7 +338,7 @@ const PricingSection: React.FC = () => {
                   href="#"
                   className={`${styles.buyTicketsBtn} ${plan.popular ? styles.popularButton : ''}`}
                   onClick={(e) => {
-                    e.preventDefault(); // Prevent default link behavior
+                    e.preventDefault();
                     openContactModal(plan.plan);
                   }}
                 >

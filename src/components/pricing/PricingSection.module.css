@@ -1,17 +1,27 @@
+/* Navbar spacer to push content below navbar */
+.navbarSpacer {
+  width: 100%;
+  height: 80px; /* Adjust based on your navbar height */
+  margin-bottom: 40px; /* Add some space after the navbar */
+}
+
 .fullScreenContainer {
   position: relative;
+  width: 100%;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  color: #fff;
-  text-align: center;
+  justify-content: flex-start; /* Changed from center to allow proper spacing */
+  padding: 0 20px 80px; /* Removed top padding to use navbarSpacer instead */
   overflow: hidden;
-  padding: 2rem;
-  border-bottom: 24px solid #000;
-  /* Ensure z-index is lower than bootstrap modal (default z-index for modal backdrop is 1040, modal is 1050) */
-  z-index: 10; /* Adjust if needed, but keep it lower than 1040 */
 }
+
+/* Add this new class for the pricing page background */
+.pricingPage {
+  background-color: #1a1a1a; /* Dark background color */
+}
+
 .backgroundImage {
   position: absolute;
   top: 0;
@@ -19,8 +29,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.2;
   z-index: -2;
+  opacity: 0.3; /* Reduce opacity to make the background image more subtle */
 }
 
 .backgroundOverlay {
@@ -29,162 +39,164 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: -1;
 }
 
 .programContainer {
   width: 100%;
   max-width: 1200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0 20px;
+  z-index: 1;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 50px;
 }
 
 .programTitle {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+  font-weight: 700;
 }
 
 .programDescription {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  max-width: 600px;
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .pricingGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
-  width: 100%;
-  margin-top: 2rem;
 }
 
 .pricingCard {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  padding: 40px 30px;
-  position: relative;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 30px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
   backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .pricingCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(255, 77, 77, 0.2);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
 .popular {
   border: 2px solid #ff4d4d;
+  transform: scale(1.05);
+}
+
+.popular:hover {
+  transform: scale(1.05) translateY(-10px);
 }
 
 .popularBadge {
   position: absolute;
-  top: -12px;
-  right: 20px;
-  background: #ff4d4d;
-  color: #ffffff;
+  top: 0;
+  right: 0;
+  background-color: #ff4d4d;
+  color: white;
   padding: 5px 15px;
-  border-radius: 20px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  border-bottom-left-radius: 10px;
 }
 
 .planHeader {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
-.planHeader h3 {
-  font-size: 1.5rem;
+.planHeader h3 {  font-size: 1.5rem;
   color: #ffffff;
   margin-bottom: 15px;
 }
 
 .price {
-  margin: 20px 0;
+  margin-bottom: 15px;
 }
 
 .amount {
   font-size: 2.5rem;
-  font-weight: bold;
+  font-weight: 700;
   color: #ff4d4d;
 }
 
 .period {
   font-size: 1rem;
-  color: #ffffff;
-  margin-left: 5px;
+  color: #cccccc;
+  display: block;
 }
 
 .description {
-  color: #ffffff;
-  font-size: 1rem;
-  opacity: 0.9;
+  color: #e0e0e0;
+  font-size: 0.9rem;
 }
 
 .features {
   list-style: none;
   padding: 0;
-  margin: 30px 0;
-  text-align: left;
+  margin: 0 0 25px 0;
 }
 
 .features li {
-  padding: 10px 0;
-  color: #ffffff;
+  padding: 8px 0;
+  color: #e0e0e0;
   display: flex;
   align-items: center;
-  gap: 10px;
-  opacity: 0.9;
 }
 
 .features li i {
   color: #ff4d4d;
+  margin-right: 10px;
   font-size: 1.2rem;
 }
 
 .sliderBtn {
-  margin-top: 2rem;
+  text-align: center;
 }
 
 .buyTicketsBtn {
-  background-color: #ff4d4d;
-  color: #fff;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  text-decoration: none;
   display: inline-block;
-  border-radius: 8px;
-  width: 100%;
+  padding: 10px 25px;
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #ff4d4d;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 .buyTicketsBtn:hover {
-  background-color: #ff3333;
+  background-color: #ff4d4d;
+  color: #ffffff;
 }
 
+.popularButton {
+  background-color: #ff4d4d;
+  color: #ffffff;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .programTitle {
-    font-size: 2.5rem;
-  }
-
-  .programDescription {
-    font-size: 1rem;
-  }
-
   .pricingGrid {
     grid-template-columns: 1fr;
-    max-width: 400px;
-    margin: 2rem auto;
   }
   
-  .amount {
-    font-size: 2rem;
+  .popular {
+    transform: none;
+  }
+  
+  .popular:hover {
+    transform: translateY(-10px);
   }
 }

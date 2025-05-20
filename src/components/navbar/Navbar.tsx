@@ -4,6 +4,7 @@ import styles from './Navbar.module.css';
 import Link from 'next/link';
 import { useAppDispatch } from "@/redux/hooks";
 import { toggleContactModalOpen } from "@/redux/features/contactModalSlice";
+import { usePathname } from 'next/navigation';
 
 function TransparentNavbar() {
   const [showMenu, setShowMenu] = useState(false);
@@ -11,6 +12,8 @@ function TransparentNavbar() {
   const [showDropdown, setShowDropdown] = useState(false);
   const dispatch = useAppDispatch();
   const dropdownRef = useRef<HTMLLIElement | null>(null);
+  const pathname = usePathname(); // ✅ Detect current route
+  const isPricingPage = pathname === '/pricing';
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -49,11 +52,9 @@ function TransparentNavbar() {
 
   return (
     <>
-      <nav
-        className={`navbar navbar-expand-lg navbar-dark ${
-          isScrolled ? 'bg-dark' : 'bg-transparent'
-        } fixed-top py-1 ${styles.navbar}`}
-      >
+    <nav
+  className={`navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-1 ${styles.navbar}`}
+>
         <div className={`container-fluid ${styles['container-fluid']}`}>
           {/* Logo */}
           <Link href="/" className={`navbar-brand ${styles['navbar-brand']}`}>

@@ -6,12 +6,15 @@ import { toggleContactModalOpen } from '@/redux/features/contactModalSlice';
 import styles from './HeroSlider.module.css';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
+
 
 const DynamicSwiperWrapper = dynamic(() => import('./SwiperWrapper'), {
   ssr: false,
