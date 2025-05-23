@@ -190,7 +190,7 @@ const PricingSection: React.FC = () => {
   const pricingPlans = [
     {
       name: "Individual Training",
-      price: "$75",
+      price: "$85",
       plan: "individual",
       period: "per hour",
       description: "One-on-one self-defense training",
@@ -207,7 +207,7 @@ const PricingSection: React.FC = () => {
     {
       name: "10-Session Package",
       plan: "tenpack",
-      price: "$835",
+      price: "$845",
       period: "save $50",
       description: "Best value for consistent training",
       features: [
@@ -223,7 +223,7 @@ const PricingSection: React.FC = () => {
     {
       name: "Monthly Subscription",
       plan: "MonthlySub",
-      price: "$325",
+      price: "$335",
       period: "per month",
       description: "Ongoing training & support",
       features: [
@@ -239,7 +239,7 @@ const PricingSection: React.FC = () => {
     {
       name: "CrossFit Training",
       plan: "crossfit",
-      price: "$105",
+      price: "$115",
       period: "per session",
       description: "High-intensity functional fitness training",
       features: [
@@ -255,7 +255,7 @@ const PricingSection: React.FC = () => {
     {
       name: "Self-Defense Training",
       plan: "selfdefense",
-      price: "$85",
+      price: "$95",
       period: "per session",
       description: "Learn practical self-defense techniques",
       features: [
@@ -271,7 +271,7 @@ const PricingSection: React.FC = () => {
     {
       name: "Functional Fitness",
       plan: "functionalfitness",
-      price: "$95",
+      price: "$105",
       period: "per session",
       description: "Improve strength and mobility for daily life",
       features: [
@@ -287,7 +287,7 @@ const PricingSection: React.FC = () => {
     {
       name: "Mobility Training",
       plan: "mobility",
-      price: "$75",
+      price: "$85",
       period: "per session",
       description: "Enhance flexibility and joint health",
       features: [

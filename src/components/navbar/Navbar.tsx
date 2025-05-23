@@ -53,8 +53,8 @@ function TransparentNavbar() {
   return (
     <>
     <nav
-  className={`navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-1 ${styles.navbar}`}
->
+      className={`navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-1 ${styles.navbar} ${isPricingPage || isScrolled ? styles.solidBg : ''}`}
+    >
         <div className={`container-fluid ${styles['container-fluid']}`}>
           {/* Logo */}
           <Link href="/" className={`navbar-brand ${styles['navbar-brand']}`}>
@@ -111,8 +111,8 @@ function TransparentNavbar() {
           </button>
 
           {/* Social Icons, Phone Number, and Free Evaluation Button */}
-          <ul className="navbar-nav ms-auto d-none d-lg-flex align-items-center" style={{ gap: '10px' }}>
-            <li className="nav-item">
+          <ul className={`navbar-nav ms-auto d-none d-lg-flex align-items-center ${styles.navbarRightItems}`}>
+            <li className={`nav-item ${styles.phoneItem}`}>
               <a className="nav-link" href="tel:786-925-8086" style={{ color: '#f8f9fa' }}>
                 (786) 925-8086
               </a>
