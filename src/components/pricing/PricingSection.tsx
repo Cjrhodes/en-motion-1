@@ -221,6 +221,22 @@ const PricingSection: React.FC = () => {
       popular: true
     },
     {
+      name: "12-Session Package",
+      plan: "twelvepack",
+      price: "$1,150",
+      period: "save $70",
+      description: "Extended training program",
+      features: [
+        "12 one-hour sessions",
+        "Comprehensive skill development",
+        "Advanced techniques",
+        "Flexible scheduling",
+        "Save $70 on regular price"
+      ],
+      buttonText: "Choose Package",
+      popular: false
+    },
+    {
       name: "Monthly Subscription",
       plan: "MonthlySub",
       price: "$335",

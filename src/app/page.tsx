@@ -40,7 +40,9 @@ export default function Home() {
         <DecoLineSection />        
         <OnlineTraining />
         <DecoLineSection />
-        <FounderSection />
+        <div id="About">
+          <FounderSection />
+        </div>
         <TestimonialSection3 />
         <DecoLineSection />      
         <Newsletter />       

@@ -65,7 +65,7 @@ function TransparentNavbar() {
           <div className={`collapse navbar-collapse ${showMenu ? 'show' : ''} ${styles['navbar-collapse']}`} id="navbarNav">
             <ul className={`navbar-nav mx-auto d-none d-lg-flex ${styles['navbar-nav']}`}>
               <li className="nav-item">
-                <a className={`nav-link ${styles['nav-link']}`} href="#About" style={{ color: '#f8f9fa' }}>
+                <a className={`nav-link ${styles['nav-link']}`} href="/#About" style={{ color: '#f8f9fa' }}>
                   About
                 </a>
               </li>
@@ -78,10 +78,10 @@ function TransparentNavbar() {
                   Programs
                 </button>
                 <ul className={`dropdown-menu ${showDropdown ? 'show' : ''}`}>
-                  <li><a className="dropdown-item" href="#Self-Defense">Self-Defense</a></li>
-                  <li><a className="dropdown-item" href="#OnlineTraining">Online Training</a></li>
-                  <li><a className="dropdown-item" href="#PersonalTraining">Personal Training</a></li>
-                  <li><a className="dropdown-item" href="#CorporateWellness">Corporate Wellness</a></li>
+                  <li><a className="dropdown-item" href="/#Self-Defense">Self-Defense</a></li>
+                  <li><a className="dropdown-item" href="/#OnlineTraining">Online Training</a></li>
+                  <li><a className="dropdown-item" href="/#PersonalTraining">Personal Training</a></li>
+                  <li><a className="dropdown-item" href="/#CorporateWellness">Corporate Wellness</a></li>
                 </ul>
               </li>
               <li className="nav-item">
@@ -149,7 +149,7 @@ function TransparentNavbar() {
         <div className="offcanvas-body">
           <ul className="navbar-nav" style={{ gap: '1rem' }}>
             <li className="nav-item">
-              <a className="nav-link" href="#About" onClick={toggleMenu} style={{ color: '#f8f9fa' }}>
+              <a className="nav-link" href="/#About" onClick={toggleMenu} style={{ color: '#f8f9fa' }}>
                 About
               </a>
             </li>
@@ -162,10 +162,10 @@ function TransparentNavbar() {
                 Programs/Services
               </button>
               <ul className={`dropdown-menu ${showDropdown ? 'show' : ''}`}>
-                <li><a className="dropdown-item" href="#Self-Defense" onClick={toggleMenu}>Self-Defense</a></li>
-                <li><a className="dropdown-item" href="#OnlineTraining" onClick={toggleMenu}>Online Training</a></li>
-                <li><a className="dropdown-item" href="#PersonalTraining" onClick={toggleMenu}>Personal Training</a></li>
-                <li><a className="dropdown-item" href="#CorporateWellness" onClick={toggleMenu}>Corporate Wellness</a></li>
+                <li><a className="dropdown-item" href="/#Self-Defense" onClick={toggleMenu}>Self-Defense</a></li>
+                <li><a className="dropdown-item" href="/#OnlineTraining" onClick={toggleMenu}>Online Training</a></li>
+                <li><a className="dropdown-item" href="/#PersonalTraining" onClick={toggleMenu}>Personal Training</a></li>
+                <li><a className="dropdown-item" href="/#CorporateWellness" onClick={toggleMenu}>Corporate Wellness</a></li>
               </ul>
             </li>
             {/* Add Self-Defense Event link to mobile menu */}
