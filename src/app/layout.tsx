@@ -1,15 +1,15 @@
 import { Providers } from "@/redux/provider";
-import { ToastContainer } from "react-toastify";
+// import { ToastContainer } from "react-toastify";
 import Script from 'next/script';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from "@vercel/analytics/react"
+// import { SpeedInsights } from '@vercel/speed-insights/react';
+// import { Analytics } from "@vercel/analytics/react"
 
 // Third-party CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "swiper/css/bundle";
-import "react-toastify/dist/ReactToastify.css";
+// import "react-toastify/dist/ReactToastify.css";
 
 // Custom CSS
 import "../../public/css/all.min.css";
@@ -56,11 +56,11 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <SpeedInsights/>
-        <Analytics />
+        {/* <SpeedInsights/> */}
+        {/* <Analytics /> */}
         <Providers>
           {children}
-          <ToastContainer />
+          {/* <ToastContainer /> */}
         </Providers>
       </body> 
     </html>

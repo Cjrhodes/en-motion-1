@@ -48,8 +48,6 @@ const nextConfig = {
   compress: true,
   // Enable React strict mode for better performance
   reactStrictMode: true,
-  // Optimize production builds
-  swcMinify: true,
   // Configure headers for better caching
   async headers() {
     return [

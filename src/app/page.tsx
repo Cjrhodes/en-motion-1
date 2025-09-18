@@ -14,8 +14,8 @@ import OnlineTraining from "src/components/program/OnlineTrainingProgram";
 import PricingSection from "src/components/pricing/PricingSection";
 import dynamic from 'next/dynamic';
 
-const TestimonialSection3 = dynamic(() => import('src/components/testimonials/TestimonialSection3'), { ssr: false });
-const FounderSection = dynamic(() => import('src/components/founder/FounderSection'), { ssr: false });
+const TestimonialSection3 = dynamic(() => import('src/components/testimonials/TestimonialSection3'));
+const FounderSection = dynamic(() => import('src/components/founder/FounderSection'));
 
 export const metadata = {
   title: "En Motion",

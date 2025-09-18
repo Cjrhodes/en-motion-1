@@ -187,6 +187,7 @@ const PricingSection: React.FC = () => {
     setIsModalOpen(false);
   };
 
+  console.log('Loading PricingSection component');
   const pricingPlans = [
     {
       name: "Individual Training",
@@ -216,6 +217,22 @@ const PricingSection: React.FC = () => {
         "Progress tracking",
         "Flexible scheduling",
         "Save $50 on regular price"
+      ],
+      buttonText: "Choose Package",
+      popular: true
+    },
+    {
+      name: "12-Session Package",
+      plan: "twelvepack",
+      price: "$1150",
+      period: "save $70",
+      description: "Extended training for maximum results",
+      features: [
+        "12 one-hour sessions",
+        "Structured progression",
+        "Progress tracking",
+        "Flexible scheduling",
+        "Save $70 on regular price"
       ],
       buttonText: "Choose Package",
       popular: true
@@ -301,6 +318,9 @@ const PricingSection: React.FC = () => {
       popular: false
     }
   ];
+
+  console.log('Number of pricing plans:', pricingPlans.length);
+  console.log('Plans:', pricingPlans.map(p => p.name));
 
   return (
     <section id="Pricing" className={`${styles.fullScreenContainer} ${styles.pricingPage}`}>
