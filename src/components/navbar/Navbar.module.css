@@ -9,16 +9,29 @@
   height: 90px; /* Increased height */
 }
 
+.navbar {
+  display: flex;
+  align-items: center; /* Center all navbar content vertically */
+  min-height: 80px; /* Ensure minimum height */
+}
+
 .navbar-nav {
+  display: flex;
   justify-content: center;
+  align-items: center; /* Center items vertically */
   width: 100%;
   gap: 2rem; /* Add spacing between nav items */
+  margin: 0; /* Reset margin */
+  height: 100%; /* Full height of parent */
 }
 
 .nav-link {
   font-size: 1.4rem !important; /* Increased font size */
   padding: 0.7rem 1.2rem !important; /* Increased padding */
   transition: color 0.3s ease;
+  display: flex;
+  align-items: center; /* Center text vertically */
+  height: 100%;
 }
 
 .nav-link:hover {
@@ -26,32 +39,48 @@
 }
 
 .container-fluid {
+  display: flex;
   justify-content: space-between;
+  align-items: center; /* Center all items vertically */
   padding: 0 2rem; /* Added horizontal padding */
   max-width: 1400px;
   margin: 0 auto;
+  height: 100%; /* Full height of navbar */
 }
 
 .navbar-brand,
 .navbar-toggler,
 .ms-auto {
   flex: 0 0 auto;
+  display: flex;
+  align-items: center; /* Center vertically */
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .navbar-brand :global(.logoImg) {
   max-height: 150px;
   width: auto;
+  display: block;
 }
 
 .navbar-collapse {
   flex-grow: 2;
+  display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%; /* Full height to center items */
 }
 
 /* Dropdown styles */
 .dropdown {
   position: relative;
+  display: flex;
+  align-items: center; /* Center dropdown vertically */
 }
 
 .dropdown .dropdown-menu {
@@ -79,12 +108,28 @@
   background-color: #333;
 }
 
+/* Right side navbar items */
+.navbarRightItems {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  gap: 1rem;
+  margin: 0;
+  height: 100%;
+}
+
+.phoneItem {
+  display: flex;
+  align-items: center;
+}
+
 /* Free Evaluation Button */
 .freeEvaluationBtn {
   padding: 0.7rem 1.5rem !important;
   font-size: 1.2rem !important;
   border: none;
   transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center; /* Center button text vertically */
 }
 
 .freeEvaluationBtn:hover {

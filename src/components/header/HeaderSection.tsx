@@ -1,8 +1,7 @@
 "use client";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useAppDispatch } from "@/redux/hooks";
 import React, { useEffect, useState } from "react";
 import { toggleContactModalOpen } from "@/redux/features/contactModalSlice";
-import { toggleSidebarOpen } from "@/redux/features/sidebarSlice";
 import { usePathname } from "next/navigation";
 import TransparentNavbar from "@/components/navbar/Navbar";
 
@@ -14,7 +13,6 @@ const HeaderSection = ({ contactModal }: Props) => {
   const pathname = usePathname();
   const dispatch = useAppDispatch();
   const [isHeaderFixed, setIsHeaderFixed] = useState(false);
-  const isSidebarOpen = useAppSelector((state) => state.sidebar.isSidebarOpen);
 
   const openContactModal = () => {
     // Use the action creator as a function
@@ -22,13 +20,8 @@ const HeaderSection = ({ contactModal }: Props) => {
     dispatch(action);
   };
 
-  const openSidebar = () => {
-    dispatch(toggleSidebarOpen());
-    setIsHeaderFixed(false);
-  };
-
   const handleScroll = () => {
-    if (window.scrollY >= 200 && !isSidebarOpen) {
+    if (window.scrollY >= 200) {
       setIsHeaderFixed(true);
     } else {
       setIsHeaderFixed(false);
@@ -41,7 +34,7 @@ const HeaderSection = ({ contactModal }: Props) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [handleScroll, isSidebarOpen]);
+  }, []);
 
   return (
     <header className={`header ${isHeaderFixed ? "fixed" : ""}`}>

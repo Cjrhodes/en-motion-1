@@ -229,6 +229,8 @@ const PricingSection: React.FC = () => {
       description: "Extended training for maximum results",
       features: [
         "12 one-hour sessions",
+        "Comprehensive skill development",
+        "Advanced techniques",
         "Structured progression",
         "Progress tracking",
         "Flexible scheduling",

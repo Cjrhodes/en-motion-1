@@ -2,136 +2,109 @@
 
 import React, { useState } from 'react';
 import { useAppSelector } from '@/redux/hooks';
+import styles from './EvaluationForm.module.css';
+
+interface FormData {
+  email: string;
+  phone: string;
+}
 
 const EvaluationForm: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
+  const [formData, setFormData] = useState<FormData>({ email: '', phone: '' });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const selectedPackage = useAppSelector((state) => state.contactModal.selectedPackage);
 
-  console.log('Selected package in EvaluationForm:', selectedPackage); // Log the Redux state
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form submission started with package:', selectedPackage);
     setStatus('loading');
-    
+
     try {
-      console.log('Sending request to /api/subscribe with package:', selectedPackage);
       const response = await fetch('/api/subscribe', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ 
-          email, 
-          phone,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: formData.email,
+          phone: formData.phone,
           formType: 'evaluation',
           tag: selectedPackage || 'FreeEval',
-          packageType: selectedPackage // Use this for the PLAN merge field in Mailchimp
+          packageType: selectedPackage
         }),
       });
 
-      console.log('Response received:', response.status);
-      
-      if (!response.ok) {
-        throw new Error('Submission failed');
-      }
-
-      const data = await response.json();
-      console.log('Response data from Mailchimp:', data);
+      if (!response.ok) throw new Error('Submission failed');
 
       setStatus('success');
-      setEmail('');
-      setPhone('');
+      setFormData({ email: '', phone: '' });
+      setTimeout(() => setStatus('idle'), 5000);
     } catch (error) {
-      console.error('Error submitting form:', error);
       setStatus('error');
       setErrorMessage(error instanceof Error ? error.message : 'An unexpected error occurred');
+      setTimeout(() => setStatus('idle'), 5000);
     }
   };
 
-  const formStyles: React.CSSProperties = {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '1rem',
-    maxWidth: '400px',
-    margin: '0 auto',
-  };
-
-  const inputStyles: React.CSSProperties = {
-    padding: '0.5rem',
-    fontSize: '1rem',
-    border: '1px solid #ccc',
-    borderRadius: '4px',
-  };
-
-  const buttonStyles: React.CSSProperties = {
-    padding: '0.5rem 1rem',
-    fontSize: '1rem',
-    backgroundColor: '#ac161e',
-    color: 'white',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-    transition: 'background-color 0.3s ease',
-  };
-
-  const disabledButtonStyles: React.CSSProperties = {
-    ...buttonStyles,
-    backgroundColor: '#cccccc',
-    cursor: 'not-allowed',
-  };
-
-  const messageStyles: React.CSSProperties = {
-    marginTop: '1rem',
-    padding: '0.5rem',
-    borderRadius: '4px',
-    textAlign: 'center',
-  };
-
-  const successMessageStyles: React.CSSProperties = {
-    ...messageStyles,
-    backgroundColor: '#d4edda',
-    color: '#155724',
-  };
-
-  const errorMessageStyles: React.CSSProperties = {
-    ...messageStyles,
-    backgroundColor: '#f8d7da',
-    color: '#721c24',
-  };
-
   return (
-    <form onSubmit={handleSubmit} style={formStyles}>
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email Address"
-        required
-        style={inputStyles}
-      />
-      <input
-        type="tel"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-        placeholder="Phone Number (optional)"
-        style={inputStyles}
-      />
-      <button 
-        type="submit" 
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <div className={styles.formGroup}>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleInputChange}
+          placeholder="Email Address"
+          required
+          className={styles.input}
+          aria-label="Email Address"
+        />
+      </div>
+
+      <div className={styles.formGroup}>
+        <input
+          type="tel"
+          name="phone"
+          value={formData.phone}
+          onChange={handleInputChange}
+          placeholder="Phone Number (optional)"
+          className={styles.input}
+          aria-label="Phone Number"
+        />
+      </div>
+
+      <button
+        type="submit"
         disabled={status === 'loading'}
-        style={status === 'loading' ? disabledButtonStyles : buttonStyles}
+        className={`${styles.submitButton} ${status === 'loading' ? styles.loading : ''}`}
       >
-        {status === 'loading' ? 'Submitting...' : 'Get Free Evaluation'}
+        {status === 'loading' ? (
+          <span className={styles.buttonContent}>
+            <span className={styles.spinner}></span>
+            Submitting...
+          </span>
+        ) : 'Get Free Evaluation'}
       </button>
+
       {status === 'success' && (
-        <p style={successMessageStyles}>Thank you for your submission!</p>
+        <div className={`${styles.message} ${styles.success}`} role="alert">
+          <svg className={styles.icon} viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+          </svg>
+          Thank you! We'll contact you soon.
+        </div>
       )}
+
       {status === 'error' && (
-        <p style={errorMessageStyles}>{errorMessage}</p>
+        <div className={`${styles.message} ${styles.error}`} role="alert">
+          <svg className={styles.icon} viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+          </svg>
+          {errorMessage || 'Something went wrong. Please try again.'}
+        </div>
       )}
     </form>
   );

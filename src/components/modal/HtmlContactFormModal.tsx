@@ -3,87 +3,94 @@ import React, { useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { toggleContactModalOpen } from '@/redux/features/contactModalSlice';
 import EvaluationForm from 'src/components/form/EvaluationForm';
+import styles from './HtmlContactFormModal.module.css';
 
 const HtmlContactFormModal: React.FC = () => {
   const dispatch = useAppDispatch();
   const isOpen = useAppSelector((state) => state.contactModal.isOpen);
   const selectedPackage = useAppSelector((state) => state.contactModal.selectedPackage);
 
-  console.log('HtmlContactFormModal - isOpen:', isOpen, 'selectedPackage:', selectedPackage, 'state:', JSON.stringify(useAppSelector((state) => state.contactModal)));
-
-  // Debug log when component mounts
   useEffect(() => {
-    console.log("HtmlContactFormModal: Component mounted");
-    return () => console.log("HtmlContactFormModal: Component unmounted");
-  }, []);
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
 
-  // Debug log when modal state changes
-  useEffect(() => {
-    console.log("HtmlContactFormModal: Modal state changed to:", isOpen);
-    console.log("HtmlContactFormModal: Full state:", JSON.stringify({ isOpen, selectedPackage }));
-  }, [isOpen, selectedPackage]);
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   const handleClose = () => {
-    console.log('Closing modal');
     dispatch(toggleContactModalOpen(null));
   };
 
-  if (!isOpen) {
-    return null;
-  }
+  const handleBackdropClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      handleClose();
+    }
+  };
+
+  const handleEscapeKey = (e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      handleClose();
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscapeKey);
+      return () => document.removeEventListener('keydown', handleEscapeKey);
+    }
+  }, [isOpen]);
+
+  if (!isOpen) return null;
 
   return (
-    <div 
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        zIndex: 9999,
-      }}
-      onClick={handleClose}
+    <div
+      className={styles.modalOverlay}
+      onClick={handleBackdropClick}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
     >
-      <div 
-        style={{
-          backgroundColor: 'white',
-          borderRadius: '5px',
-          maxWidth: '500px',
-          width: '100%',
-          padding: '20px',
-          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-        }}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div 
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginBottom: '15px',
-            paddingBottom: '10px',
-            borderBottom: '1px solid #e9ecef',
-          }}
-        >
-          <h5 style={{ margin: 0 }}>Get Free Evaluation</h5>
-          <button 
-            style={{
-              background: 'none',
-              border: 'none',
-              fontSize: '1.5rem',
-              cursor: 'pointer',
-              padding: 0,
-            }}
+      <div className={styles.modalContent}>
+        <div className={styles.modalHeader}>
+          <h2 id="modal-title" className={styles.modalTitle}>
+            Get Your Free Evaluation
+          </h2>
+          <button
+            className={styles.closeButton}
             onClick={handleClose}
+            aria-label="Close modal"
+            type="button"
           >
-            &times;
+            <svg
+              className={styles.closeIcon}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
           </button>
         </div>
-        <div>
+
+        <div className={styles.modalBody}>
+          {selectedPackage && (
+            <p className={styles.selectedPackage}>
+              Selected: <strong>{selectedPackage}</strong>
+            </p>
+          )}
+          <p className={styles.description}>
+            Take the first step towards your fitness goals. Fill out the form below and we'll get in touch within 24 hours.
+          </p>
           <EvaluationForm />
         </div>
       </div>
