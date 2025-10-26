@@ -191,7 +191,7 @@ const PricingSection: React.FC = () => {
   const pricingPlans = [
     {
       name: "Individual Training",
-      price: "$85",
+      price: "$120",
       plan: "individual",
       period: "per hour",
       description: "One-on-one self-defense training",
@@ -208,7 +208,7 @@ const PricingSection: React.FC = () => {
     {
       name: "10-Session Package",
       plan: "tenpack",
-      price: "$845",
+      price: "$1000",
       period: "save $50",
       description: "Best value for consistent training",
       features: [
@@ -224,7 +224,7 @@ const PricingSection: React.FC = () => {
     {
       name: "12-Session Package",
       plan: "twelvepack",
-      price: "$1150",
+      price: "$1200",
       period: "save $70",
       description: "Extended training for maximum results",
       features: [
@@ -237,44 +237,12 @@ const PricingSection: React.FC = () => {
         "Save $70 on regular price"
       ],
       buttonText: "Choose Package",
-      popular: true
-    },
-    {
-      name: "Monthly Subscription",
-      plan: "MonthlySub",
-      price: "$335",
-      period: "per month",
-      description: "Ongoing training & support",
-      features: [
-        "4 sessions per month",
-        "Consistent progress",
-        "Regular skill assessment",
-        "Priority scheduling",
-        "Monthly progress review"
-      ],
-      buttonText: "Subscribe",
-      popular: false
-    },
-    {
-      name: "CrossFit Training",
-      plan: "crossfit",
-      price: "$115",
-      period: "per session",
-      description: "High-intensity functional fitness training",
-      features: [
-        "Group-based workouts",
-        "Strength and conditioning",
-        "Scalable exercises",
-        "Certified trainers",
-        "Community support"
-      ],
-      buttonText: "Join Now",
       popular: false
     },
     {
       name: "Self-Defense Training",
       plan: "selfdefense",
-      price: "$95",
+      price: "$120",
       period: "per session",
       description: "Learn practical self-defense techniques",
       features: [
