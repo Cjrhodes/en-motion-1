@@ -9,8 +9,14 @@ const Modal: React.FC<{
   isOpen: boolean;
   onClose: () => void;
   packageName: string;
-}> = ({ isOpen, onClose, packageName }) => {
+  packageDisplayName: string;
+}> = ({ isOpen, onClose, packageName, packageDisplayName }) => {
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+
+  // Reset success message when package changes
+  useEffect(() => {
+    setSuccessMessage(null);
+  }, [packageName]);
 
   if (!isOpen) return null;
   
@@ -106,7 +112,7 @@ const Modal: React.FC<{
           </button>
         </div>
         <div>
-          <p>Selected package: {packageName}</p>
+          <p>Selected package: <strong>{packageDisplayName}</strong></p>
           {successMessage ? (
             <p>{successMessage}</p>
           ) : (
@@ -167,21 +173,23 @@ const PricingSection: React.FC = () => {
   const [description, setDescription] = useState("Choose the perfect training option for your goals");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
-  
+  const [selectedPackageDisplayName, setSelectedPackageDisplayName] = useState<string>('');
+
   useEffect(() => {
     setDescription("Choose the perfect training option for your goals");
-    
+
     // Force the window to scroll a bit to trigger the navbar solid background
     window.scrollTo(0, 1);
-    
+
   }, []);
-  
-  const openContactModal = (packageName: string) => {
-    console.log('Opening contact modal with package:', packageName);
-    setSelectedPackage(packageName);
+
+  const openContactModal = (packageId: string, packageName: string) => {
+    console.log('Opening contact modal with package:', packageId, packageName);
+    setSelectedPackage(packageId);
+    setSelectedPackageDisplayName(packageName);
     setIsModalOpen(true);
   };
-  
+
   const closeModal = () => {
     console.log('Closing modal');
     setIsModalOpen(false);
@@ -329,7 +337,7 @@ const PricingSection: React.FC = () => {
                   className={`${styles.buyTicketsBtn} ${plan.popular ? styles.popularButton : ''}`}
                   onClick={(e) => {
                     e.preventDefault();
-                    openContactModal(plan.plan);
+                    openContactModal(plan.plan, plan.name);
                   }}
                 >
                   {plan.buttonText}
@@ -343,9 +351,11 @@ const PricingSection: React.FC = () => {
       {/* Render the modal */}
       {selectedPackage && (
         <Modal
+          key={selectedPackage}
           isOpen={isModalOpen}
           onClose={closeModal}
           packageName={selectedPackage}
+          packageDisplayName={selectedPackageDisplayName}
         />
       )}
     </section>
