@@ -31,12 +31,14 @@ const HeroSlider = () => {
         <DynamicSwiperWrapper>
               <div className={styles['hero-slider-item']}>
                 <Image
-                  src="/img/girl-kickboxing1.png"
+                  src="/img/girl-kickboxing1.jpg"
                   alt="Kickboxing training"
                   fill
                   priority
-                  quality={90}
+                  quality={75}
                   sizes="100vw"
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAgEDBAMBAAAAAAAAAAAAAQIDAAQFBhESIQcTMUH/xAAVAQEBAAAAAAAAAAAAAAAAAAADBP/EABoRAAICAwAAAAAAAAAAAAAAAAECABEDITH/2gAMAwEAAhEDEEA/AMg0/q3U+HxsNpY5aaO3iQJHGVQhVHQAJU8j8NKUqhMerN4DF0z/2Q=="
                   style={{
                     objectFit: 'cover',
                     objectPosition: 'center',
