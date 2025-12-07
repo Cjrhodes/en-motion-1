@@ -133,70 +133,63 @@ function TransparentNavbar() {
 
       {/* Hamburger Menu */}
       <div
-        className={`offcanvas offcanvas-end ${showMenu ? 'show' : ''}`}
+        className={`offcanvas offcanvas-end ${showMenu ? 'show' : ''} ${styles.mobileMenu}`}
         id="offcanvasNavbar"
-        style={{ backgroundColor: '#333' }}
       >
         <div className="offcanvas-header">
           <button
             type="button"
-            className="btn-close"
+            className="btn-close btn-close-white"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
             onClick={toggleMenu}
-            style={{ color: '#f8f9fa' }}
           ></button>
         </div>
         <div className="offcanvas-body">
-          <ul className="navbar-nav" style={{ gap: '1rem' }}>
-            <li className="nav-item">
-              <a className="nav-link" href={isHomePage ? "#About" : "/#About"} onClick={toggleMenu} style={{ color: '#f8f9fa' }}>
+          <ul className={styles.mobileMenuList}>
+            <li className={styles.mobileMenuItem}>
+              <a className={styles.mobileMenuLink} href={isHomePage ? "#About" : "/#About"} onClick={toggleMenu}>
                 About
               </a>
             </li>
-            <li className={`nav-item dropdown ${styles.dropdown}`}>
+            <li className={`${styles.mobileMenuItem} ${styles.dropdown}`}>
               <button
-                className="nav-link dropdown-toggle"
+                className={styles.mobileMenuLink}
                 onClick={toggleDropdown}
-                style={{ color: '#f8f9fa', background: 'none', border: 'none' }}
+                style={{ background: 'none', border: 'none', width: '100%', textAlign: 'left' }}
               >
-                Programs/Services
+                Programs/Services ▾
               </button>
-              <ul className={`dropdown-menu ${showDropdown ? 'show' : ''}`}>
+              <ul className={`dropdown-menu ${showDropdown ? 'show' : ''}`} style={{ paddingLeft: '1rem' }}>
                 <li><a className="dropdown-item" href={isHomePage ? "#Self-Defense" : "/#Self-Defense"} onClick={toggleMenu}>Self-Defense</a></li>
                 <li><a className="dropdown-item" href={isHomePage ? "#OnlineTraining" : "/#OnlineTraining"} onClick={toggleMenu}>Online Training</a></li>
                 <li><a className="dropdown-item" href={isHomePage ? "#PersonalTraining" : "/#PersonalTraining"} onClick={toggleMenu}>Personal Training</a></li>
                 <li><a className="dropdown-item" href={isHomePage ? "#CorporateWellness" : "/#CorporateWellness"} onClick={toggleMenu}>Corporate Wellness</a></li>
               </ul>
             </li>
-            {/* Add Self-Defense Event link to mobile menu */}
-            <li className="nav-item">
-              <Link href="/self-defense-event" className="nav-link" onClick={toggleMenu} style={{ color: '#f8f9fa' }}>
-                Self-Defense Event
+            <li className={styles.mobileMenuItem}>
+              <Link href="/self-defense-event" className={styles.mobileMenuLink} onClick={toggleMenu}>
+                Self-Defense Seminar
               </Link>
             </li>
-            <li className="nav-item">
-              <Link href="/pricing" className="nav-link" onClick={toggleMenu} style={{ color: '#f8f9fa' }}>
+            <li className={styles.mobileMenuItem}>
+              <Link href="/pricing" className={styles.mobileMenuLink} onClick={toggleMenu}>
                 Pricing
               </Link>
             </li>
-            <li className="nav-item">
-              <Link href="/blog" className="nav-link" onClick={toggleMenu} style={{ color: '#f8f9fa' }}>
-                Blog
-              </Link>
-            </li>
           </ul>
-          <ul className="navbar-nav" style={{ gap: '1rem' }}>
-            <li className="nav-item">
-              <a className="nav-link" href="tel:786-925-8086" style={{ color: '#f8f9fa' }}>
+          <div className={styles.mobileMenuDivider}></div>
+          <ul className={styles.mobileMenuList}>
+            <li className={styles.mobileMenuItem}>
+              <a className={styles.mobileMenuLink} href="tel:786-925-8086">
                 (786) 925-8086
               </a>
             </li>
-            <li className="nav-item">
+            <li className={styles.mobileMenuItem}>
               <button
-                className={`nav-link buyTicketsBtn rounded-pill ${styles.freeEvaluationBtn}`}
-                onClick={openContactModal}
-                style={{ color: '#f8f9fa', backgroundColor: '#ac161e' }}
+                className={`buyTicketsBtn rounded-pill ${styles.freeEvaluationBtn}`}
+                onClick={() => { openContactModal(); toggleMenu(); }}
+                style={{ color: '#f8f9fa', backgroundColor: '#ac161e', width: '100%' }}
               >
                 Free Evaluation
               </button>

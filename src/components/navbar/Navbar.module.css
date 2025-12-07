@@ -157,7 +157,7 @@
   }
 
   .navContainer {
-    height: 80px; /* Slightly smaller height on mobile */
+    height: 80px;
     padding: 5px 10px;
   }
 
@@ -169,4 +169,42 @@
   .navbar-brand :global(.logoImg) {
     max-height: 40px;
   }
+}
+
+/* Mobile hamburger menu styles */
+.mobileMenu {
+  background-color: #333;
+}
+
+.mobileMenuList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobileMenuItem {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobileMenuItem:last-child {
+  border-bottom: none;
+}
+
+.mobileMenuLink {
+  color: #f8f9fa !important;
+  font-size: 1.1rem;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 0;
+}
+
+.mobileMenuLink:hover {
+  color: #ac161e !important;
+}
+
+.mobileMenuDivider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 1rem 0;
 }
