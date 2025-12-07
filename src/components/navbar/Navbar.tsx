@@ -10,6 +10,7 @@ function TransparentNavbar() {
   const [showMenu, setShowMenu] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [showMobileDropdown, setShowMobileDropdown] = useState(false);
   const dispatch = useAppDispatch();
   const dropdownRef = useRef<HTMLLIElement | null>(null);
   const pathname = usePathname(); // ✅ Detect current route
@@ -18,11 +19,18 @@ function TransparentNavbar() {
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
+    setShowMobileDropdown(false);
   };
 
   const toggleDropdown = (e: React.MouseEvent) => {
     e.preventDefault();
     setShowDropdown(!showDropdown);
+  };
+
+  const toggleMobileDropdown = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setShowMobileDropdown(!showMobileDropdown);
   };
 
   const openContactModal = () => {
@@ -152,19 +160,19 @@ function TransparentNavbar() {
                 About
               </a>
             </li>
-            <li className={`${styles.mobileMenuItem} ${styles.dropdown}`}>
+            <li className={styles.mobileMenuItem}>
               <button
                 className={styles.mobileMenuLink}
-                onClick={toggleDropdown}
-                style={{ background: 'none', border: 'none', width: '100%', textAlign: 'left' }}
+                onClick={toggleMobileDropdown}
+                style={{ background: 'none', border: 'none', width: '100%', textAlign: 'left', cursor: 'pointer' }}
               >
-                Programs/Services ▾
+                Programs/Services {showMobileDropdown ? '▴' : '▾'}
               </button>
-              <ul className={`dropdown-menu ${showDropdown ? 'show' : ''}`} style={{ paddingLeft: '1rem' }}>
-                <li><a className="dropdown-item" href={isHomePage ? "#Self-Defense" : "/#Self-Defense"} onClick={toggleMenu}>Self-Defense</a></li>
-                <li><a className="dropdown-item" href={isHomePage ? "#OnlineTraining" : "/#OnlineTraining"} onClick={toggleMenu}>Online Training</a></li>
-                <li><a className="dropdown-item" href={isHomePage ? "#PersonalTraining" : "/#PersonalTraining"} onClick={toggleMenu}>Personal Training</a></li>
-                <li><a className="dropdown-item" href={isHomePage ? "#CorporateWellness" : "/#CorporateWellness"} onClick={toggleMenu}>Corporate Wellness</a></li>
+              <ul className={`${styles.mobileDropdown} ${showMobileDropdown ? styles.show : ''}`}>
+                <li className={styles.mobileDropdownItem}><a className={styles.mobileDropdownLink} href={isHomePage ? "#Self-Defense" : "/#Self-Defense"} onClick={toggleMenu}>Self-Defense</a></li>
+                <li className={styles.mobileDropdownItem}><a className={styles.mobileDropdownLink} href={isHomePage ? "#OnlineTraining" : "/#OnlineTraining"} onClick={toggleMenu}>Online Training</a></li>
+                <li className={styles.mobileDropdownItem}><a className={styles.mobileDropdownLink} href={isHomePage ? "#PersonalTraining" : "/#PersonalTraining"} onClick={toggleMenu}>Personal Training</a></li>
+                <li className={styles.mobileDropdownItem}><a className={styles.mobileDropdownLink} href={isHomePage ? "#CorporateWellness" : "/#CorporateWellness"} onClick={toggleMenu}>Corporate Wellness</a></li>
               </ul>
             </li>
             <li className={styles.mobileMenuItem}>

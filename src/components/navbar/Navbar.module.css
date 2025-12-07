@@ -208,3 +208,31 @@
   background-color: rgba(255, 255, 255, 0.2);
   margin: 1rem 0;
 }
+
+/* Mobile dropdown styles */
+.mobileDropdown {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  padding-left: 1rem;
+}
+
+.mobileDropdown.show {
+  display: block;
+}
+
+.mobileDropdownItem {
+  padding: 0.5rem 0;
+}
+
+.mobileDropdownLink {
+  color: #f8f9fa !important;
+  font-size: 1rem;
+  text-decoration: none;
+  display: block;
+}
+
+.mobileDropdownLink:hover {
+  color: #ac161e !important;
+}
