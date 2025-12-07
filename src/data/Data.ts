@@ -1,5 +1,3 @@
-import { text } from "stream/consumers";
-
 const trainingProgramData: TrainingProgram[] = [
   {
     id: 1,
