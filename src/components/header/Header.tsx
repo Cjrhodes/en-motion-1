@@ -3,7 +3,7 @@
 import React from 'react';
 import { useAppDispatch } from '@/redux/hooks';
 import { toggleContactModalOpen } from '@/redux/features/contactModalSlice';
-import styles from './HeroSlider.module.css';
+import styles from '../hero/HeroSlider.module.css';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 // Import Swiper React components
