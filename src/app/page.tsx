@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from 'next';
 import HeaderSection from "src/components/header/HeaderSection";
 import AboutSection3 from "src/components/about/AboutSection3";
 import FooterSection3 from "src/components/footer/FooterSection3";
@@ -17,9 +18,17 @@ import dynamic from 'next/dynamic';
 const TestimonialSection3 = dynamic(() => import('src/components/testimonials/TestimonialSection3'));
 const FounderSection = dynamic(() => import('src/components/founder/FounderSection'));
 
-export const metadata = {
-  title: "En Motion",
-  description: "Fitness and self-defense training in Miami, FL",
+export const metadata: Metadata = {
+  title: "En Motion | Fitness & Self-Defense Training in Miami, FL",
+  description: "Transform your life with En Motion in Miami, FL. Personal training, self-defense classes, corporate wellness programs, and online training. Book your free evaluation today!",
+  openGraph: {
+    title: "En Motion | Fitness & Self-Defense Training in Miami, FL",
+    description: "Transform your life with personal training, self-defense classes, and corporate wellness programs in Miami.",
+    url: "/",
+  },
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function Home() {

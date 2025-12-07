@@ -1,15 +1,13 @@
 import { Providers } from "@/redux/provider";
-// import { ToastContainer } from "react-toastify";
 import Script from 'next/script';
-// import { SpeedInsights } from '@vercel/speed-insights/react';
-// import { Analytics } from "@vercel/analytics/react"
+import type { Metadata } from 'next';
+import LocalBusinessSchema from '@/components/seo/LocalBusinessSchema';
 
 // Third-party CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "swiper/css/bundle";
-// import "react-toastify/dist/ReactToastify.css";
 
 // Custom CSS
 import "../../public/css/all.min.css";
@@ -20,6 +18,60 @@ import "../../public/css/boxicons.min.css";
 import "../../public/css/flaticon.css";
 import "../../public/css/style.css";
 import "../../public/css/responsive.css";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://enmotionmiami.com';
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: 'En Motion | Fitness & Self-Defense Training in Miami, FL',
+    template: '%s | En Motion Miami',
+  },
+  description: 'Transform your life with En Motion in Miami, FL. We offer personal training, self-defense classes, corporate wellness programs, and online training. Book your free evaluation today!',
+  keywords: ['fitness training Miami', 'self-defense classes Miami', 'personal trainer Miami', 'corporate wellness Miami', 'kickboxing Miami', 'martial arts Miami', 'online fitness training', 'En Motion'],
+  authors: [{ name: 'En Motion' }],
+  creator: 'En Motion',
+  publisher: 'En Motion',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: siteUrl,
+    siteName: 'En Motion',
+    title: 'En Motion | Fitness & Self-Defense Training in Miami, FL',
+    description: 'Transform your life with En Motion in Miami, FL. Personal training, self-defense classes, corporate wellness, and online training programs.',
+    images: [
+      {
+        url: '/img/girl-kickboxing1.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'En Motion - Fitness & Self-Defense Training in Miami',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'En Motion | Fitness & Self-Defense Training in Miami, FL',
+    description: 'Transform your life with En Motion in Miami, FL. Personal training, self-defense classes, corporate wellness, and online training.',
+    images: ['/img/girl-kickboxing1.jpg'],
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
+  verification: {
+    google: 'AW-16680316399',
+  },
+};
 
 export default function RootLayout({
   children,
@@ -56,11 +108,9 @@ export default function RootLayout({
         />
       </head>
       <body>
-        {/* <SpeedInsights/> */}
-        {/* <Analytics /> */}
+        <LocalBusinessSchema />
         <Providers>
           {children}
-          {/* <ToastContainer /> */}
         </Providers>
       </body> 
     </html>

@@ -8,8 +8,16 @@ import PricingSection from "@/components/pricing/PricingSection"; // Import the 
 //import Lightbox from "@/components/modal/Lightbox";
 
 export const metadata: Metadata = {
-  title: "Pricing - En Motion", // Update title for the pricing page
-  description: "Choose the best pricing plan for your fitness goals at En Motion.", // Update description
+  title: "Pricing",
+  description: "Affordable fitness training packages at En Motion Miami. Choose from personal training, self-defense classes, and corporate wellness programs. View our pricing plans.",
+  openGraph: {
+    title: "Pricing | En Motion Miami",
+    description: "Affordable fitness training packages. Personal training, self-defense classes, and corporate wellness programs.",
+    url: "/pricing",
+  },
+  alternates: {
+    canonical: "/pricing",
+  },
 };
 
 export default function PricingPage() {

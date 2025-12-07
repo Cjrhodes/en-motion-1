@@ -1,0 +1,26 @@
+# robots.txt for En Motion
+# https://enmotionmiami.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://enmotionmiami.com/sitemap.xml
+
+# Disallow admin and API routes
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Allow all major search engine crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
