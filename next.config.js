@@ -4,10 +4,20 @@ const path = require('path');
 const nextConfig = {
   images: {
     unoptimized: false,
-    domains: ['localhost'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+      {
+        protocol: 'http',
+        hostname: '**',
+      },
+    ],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     formats: ['image/webp'],
+    qualities: [75, 85, 90, 100],
   },
   webpack: (config, { isServer }) => {
     config.resolve.alias = {
@@ -48,7 +58,7 @@ const nextConfig = {
   compress: true,
   // Enable React strict mode for better performance
   reactStrictMode: true,
-  // Configure headers for better caching
+  // Configure headers for better caching and Replit proxy
   async headers() {
     return [
       {
@@ -61,11 +71,11 @@ const nextConfig = {
         ]
       },
       {
-        source: '/:path*',
+        source: '/:path((?!_next|api|favicon.ico).*)*',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, must-revalidate'
+            value: 'no-cache, no-store, must-revalidate'
           }
         ]
       }
