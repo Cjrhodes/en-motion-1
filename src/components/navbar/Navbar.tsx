@@ -72,7 +72,7 @@ function TransparentNavbar() {
 
           {/* Nav Links */}
           <div className={`collapse navbar-collapse ${showMenu ? 'show' : ''} ${styles['navbar-collapse']}`} id="navbarNav">
-            <ul className={`navbar-nav mx-auto d-none d-lg-flex ${styles['navbar-nav']}`}>
+            <ul className={`navbar-nav d-none d-lg-flex ${styles['navbar-nav']}`}>
               <li className="nav-item">
                 <a className={`nav-link ${styles['nav-link']}`} href={isHomePage ? "#About" : "/#About"} style={{ color: '#f8f9fa' }}>
                   About
