@@ -62,9 +62,10 @@ const SelfDefenseEvent = () => {
         </div>
         <div className={styles.eventDetails}>
           <h3 className={styles.eventName}>SURVIVOR'S PATHWAY</h3>
-          <p>OCTOBER 25, 2024 2:00PM-5:00PM</p>
-          <p>33 SW 2ND AVE SUITE 101</p>
-          <p>MIAMI, FLORIDA</p>
+          <p>MONDAY, DECEMBER 15, 2026 12:00PM-1:00PM</p>
+          <p>Modern Martial Arts and Fitness</p>
+          <p>9025 Biscayne Blvd, Miami Shores, FL</p>
+          <p className={styles.price}>Only $60</p>
         </div>
        
         <div className={styles.formContainer}>

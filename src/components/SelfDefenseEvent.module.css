@@ -101,18 +101,10 @@
   }
   
   .price {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
-  .price p {
-    color: #f8f9fa;
-  }
-  
-  .priceAmount {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    color: #ac161e;
+    color: #ac161e !important;
+    margin-top: 0.5rem;
   }
   
   .formContainer {
