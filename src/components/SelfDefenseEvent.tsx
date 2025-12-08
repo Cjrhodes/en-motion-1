@@ -41,7 +41,7 @@ const SelfDefenseEvent = () => {
     <section className={styles.eventContainer}>
       <div className={styles.overlay}>
         <div className={styles.headerSection}>
-          <h1 className={styles.title}>SELF-DEFENSE SEMINAR</h1>
+          <h1 className={styles.title}>WOMEN'S SELF-DEFENSE SEMINAR</h1>
           <h2 className={styles.subtitle}>LEARN PRACTICAL SKILLS FOR REAL-WORLD SAFETY</h2>
           <p className={styles.description}>
             We teach effective, real-world self-defense tactics. Our program covers situational awareness, de-escalation, and versatile physical techniques. You'll gain practical skills to boost your confidence and safety in everyday situations.
