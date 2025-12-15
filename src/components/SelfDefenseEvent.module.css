@@ -1,181 +1,279 @@
 .eventContainer {
-    background-image: url('/img/self-defense-seminar.jpg');
-    background-size: cover;
-    background-position: center;
-    min-height: calc(100vh - 80px); /* Adjust 80px to match your navbar height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 80px; /* Should match your navbar height */
+  background-image: url('/img/self-defense-seminar.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.heroContent {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 3rem;
+  max-width: 1200px;
+  width: 100%;
+  align-items: center;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.title {
+  font-size: 2.8rem;
+  color: #f8f9fa;
+  font-weight: bold;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  color: #ac161e;
+  font-weight: 600;
+  margin: 0;
+}
+
+.infoStrip {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #ac161e;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.infoIcon {
+  font-size: 1.5rem;
+}
+
+.infoItem div {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoItem strong {
+  color: #f8f9fa;
+  font-size: 1.1rem;
+}
+
+.infoItem span {
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+.priceHighlight {
+  color: #ac161e !important;
+  font-size: 1.3rem !important;
+}
+
+.valuePoints {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.valuePoints li {
+  color: #f8f9fa;
+  font-size: 1.05rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.valuePoints li::before {
+  content: '✓';
+  color: #ac161e;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.rightColumn {
+  display: flex;
+  justify-content: center;
+}
+
+.ctaCard {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.ctaTitle {
+  color: #222;
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.ctaPrice {
+  color: #ac161e;
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.ctaDuration {
+  color: #666;
+  font-size: 1rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.emailInput {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+.emailInput:focus {
+  outline: none;
+  border-color: #ac161e;
+}
+
+.registerButton {
+  background-color: #ac161e;
+  color: #fff;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.registerButton:hover {
+  background-color: #8e1119;
+  transform: translateY(-2px);
+}
+
+.registerButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.successMessage {
+  color: #2e7d32;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #e8f5e9;
+  border-radius: 8px;
+}
+
+.errorMessage {
+  color: #c62828;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #ffebee;
+  border-radius: 8px;
+}
+
+.spotsNote {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+@media (max-width: 1024px) {
+  .heroContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
-  
-  .overlay {
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 100%;
-    min-height: calc(100vh - 80px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-  }
-  
-  .headerSection {
-    text-align: center;
-    max-width: 800px;
-    margin-bottom: 2rem;
-  }
-  
+
   .title {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: #f8f9fa;
-    font-weight: bold;
+    font-size: 2.2rem;
+    text-align: center;
   }
-  
+
   .subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #ac161e;
-  }
-  
-  .description {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #f8f9fa;
-    margin-bottom: 2rem;
-  }
-  
-  .features {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 1rem 2rem;
-    border-radius: 8px;
     text-align: center;
-    margin-bottom: 2rem;
-    max-width: 600px;
+  }
+
+  .infoStrip {
+    border-left: none;
+    border-top: 4px solid #ac161e;
+  }
+
+  .valuePoints {
+    display: none;
+  }
+
+  .rightColumn {
     width: 100%;
   }
-  
-  .features h3 {
-    color: #ac161e;
-    margin-bottom: 1rem;
+
+  .ctaCard {
+    max-width: 100%;
   }
-  
-  .features ul {
-    list-style-type: none;
-    padding: 0;
-    display: inline-block;
-    text-align: left;
-  }
-  
-  .features li {
-    color: #f8f9fa;
-    margin-bottom: 0.5rem;
-    position: relative;
-    padding-left: 20px;
-  }
-  
-  .features li::before {
-    content: '•';
-    color: #ac161e;
-    position: absolute;
-    left: 0;
-  }
-  
-  .eventDetails {
-    background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 480px) {
+  .overlay {
     padding: 1rem;
-    border-radius: 8px;
-    text-align: center;
-    margin-bottom: 1rem;
   }
-  
-  .eventName {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: #ac161e;
+
+  .title {
+    font-size: 1.8rem;
   }
-  
-  .eventDetails p {
-    color: #f8f9fa;
+
+  .subtitle {
+    font-size: 1.1rem;
   }
-  
-  .price {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #ac161e !important;
-    margin-top: 0.5rem;
-  }
-  
-  .formContainer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .registerForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 400px;
-  }
-  
-  .emailInput {
-    width: 100%;
-    padding: 0.5rem;
+
+  .infoItem strong {
     font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 1rem;
   }
-  
-  .registerButton {
-    background-color: #ac161e;
-    color: #f8f9fa;
-    border: none;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
+
+  .infoItem span {
+    font-size: 0.85rem;
   }
-  
-  .registerButton:hover {
-    background-color: #8e1119;
+
+  .ctaCard {
+    padding: 1.5rem;
   }
-  
-  .registerButton:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
+
+  .ctaPrice {
+    font-size: 2.5rem;
   }
-  
-  .successMessage {
-    color: #4caf50;
-    margin-top: 1rem;
-  }
-  
-  .errorMessage {
-    color: #ff0000;
-    margin-top: 1rem;
-  }
-  
-  @media (max-width: 768px) {
-    .eventContainer, .overlay {
-      min-height: auto;
-    }
-  
-    .title {
-      font-size: 2rem;
-    }
-  
-    .subtitle {
-      font-size: 1.2rem;
-    }
-  
-    .features, .registerForm {
-      width: 90%;
-    }
-  }
+}

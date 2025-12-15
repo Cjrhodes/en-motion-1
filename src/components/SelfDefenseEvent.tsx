@@ -40,53 +40,72 @@ const SelfDefenseEvent = () => {
   return (
     <section className={styles.eventContainer}>
       <div className={styles.overlay}>
-        <div className={styles.headerSection}>
-          <h1 className={styles.title}>WOMEN'S SELF-DEFENSE SEMINAR</h1>
-          <h2 className={styles.subtitle}>LEARN PRACTICAL SKILLS FOR REAL-WORLD SAFETY</h2>
-          <p className={styles.description}>
-            We teach effective, real-world self-defense tactics. Our program covers situational awareness, de-escalation, and versatile physical techniques. You'll gain practical skills to boost your confidence and safety in everyday situations.
-          </p>
-        </div>
-        <div className={styles.features}>
-          <h3>Features:</h3>
-          <ul>
-            <li>Situational Awareness</li>
-            <li>Weapons Defense</li>
-            <li>Travel Safety + Protection</li>
-            <li>Life-Saving Self-Defense</li>
-            <li>Expert Self-Defense Trainers</li>
-            <li>Krav Maga Trained Experts</li>
-            <li>De-escalation Techniques</li>
-            <li>Vehicle Setting Threat</li>
-          </ul>
-        </div>
-        <div className={styles.eventDetails}>
-          <h3 className={styles.eventName}>MODERN MARTIAL ARTS AND FITNESS</h3>
-          <p>FRIDAY, JANUARY 16, 2026 12:00PM-1:00PM</p>
-          <p>9025 Biscayne Blvd, Miami Shores, FL</p>
-          <p className={styles.price}>Only $60</p>
-        </div>
-       
-        <div className={styles.formContainer}>
-          <form onSubmit={handleRegister} className={styles.registerForm}>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email to register"
-              required
-              className={styles.emailInput}
-            />
-            <button 
-              type="submit" 
-              disabled={status === 'loading'}
-              className={styles.registerButton}
-            >
-              {status === 'loading' ? 'Registering...' : 'Register for Event'}
-            </button>
-          </form>
-          {status === 'success' && <p className={styles.successMessage}>Thank you for registering!</p>}
-          {status === 'error' && <p className={styles.errorMessage}>{errorMessage}</p>}
+        <div className={styles.heroContent}>
+          <div className={styles.leftColumn}>
+            <h1 className={styles.title}>WOMEN'S SELF-DEFENSE SEMINAR</h1>
+            <h2 className={styles.subtitle}>LEARN PRACTICAL SKILLS FOR REAL-WORLD SAFETY</h2>
+            
+            <div className={styles.infoStrip}>
+              <div className={styles.infoItem}>
+                <span className={styles.infoIcon}>📅</span>
+                <div>
+                  <strong>Friday, January 16, 2026</strong>
+                  <span>12:00 PM - 1:00 PM</span>
+                </div>
+              </div>
+              <div className={styles.infoItem}>
+                <span className={styles.infoIcon}>📍</span>
+                <div>
+                  <strong>Modern Martial Arts and Fitness</strong>
+                  <span>9025 Biscayne Blvd, Miami Shores, FL</span>
+                </div>
+              </div>
+              <div className={styles.infoItem}>
+                <span className={styles.infoIcon}>💰</span>
+                <div>
+                  <strong className={styles.priceHighlight}>Only $60</strong>
+                  <span>1-Hour Session</span>
+                </div>
+              </div>
+            </div>
+
+            <ul className={styles.valuePoints}>
+              <li>Situational Awareness & De-escalation</li>
+              <li>Hands-On Self-Defense Techniques</li>
+              <li>Expert Krav Maga Trained Instructors</li>
+            </ul>
+          </div>
+
+          <div className={styles.rightColumn}>
+            <div className={styles.ctaCard}>
+              <h3 className={styles.ctaTitle}>Register Now</h3>
+              <p className={styles.ctaPrice}>$60</p>
+              <p className={styles.ctaDuration}>1-Hour Seminar</p>
+              
+              <form onSubmit={handleRegister} className={styles.registerForm}>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  required
+                  className={styles.emailInput}
+                />
+                <button 
+                  type="submit" 
+                  disabled={status === 'loading'}
+                  className={styles.registerButton}
+                >
+                  {status === 'loading' ? 'Registering...' : 'Reserve Your Spot'}
+                </button>
+              </form>
+              
+              {status === 'success' && <p className={styles.successMessage}>Thank you for registering! Check your email for details.</p>}
+              {status === 'error' && <p className={styles.errorMessage}>{errorMessage}</p>}
+              
+              <p className={styles.spotsNote}>Limited spots available</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
