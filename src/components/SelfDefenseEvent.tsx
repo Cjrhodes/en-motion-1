@@ -49,7 +49,7 @@ const SelfDefenseEvent = () => {
               <div className={styles.infoItem}>
                 <span className={styles.infoIcon}>📅</span>
                 <div>
-                  <strong>Friday, January 16, 2026</strong>
+                  <strong>Friday, January 30, 2026</strong>
                   <span>12:00 PM - 1:00 PM</span>
                 </div>
               </div>
