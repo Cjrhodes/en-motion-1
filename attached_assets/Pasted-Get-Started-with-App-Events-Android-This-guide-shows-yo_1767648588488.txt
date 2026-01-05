@@ -1,0 +1,243 @@
+Get Started with App Events (Android)
+
+This guide shows you how to add App Events to your new or existing app by integrating the Facebook SDK then logging these events.
+Before You Start
+
+You will need:
+
+    A Meta Developer Account
+    A Meta App ID
+    A Ad Account linked to your app
+    Implement the Facebook SDK for Android
+
+Add App Events
+
+After you integrate Facebook SDK, certain App Events are automatically logged and collected for Events Manager, unless you disable Automatic App Event Logging. You may change this in your app code or through a toggle under App Events in the App Dashboard or Events Manager. Please note in the event of conflicting values between the AutoLogAppEventsEnabled flag and the toggle, we will honor the value in the Automatic event logging for the Facebook SDK toggle. For details about what information is collected and how to disable Automatic App Event Logging, see Automatic App Event Logging.
+
+There are three ways events are tracked in your app:
+
+    Automatically Logged Events - App installs, launches, and in-app purchases are automatically logged with the Facebook SDK.
+    The Codeless App Events tool - Use this tool to add Standard Events without adding code to your app.
+    Manually Logged Events - Add code to your app to track Standard and Custom Events.
+
+Automatically Logged Events
+
+When you use the Facebook SDK, certain events in your app are automatically logged and collected for Facebook unless you disable automatic event logging. These events are relevant for all use cases - targeting, measurement and optimization. There are three key events collected as part of the Automatic App Event Logging: App Install, App Launch, and Purchase. When automatic logging is enabled, advertisers are able to disable these events, as well as other Facebook internal events such as login impression events. However, if you have disabled automatic logging, but still want to log specific events, such as install or purchase events, manually implement logging for these events in your app.
+Event	Details
+
+App Install
+	
+
+The first time a new person activates your app or the first time your app starts on a particular device.
+
+App Launch
+	
+
+When a person launches your app, the Facebook SDK is initialized and the event is logged. However, if a second app launch event occurs within 60 seconds of the first, the second app launch event is not logged.
+
+For the Facebook SDK for Android v4.18, and earlier, SDK initialization is a manual process that differs from the manual event logging process described in this doc. Please upgrade to the latest SDK version or scroll to the Legacy SDK Initialization section to add events manually.
+
+In-App Purchase
+	
+
+Automatically log when a purchase processed by Google Play has been completed. If you use other payment platforms, add purchase event code manually.
+
+To verify that in-app purchase events are automatically logged navigate to the Basic > Settings Android card in the app dashboard.
+
+The SDK for Android currently supports Google Play Billing library v2 through v7.
+
+Note: If you’d like to use in-app purchases to measure Dynamic Ads conversions, please set the Product ID on the Apple App Store or the Google Play store to be equivalent to the Product ID used in the associated Dynamic Ad.
+
+In-App Subscriptions & Start Trial
+	
+
+Automatically log when a subscription (or start trial event) processed by Google Play has been purchased. Automatic in-app subscription/start trial logging is supported for Google Play Billing library v5 through v7. To enable this feature, you must enable in-app purchases (above) and follow these instructions.
+
+Facebook SDK Crash Report
+(For Facebook Use Only.)	
+
+If your app crashed due to the Facebook SDK, a crash report is generated and sent to Facebook when your app is restarted. This report contains no user data and helps Facebook ensure the quality and stability of the SDK. To opt out of logging this event, disable automatically logged events.
+
+Facebook SDK ANR Report
+(For Facebook Use Only.)	
+
+If your app has an ANR (Application Not Responding) due to the Facebook SDK, an ANR report is generated and sent to Facebook when your app is restarted. This report contains no user data and helps Facebook ensure the quality and stability of the SDK. To opt out of logging this event, disable automatically logged events.
+Disable Automatically Logged Events
+
+To disable automatically logged events add the following to your AndroidManifest.xml file:
+
+<application>
+  ...
+  <meta-data android:name="com.facebook.sdk.AutoLogAppEventsEnabled"
+           android:value="false"/>
+  ...
+</application>
+
+In some cases, you want to delay the collection of automatically logged events, such as to obtain user consent or fulfill legal obligations, instead of disabling it. In this case, call the setAutoLogAppEventsEnabled() method of the FacebookSDK class and set to true to re-enable event logging after the end-user provides consent.
+
+setAutoLogAppEventsEnabled(true);
+
+To suspend logging again for any reason, set the setAutoLogAppEventsEnabled() method to false.
+
+setAutoLogAppEventsEnabled(false);
+
+You can also disable automatic In-App Purchase event logging using the app dashboard. Go to the Android card under Basic > Settings and toggle the switch to No.
+Disable Automatic SDK Initialization
+
+To disable automatic SDK initialization, add the following to your AndroidManifest.xml file:
+
+<application>
+  ...
+  <meta-data android:name="com.facebook.sdk.AutoInitEnabled"
+           android:value="false"/>
+  ...
+</application>
+
+In some cases, you want to delay the SDK initialization, such as to obtain user consent or fulfill legal obligations, instead of disabling it. In this case, call the class method setAutoInitEnabled and set it to true to manually initialize the SDK after the end-user provides consent.
+
+FacebookSdk.setAutoInitEnabled(true)
+FacebookSdk.fullyInitialize()
+
+Disable Collection of Advertiser IDs
+
+To disable collection of advertiser-id, add the following to your AndroidManifest.xml file:
+
+<application>
+  ...
+  <meta-data android:name="com.facebook.sdk.AdvertiserIDCollectionEnabled"
+           android:value="false"/>
+  ...
+</application>
+
+In some cases, you want to delay the collection of advertiser_id, such as to obtain User consent or fulfill legal obligations, instead of disabling it. In this case, call the setAdvertiserIDCollectionEnabled() method of the FacebookSDK class and set it to true to re-enable collection of advertiser_id after the end-user provides consent.
+
+setAdvertiserIDCollectionEnabled(true);
+
+To suspend collection for any reason, set the setAdvertiserIDCollectionEnabled() method to false.
+
+setAdvertiserIDCollectionEnabled(false);
+
+Manually Log Events
+
+Create an AppEventsLogger object using the helper methods to log your events, where this is the Activity your method is in.
+
+AppEventsLogger logger = AppEventsLogger.newLogger(this);
+
+You can then log your event to logger, where AppEventConstants.EVENT_NAME_X is one of the constants shown in the Standard Events table or from the Code Generator code.
+
+logger.logEvent(AppEventsConstants.EVENT_NAME_X);
+
+You can also specify a set of parameters in a Bundle and a valueToSum property which is an arbitrary number that can represent any value, for example, a price or a quantity. When reported, all of the valueToSum properties are summed together. For example, if 10 people purchased one item and each item cost $10 (and passed in valueToSum) then they would be added together to report $100.
+
+Bundle params = new Bundle();
+params.putString(AppEventsConstants.EVENT_PARAM_CURRENCY, "USD");
+params.putString(AppEventsConstants.EVENT_PARAM_CONTENT_TYPE, "product");
+params.putString(AppEventsConstants.EVENT_PARAM_CONTENT, "[{\"id\": \"1234\", \"quantity\": 2}, {\"id\": \"5678\", \"quantity\": 1}]");
+
+logger.logEvent(AppEventsConstants.EVENT_NAME_PURCHASE,
+                54.23,
+                params);
+Bundle params = new Bundle();
+params.putString(AppEventsConstants.EVENT_PARAM_CURRENCY, "USD");
+params.putString(AppEventsConstants.EVENT_PARAM_CONTENT_TYPE, "product");
+params.putString(AppEventsConstants.EVENT_PARAM_CONTENT_ID, "HDFU-8452");
+
+logger.logEvent(AppEventsConstants.EVENT_NAME_ADDED_TO_CART,
+                54.23,
+                params);
+
+To log a custom event, just pass the name of the event as a string. This function assumes that logger is an instance of AppEventsLogger and has been created using AppEventsLogger.newLogger() call.
+
+public void logBattleTheMonsterEvent () {
+    logger.logEvent("BattleTheMonster");
+}
+
+Event Parameters
+
+Each event can be logged with a valueToSum and a set of up to 25 parameters. They are passed via a Bundle where the key holds the parameter name and the value either a String or an int. If you provide another type of value that is not compliant such as a boolean, the SDK logs a warning to LogginBehavior.APP_EVENT.
+
+Refer to the Standard Event Parameters Reference guide for parameters typically used with standard events. These parameters are intended to provide guidance, however, you can provide your own parameters as well.
+
+If you’d like to use app events to measure Dynamic Ads conversions, please set the fb_content_id parameter to be the value of the Product ID used in the associated Dynamic Ad.
+
+Do not use "event" as the name of a parameter. Custom parameters with the name "event" will not be logged. Use another name or add a prefix or suffix to the name, such as my_custom_event.
+Test Your Event Logging
+
+The App Ads Helper allows you to test the app events in your app to ensure that your app is sending events to Facebook.
+
+    Open the App Ads Helper.
+    In Select an App, choose your app and choose Submit.
+    Go to the bottom and choose Test App Events.
+    Start your app and send an event. The event appears on the web page.
+
+Enabling Debug Logs
+
+Enable debug logs to verify App Event usage from the client side. The debug logs contain detailed requests and JSON responses. Enable debug logs by adding the following code after initializing the Facebook SDK for Android:
+
+FacebookSdk.setIsDebugEnabled(true);
+FacebookSdk.addLoggingBehavior(LoggingBehavior.APP_EVENTS);
+
+This is only for debugging purposes. Please disable debug logs before deploying your app to the public.
+Learn More
+
+For more information and helpful hints on App Events check out:
+
+    The Facebook SDK for Android Reference Documentation
+    Best Practices Guide - View a wide variety of sample apps and how each handles App Events.
+    FAQ - Check out our Frequently Asked Questions
+    Ads Manager – View information about your ads.
+    Events Manager – View information about the events you are tracking.
+    Meta Blueprint course: Configure the SDK and App Events for Android
+    Meta Blueprint course: Use App Events to Target, Optimize and Measure
+
+Example Apps
+
+We have created some examples for different app types to show you how you can use app events. Each of the example apps provides a screen by screen breakdown of the different events with code examples. It is important to note that these examples are a starting point for your app and should be customized by you.
+
+    E-Commerce and Retail
+    Travel (Hotel)
+    Travel (Flight)
+
+	
+
+    Gaming (Casual)
+    Gaming (Strategy)
+    Gaming (Casino)
+
+On This Page
+Get Started with App Events (Android)
+Before You Start
+Add App Events
+Automatically Logged Events
+Manually Log Events
+Test Your Event Logging
+Enabling Debug Logs
+Learn More
+Example Apps
+Meta
+FacebookInstagramXLinkedInYouTube
+Build with Meta
+AI
+Meta Horizon
+Social technologies
+Wearables
+News
+Meta for Developers
+Blog
+Success stories
+Support
+Developer Support
+Bug tool
+Platform status
+Developer community forum
+Report an incident
+About us
+About
+Careers
+Terms and policies
+Responsible platform initiatives
+Platform terms
+Developer policies
+Privacy policy
+Cookies
+English (US)
