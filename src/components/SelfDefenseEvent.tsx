@@ -27,6 +27,14 @@ const SelfDefenseEvent = () => {
       if (response.ok) {
         setStatus('success');
         setEmail('');
+        if (typeof window !== 'undefined' && (window as any).fbq) {
+          (window as any).fbq('track', 'Lead', {
+            content_name: 'Women\'s Self-Defense Seminar',
+            content_category: 'Event Registration',
+            value: 60.00,
+            currency: 'USD'
+          });
+        }
       } else {
         setStatus('error');
         setErrorMessage(data.error || 'An error occurred. Please try again.');
