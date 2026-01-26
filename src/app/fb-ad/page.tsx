@@ -72,7 +72,7 @@ export default function FacebookAd() {
             margin: '8px 0 0 0',
             opacity: 0.9,
           }}>
-            12:00 PM - 3:00 PM
+            12:00 PM - 2:00 PM
           </p>
         </div>
         
@@ -118,7 +118,7 @@ export default function FacebookAd() {
               margin: '5px 0 0 0',
               opacity: 0.8,
             }}>
-              3-Hour Session
+              2-Hour Session
             </p>
           </div>
         </div>

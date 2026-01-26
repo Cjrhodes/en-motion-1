@@ -58,7 +58,7 @@ const SelfDefenseEvent = () => {
                 <span className={styles.infoIcon}>📅</span>
                 <div>
                   <strong>Saturday, January 31, 2026</strong>
-                  <span>12:00 PM - 3:00 PM</span>
+                  <span>12:00 PM - 2:00 PM</span>
                 </div>
               </div>
               <div className={styles.infoItem}>
@@ -72,7 +72,7 @@ const SelfDefenseEvent = () => {
                 <span className={styles.infoIcon}>💰</span>
                 <div>
                   <strong className={styles.priceHighlight}>Only $60</strong>
-                  <span>3-Hour Session</span>
+                  <span>2-Hour Session</span>
                 </div>
               </div>
             </div>
@@ -88,7 +88,7 @@ const SelfDefenseEvent = () => {
             <div className={styles.ctaCard}>
               <h3 className={styles.ctaTitle}>Register Now</h3>
               <p className={styles.ctaPrice}>$60</p>
-              <p className={styles.ctaDuration}>3-Hour Seminar</p>
+              <p className={styles.ctaDuration}>2-Hour Seminar</p>
               
               <form onSubmit={handleRegister} className={styles.registerForm}>
                 <input
