@@ -57,7 +57,7 @@ const SelfDefenseEvent = () => {
               <div className={styles.infoItem}>
                 <span className={styles.infoIcon}>📅</span>
                 <div>
-                  <strong>Saturday, January 31, 2026</strong>
+                  <strong>Saturday, February 7, 2026</strong>
                   <span>12:00 PM - 2:00 PM</span>
                 </div>
               </div>

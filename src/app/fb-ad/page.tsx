@@ -65,7 +65,7 @@ export default function FacebookAd() {
             fontWeight: 'bold',
             margin: 0,
           }}>
-            Saturday, January 31
+            Saturday, February 7
           </p>
           <p style={{
             fontSize: '24px',
