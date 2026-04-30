@@ -216,15 +216,15 @@ const PricingSection: React.FC = () => {
     {
       name: "10-Session Package",
       plan: "tenpack",
-      price: "$1000",
-      period: "save $50",
+      price: "$1100",
+      period: "save $100",
       description: "Best value for consistent training",
       features: [
         "10 one-hour sessions",
         "Structured progression",
         "Progress tracking",
         "Flexible scheduling",
-        "Save $50 on regular price"
+        "Save $100 on regular price"
       ],
       buttonText: "Choose Package",
       popular: true
@@ -232,8 +232,8 @@ const PricingSection: React.FC = () => {
     {
       name: "12-Session Package",
       plan: "twelvepack",
-      price: "$1200",
-      period: "save $70",
+      price: "$1320",
+      period: "save $120",
       description: "Extended training for maximum results",
       features: [
         "12 one-hour sessions",
@@ -242,7 +242,7 @@ const PricingSection: React.FC = () => {
         "Structured progression",
         "Progress tracking",
         "Flexible scheduling",
-        "Save $70 on regular price"
+        "Save $120 on regular price"
       ],
       buttonText: "Choose Package",
       popular: false
