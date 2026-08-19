@@ -49,11 +49,6 @@ const nextConfig = {
 
     return config;
   },
-  // Optimize page loading
-  onDemandEntries: {
-    maxInactiveAge: 25 * 1000,
-    pagesBufferLength: 2,
-  },
   // Add compression
   compress: true,
   // Enable React strict mode for better performance
