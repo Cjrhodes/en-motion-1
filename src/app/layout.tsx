@@ -5,17 +5,10 @@ import LocalBusinessSchema from '@/components/seo/LocalBusinessSchema';
 
 // Third-party CSS
 import "bootstrap/dist/css/bootstrap.min.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import "swiper/css/bundle";
 
 // Custom CSS
 import "../../public/css/all.min.css";
-import "../../public/css/sharp-solid.min.css";
-import "../../public/css/fontawesome.min.css";
-import "../../public/css/animate.css";
 import "../../public/css/boxicons.min.css";
-import "../../public/css/flaticon.css";
 import "../../public/css/style.css";
 import "../../public/css/responsive.css";
 

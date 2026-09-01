@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useAppDispatch } from '@/redux/hooks';
 import { toggleContactModalOpen } from '@/redux/features/contactModalSlice';
 import styles from './HeroSlider.module.css';
@@ -20,6 +20,31 @@ const DynamicSwiperWrapper = dynamic(() => import('./SwiperWrapper'), {
 
 const HeroSlider = () => {
   const dispatch = useAppDispatch();
+  const videoSectionRef = useRef<HTMLDivElement>(null);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+
+  useEffect(() => {
+    const section = videoSectionRef.current;
+    if (!section) return;
+
+    if (!('IntersectionObserver' in window)) {
+      setShouldLoadVideo(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoadVideo(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '300px 0px' }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
   const openContactModal = () => {
     dispatch(toggleContactModalOpen(""));
@@ -65,6 +90,8 @@ const HeroSlider = () => {
                   alt="Corporate wellness"
                   fill
                   quality={75}
+                  loading="lazy"
+                  fetchPriority="low"
                   sizes="100vw"
                   style={{
                     objectFit: 'cover',
@@ -92,6 +119,8 @@ const HeroSlider = () => {
                   alt="Push-up exercise"
                   fill
                   quality={75}
+                  loading="lazy"
+                  fetchPriority="low"
                   sizes="100vw"
                   style={{
                     objectFit: 'cover',
@@ -137,21 +166,24 @@ const HeroSlider = () => {
         </ul>
       </div>
       {/* Video Section */}
-      <div className={styles['video-section']}>
+      <div ref={videoSectionRef} className={styles['video-section']}>
         <video 
           autoPlay 
           loop 
           muted 
           playsInline
-          preload="metadata"
+          preload="none"
+          poster="/img/video-preview.jpg"
           className={styles['promo-video']}
           width="100%"
           height="100%"
         >
-          <source 
-            src="/video/promovideo.mp4" 
-            type="video/mp4" 
-          />
+          {shouldLoadVideo && (
+            <source
+              src="/video/promovideo.mp4"
+              type="video/mp4"
+            />
+          )}
           <p>Your browser does not support the video tag. <a href="/video/promovideo.mp4" download>Download the video</a>.</p>
         </video>
       </div>

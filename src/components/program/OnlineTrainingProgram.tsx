@@ -24,7 +24,7 @@ const OnlineTraining: React.FC = () => {
   return (
     <section id="OnlineTraining" className={styles.fullScreenContainer}>
       {/* Ensure image and overlay are correctly placed */}
-      <img src={image} alt={title} className={styles.backgroundImage} />
+      <img src={image} alt={title} className={styles.backgroundImage} loading="lazy" decoding="async" />
       <div className={styles.backgroundOverlay}></div>
       <div className={styles.programContainer}>
         <h2 className={styles.programTitle}>{title}</h2>

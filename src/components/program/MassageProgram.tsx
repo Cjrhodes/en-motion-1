@@ -20,6 +20,8 @@ const MassageProgram: React.FC = () => {
         src="/img/group-stretch.jpeg"
         alt="Massage and recovery services"
         className={styles.backgroundImage}
+        loading="lazy"
+        decoding="async"
       />
       <div className={styles.backgroundOverlay}></div>
       <div className={styles.programContainer}>
