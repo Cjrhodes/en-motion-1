@@ -9,7 +9,6 @@ import { spaceGrotesk } from "./fonts";
 import DecoLineSection from "src/components/decoline/DecolineSection";
 import Newsletter from "src/components/newsletter/Newsletter";
 import PersonalTrainingProgram from "src/components/program/PersonalTrainingProgram";
-import PersonalFitnessProgram from "src/components/program/PersonalFitnessProgram";
 import MassageProgram from "src/components/program/MassageProgram";
 import SelfDefense from "src/components/program/SelfDefense";
 import CorporateWellness from "src/components/program/CorporateWellness";
@@ -46,8 +45,6 @@ export default function Home() {
         <DecoLineSection />    
         <SelfDefense />        
         <PersonalTrainingProgram /> 
-        <DecoLineSection />
-        <PersonalFitnessProgram />
         <DecoLineSection />
         <MassageProgram />
         <DecoLineSection />         

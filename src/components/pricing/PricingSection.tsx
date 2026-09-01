@@ -296,22 +296,6 @@ const PricingSection: React.FC = () => {
       popular: false
     },
     {
-      name: "Personal Fitness",
-      plan: "personalfitness",
-      price: "Contact",
-      period: "for pricing",
-      description: "Personalized fitness coaching for your goals",
-      features: [
-        "Fitness assessment",
-        "Customized exercise plan",
-        "Strength and conditioning",
-        "Mobility support",
-        "Professional coaching"
-      ],
-      buttonText: "Request Details",
-      popular: false
-    },
-    {
       name: "Massage",
       plan: "massage",
       price: "Contact",

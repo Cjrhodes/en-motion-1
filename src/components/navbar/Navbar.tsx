@@ -90,7 +90,6 @@ function TransparentNavbar() {
                   <li><a className="dropdown-item" href={isHomePage ? "#Self-Defense" : "/#Self-Defense"}>Self-Defense</a></li>
                   <li><a className="dropdown-item" href={isHomePage ? "#OnlineTraining" : "/#OnlineTraining"}>Online Training</a></li>
                   <li><a className="dropdown-item" href={isHomePage ? "#PersonalTraining" : "/#PersonalTraining"}>Personal Training</a></li>
-                  <li><a className="dropdown-item" href={isHomePage ? "#PersonalFitness" : "/#PersonalFitness"}>Personal Fitness</a></li>
                   <li><a className="dropdown-item" href={isHomePage ? "#Massage" : "/#Massage"}>Massage</a></li>
                   <li><a className="dropdown-item" href={isHomePage ? "#CorporateWellness" : "/#CorporateWellness"}>Corporate Wellness</a></li>
                 </ul>
@@ -174,7 +173,6 @@ function TransparentNavbar() {
                 <li className={styles.mobileDropdownItem}><a className={styles.mobileDropdownLink} href={isHomePage ? "#Self-Defense" : "/#Self-Defense"} onClick={toggleMenu}>Self-Defense</a></li>
                 <li className={styles.mobileDropdownItem}><a className={styles.mobileDropdownLink} href={isHomePage ? "#OnlineTraining" : "/#OnlineTraining"} onClick={toggleMenu}>Online Training</a></li>
                 <li className={styles.mobileDropdownItem}><a className={styles.mobileDropdownLink} href={isHomePage ? "#PersonalTraining" : "/#PersonalTraining"} onClick={toggleMenu}>Personal Training</a></li>
-                <li className={styles.mobileDropdownItem}><a className={styles.mobileDropdownLink} href={isHomePage ? "#PersonalFitness" : "/#PersonalFitness"} onClick={toggleMenu}>Personal Fitness</a></li>
                 <li className={styles.mobileDropdownItem}><a className={styles.mobileDropdownLink} href={isHomePage ? "#Massage" : "/#Massage"} onClick={toggleMenu}>Massage</a></li>
                 <li className={styles.mobileDropdownItem}><a className={styles.mobileDropdownLink} href={isHomePage ? "#CorporateWellness" : "/#CorporateWellness"} onClick={toggleMenu}>Corporate Wellness</a></li>
               </ul>
