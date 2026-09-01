@@ -5,7 +5,6 @@ import AboutSection3 from "src/components/about/AboutSection3";
 import FooterSection3 from "src/components/footer/FooterSection3";
 import HtmlContactFormModal from "src/components/modal/HtmlContactFormModal";
 import HeroSlider from "src/components/hero/HeroSlider";
-import { spaceGrotesk } from "./fonts";
 import DecoLineSection from "src/components/decoline/DecolineSection";
 import Newsletter from "src/components/newsletter/Newsletter";
 import PersonalTrainingProgram from "src/components/program/PersonalTrainingProgram";
@@ -34,7 +33,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className={`home-11 trainer-home ${spaceGrotesk.className}`}>   
+    <main className="home-11 trainer-home">
       <div id="mainContent">
         <HeaderSection contactModal={true} />
         <section className="heroSliderSection">

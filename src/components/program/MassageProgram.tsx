@@ -17,7 +17,7 @@ const MassageProgram: React.FC = () => {
   return (
     <section id="Massage" className={styles.fullScreenContainer}>
       <img
-        src="/img/group-stretch.jpeg"
+        src="/img/group-stretch.webp"
         alt="Massage and recovery services"
         className={styles.backgroundImage}
         loading="lazy"

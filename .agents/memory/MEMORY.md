@@ -1,1 +1,2 @@
 - [Preview hydration attributes](preview-hydration-attributes.md) — persistent preview tooling can alter root document attributes before React hydrates.
+- [Next.js build and dev cache](next-build-dev-cache.md) — do not run next build while the dev workflow is serving from the same .next directory.

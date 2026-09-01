@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { useAppDispatch } from "@/redux/hooks";
 import { toggleContactModalOpen } from "@/redux/features/contactModalSlice";
 import styles from "./FooterSection3.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebookF, faInstagram, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 
 const FooterSection3 = () => {
   const dispatch = useAppDispatch();
@@ -61,18 +63,18 @@ const FooterSection3 = () => {
                   <h4 className="footer-heading">Follow Us</h4>
                   <ul className={`social-network ${styles.socialIcons}`}>
                     <li>
-                      <a href="https://www.facebook.com/profile.php?id=61558229676688" target="_blank" rel="noopener noreferrer">
-                        <i className="fa-brands fa-facebook-f"></i>
+                      <a href="https://www.facebook.com/profile.php?id=61558229676688" target="_blank" rel="noopener noreferrer" aria-label="Visit En Motion on Facebook">
+                        <FontAwesomeIcon icon={faFacebookF} />
                       </a>
                     </li>
                     <li>
-                      <a href="https://twitter.com/enmotionfit" target="_blank" rel="noopener noreferrer">
-                        <i className="fa-brands fa-x"></i>
+                      <a href="https://twitter.com/enmotionfit" target="_blank" rel="noopener noreferrer" aria-label="Visit En Motion on X">
+                        <FontAwesomeIcon icon={faXTwitter} />
                       </a>
                     </li>
                     <li>
-                      <a href="https://www.instagram.com/enmotionfit/?hl=en" target="_blank" rel="noopener noreferrer">
-                        <i className="fa-brands fa-instagram"></i>
+                      <a href="https://www.instagram.com/enmotionfit/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Visit En Motion on Instagram">
+                        <FontAwesomeIcon icon={faInstagram} />
                       </a>
                     </li>
                   </ul>

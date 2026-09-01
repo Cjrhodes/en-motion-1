@@ -11,7 +11,7 @@ const SelfDefense: React.FC = () => {
   const description = 'Learn self-defense techniques to protect yourself in various situations.';
   const philosophy = 'Our self-defense program is built on the principles of awareness, preparedness, and empowerment. We believe in equipping individuals with the knowledge and skills necessary to defend themselves while promoting a mindset of confidence and resilience.';
   const system = 'Our self-defense system combines elements from various martial arts disciplines, including striking techniques, grappling, and scenario-based training. We focus on practical and effective methods that can be applied in real-life situations.';
-  const image = '/img/krav-maga.jpeg';
+  const image = '/img/krav-maga.webp';
   const features = ['Striking Techniques', 'Grappling Techniques', 'Scenario-Based Training'];
 
   const dispatch = useAppDispatch(); // Move the hook call inside the component

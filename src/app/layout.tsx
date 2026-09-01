@@ -7,10 +7,10 @@ import LocalBusinessSchema from '@/components/seo/LocalBusinessSchema';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // Custom CSS
-import "../../public/css/all.min.css";
 import "../../public/css/boxicons.min.css";
 import "../../public/css/style.css";
 import "../../public/css/responsive.css";
+import { spaceGrotesk } from './fonts';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://enmotionmiami.com';
 
@@ -119,7 +119,7 @@ export default function RootLayout({
           />
         </noscript>
       </head>
-      <body suppressHydrationWarning>
+      <body className={spaceGrotesk.variable} suppressHydrationWarning>
         <LocalBusinessSchema />
         <Providers>
           {children}

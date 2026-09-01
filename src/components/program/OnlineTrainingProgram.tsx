@@ -10,7 +10,7 @@ const OnlineTraining: React.FC = () => {
   const description = 'Access high-quality fitness training from the comfort of your home.';
   const philosophy = 'Our online training philosophy is centered around providing convenient and accessible fitness solutions for individuals with busy lifestyles or those who prefer the flexibility of working out at home. We believe in delivering high-quality training programs that are tailored to individual needs and goals, without compromising on the guidance and support typically found in a traditional gym setting.';
   const system = 'Our online training system combines state-of-the-art video streaming technology with personalized workout plans and progress tracking tools. Clients have access to a vast library of pre-recorded workouts led by certified trainers, as well as the option for live virtual training sessions. Our online platform also includes nutrition guidance, motivational resources, and support from our team of fitness experts.';
-  const image = '/img/online-training.jpeg';
+  const image = '/img/online-training.webp';
   const features = ['Virtual Personal Training', 'Pre-Recorded Workouts', 'Progress Tracking', 'Nutrition Guidance'];
 
   const dispatch = useAppDispatch(); // Move the hook call inside the component
@@ -18,7 +18,6 @@ const OnlineTraining: React.FC = () => {
   const openContactModal = () => {
     dispatch(toggleContactModalOpen(""));
   };
-
 
 
   return (

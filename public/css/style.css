@@ -29,12 +29,6 @@ TABLE OF CONTENTS:
 12  Newsletter section
 13  Footer section*/
 
-@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&amp;display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Alata&amp;display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;500;600;700&amp;display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&amp;display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300;400;500;600;700&family=Teko:wght@300;400;500;600;700&display=swap');
-
 @font-face {
     font-family: "soligant";
     src: url("../fonts/Soligant.ttf") format("ttf"), url("../fonts/Soligant.otf") format("opentype");
@@ -76,12 +70,12 @@ TABLE OF CONTENTS:
     --hov-color: #243654;
     --clandr-color: #102039;
     --form-color: #9597b6;
-    --alata-font: "Alata", sans-serif;
-    --poppins-font: "Poppins", sans-serif;
-    --lato-font: "lato", sans-serif;
-    --kanit-font: 'Kanit', sans-serif;
-    --space-font: 'Space Grotesk', sans-serif;
-    --teko-font: 'Teko', sans-serif;
+    --alata-font: var(--font-space-grotesk), sans-serif;
+    --poppins-font: var(--font-space-grotesk), sans-serif;
+    --lato-font: var(--font-space-grotesk), sans-serif;
+    --kanit-font: var(--font-space-grotesk), sans-serif;
+    --space-font: var(--font-space-grotesk), sans-serif;
+    --teko-font: var(--font-space-grotesk), sans-serif;
     --bg-black: #070707;
     --bg-black-2: #0C0C0C;
     --bg-black-3: #111111;

@@ -10,15 +10,13 @@ const PersonalTrainingProgram: React.FC = () => {
   const description = 'Achieve your fitness goals with personalized training programs. We will find the best trainer to match your goals.';
   const philosophy = 'Our personal training philosophy revolves around tailoring programs to meet individual needs and goals. We believe in a holistic approach that combines physical training, nutrition guidance, and mindset coaching for sustainable results.';
   const system = 'Our personal training system starts with a comprehensive assessment to understand your current fitness level, lifestyle, and goals. We then design customized workout plans and provide ongoing support and accountability to help you stay on track.';
-  const image = '/img/powerliftgirl.jpeg';
+  const image = '/img/powerliftgirl.webp';
   const features = ['One-on-One Training', 'Custom Workout Plans', 'Nutrition Guidance'];
   const dispatch = useAppDispatch();
 
   const openContactModal = () => {
     dispatch(toggleContactModalOpen(""));
   };
-
-
 
 
   return (

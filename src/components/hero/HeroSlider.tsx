@@ -1,11 +1,13 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useAppDispatch } from '@/redux/hooks';
 import { toggleContactModalOpen } from '@/redux/features/contactModalSlice';
 import styles from './HeroSlider.module.css';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faInstagram, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -13,38 +15,12 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
-const DynamicSwiperWrapper = dynamic(() => import('./SwiperWrapper'), {
-  ssr: false,
-  loading: () => <div>Loading...</div>
-});
+const DynamicSwiperWrapper = dynamic(() => import('./SwiperWrapper'));
 
 const HeroSlider = () => {
   const dispatch = useAppDispatch();
-  const videoSectionRef = useRef<HTMLDivElement>(null);
-  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
-
-  useEffect(() => {
-    const section = videoSectionRef.current;
-    if (!section) return;
-
-    if (!('IntersectionObserver' in window)) {
-      setShouldLoadVideo(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShouldLoadVideo(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: '300px 0px' }
-    );
-
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
+  const [videoRequested, setVideoRequested] = useState(false);
+  const [loadedSlides, setLoadedSlides] = useState(() => new Set([0]));
 
   const openContactModal = () => {
     dispatch(toggleContactModalOpen(""));
@@ -53,7 +29,14 @@ const HeroSlider = () => {
   return (
     <>
       <div className={styles['slider-container']}>
-        <DynamicSwiperWrapper>
+        <DynamicSwiperWrapper
+          onActiveIndexChange={(index) => {
+            setLoadedSlides((current) => {
+              if (current.has(index)) return current;
+              return new Set(current).add(index);
+            });
+          }}
+        >
               <div className={styles['hero-slider-item']}>
                 <Image
                   src="/img/girl-kickboxing1.jpg"
@@ -85,19 +68,21 @@ const HeroSlider = () => {
                 </div>
               </div>
               <div className={styles['hero-slider-item']}>
-                <Image
-                  src="/img/corporate-wellness.jpg"
-                  alt="Corporate wellness"
-                  fill
-                  quality={75}
-                  loading="lazy"
-                  fetchPriority="low"
-                  sizes="100vw"
-                  style={{
-                    objectFit: 'cover',
-                    objectPosition: 'center',
-                  }}
-                />
+                {loadedSlides.has(1) && (
+                  <Image
+                    src="/img/corporate-wellness.webp"
+                    alt="Corporate wellness"
+                    fill
+                    quality={75}
+                    loading="lazy"
+                    fetchPriority="low"
+                    sizes="100vw"
+                    style={{
+                      objectFit: 'cover',
+                      objectPosition: 'center',
+                    }}
+                  />
+                )}
                 <div className={styles['hero-slider-text']}>
                   <h1>Elevate Your Team's Health and Productivity</h1>
                   <p>
@@ -114,19 +99,21 @@ const HeroSlider = () => {
                 </div>
               </div>
               <div className={styles['hero-slider-item']}>
-                <Image
-                  src="/img/girlpushup.jpeg"
-                  alt="Push-up exercise"
-                  fill
-                  quality={75}
-                  loading="lazy"
-                  fetchPriority="low"
-                  sizes="100vw"
-                  style={{
-                    objectFit: 'cover',
-                    objectPosition: 'center',
-                  }}
-                />
+                {loadedSlides.has(2) && (
+                  <Image
+                    src="/img/girlpushup.webp"
+                    alt="Push-up exercise"
+                    fill
+                    quality={75}
+                    loading="lazy"
+                    fetchPriority="low"
+                    sizes="100vw"
+                    style={{
+                      objectFit: 'cover',
+                      objectPosition: 'center',
+                    }}
+                  />
+                )}
                 <div className={styles['hero-slider-text']}>
                   <h1>Discover Your Peak Potential</h1>
                   <p>
@@ -149,43 +136,57 @@ const HeroSlider = () => {
         <span className={styles['follow-us']}>Follow Us:</span>
         <ul>
           <li>
-            <a href="https://www.facebook.com/profile.php?id=61558229676688" className="title-anim">
-              <i className="fa-brands fa-facebook-f"></i>
+            <a href="https://www.facebook.com/profile.php?id=61558229676688" className="title-anim" aria-label="Visit En Motion on Facebook">
+              <FontAwesomeIcon icon={faFacebookF} />
             </a>
           </li>
           <li>
-            <a href="https://twitter.com/enmotionfit" className="title-anim">
-              <i className="fa-brands fa-x"></i>
+            <a href="https://twitter.com/enmotionfit" className="title-anim" aria-label="Visit En Motion on X">
+              <FontAwesomeIcon icon={faXTwitter} />
             </a>
           </li>
           <li>
-            <a href="https://www.instagram.com/enmotionfit/?hl=en" className="title-anim">
-              <i className="fa-brands fa-instagram"></i>
+            <a href="https://www.instagram.com/enmotionfit/?hl=en" className="title-anim" aria-label="Visit En Motion on Instagram">
+              <FontAwesomeIcon icon={faInstagram} />
             </a>
           </li>
         </ul>
       </div>
       {/* Video Section */}
-      <div ref={videoSectionRef} className={styles['video-section']}>
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          preload="none"
-          poster="/img/video-preview.jpg"
-          className={styles['promo-video']}
-          width="100%"
-          height="100%"
-        >
-          {shouldLoadVideo && (
-            <source
-              src="/video/promovideo.mp4"
-              type="video/mp4"
+      <div className={styles['video-section']}>
+        {videoRequested ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            poster="/img/video-preview.webp"
+            className={styles['promo-video']}
+            width="100%"
+            height="100%"
+          >
+            <source src="/video/promovideo-mobile.mp4" type="video/mp4" />
+            <p>Your browser does not support the video tag.</p>
+          </video>
+        ) : (
+          <button
+            type="button"
+            className={styles['video-placeholder']}
+            onClick={() => setVideoRequested(true)}
+            aria-label="Play En Motion promotional video"
+          >
+            <Image
+              src="/img/video-preview.webp"
+              alt=""
+              fill
+              loading="lazy"
+              sizes="100vw"
+              className={styles['video-poster']}
             />
-          )}
-          <p>Your browser does not support the video tag. <a href="/video/promovideo.mp4" download>Download the video</a>.</p>
-        </video>
+            <span className={styles['play-button']} aria-hidden="true">▶</span>
+          </button>
+        )}
       </div>
     </>
   );

@@ -10,7 +10,7 @@ const CorporateWellness: React.FC = () => {
   const description = 'Promote a healthy lifestyle for your employees and boost productivity.';
   const philosophy = 'Our corporate wellness philosophy revolves around creating a culture of health and well-being within organizations. We believe that investing in the physical and mental well-being of employees leads to increased productivity, reduced absenteeism, and a more engaged workforce.';
   const system = 'Our corporate wellness system is designed to be comprehensive and tailored to the unique needs of each organization. We conduct detailed assessments to understand the specific challenges and goals, and then develop customized programs that include on-site fitness classes, wellness seminars, health screenings, and nutritional guidance.';
-  const image = '/img/teamfitness.jpeg';
+  const image = '/img/teamfitness.webp';
   const features = ['On-Site Fitness Classes', 'Wellness Seminars', 'Health Assessments', 'Nutritional Guidance'];
 
   const dispatch = useAppDispatch(); // Move the hook call inside the component
@@ -20,7 +20,6 @@ const CorporateWellness: React.FC = () => {
   };
 
 
-  
   return (
     <section id="CorporateWellness" className={styles.fullScreenContainer}>
     {/* Ensure image and overlay are correctly placed */}

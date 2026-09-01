@@ -32,9 +32,9 @@ const TestimonialSection: React.FC = () => {
             <div key={testimonial.id} className="col-md-4 mb-4">
               <div style={{ backgroundColor: '#1a1a1a', color: '#fff', padding: '1rem', borderRadius: '0.5rem' }} className="card testimonial-card h-100">
                 <div className="card-body text-center">
-                  <img src={testimonial.img} alt={testimonial.name} style={{ borderRadius: '50%', marginBottom: '1rem', width: '100px', height: '100px' }} />
+                  <img src={testimonial.img} alt={testimonial.name} loading="lazy" decoding="async" style={{ borderRadius: '50%', marginBottom: '1rem', width: '100px', height: '100px' }} />
                   <h5 className="card-title">{testimonial.name}</h5>
-                  <i className="fas fa-quote-left quote-icon mb-3" style={{ color: '#ffd700' }}></i>
+                  <span className="quote-icon mb-3" aria-hidden="true" style={{ color: '#ffd700', display: 'inline-block', fontSize: '1.5rem' }}>“</span>
                   <p className="card-text">{testimonial.text}</p>
                 </div>
               </div>

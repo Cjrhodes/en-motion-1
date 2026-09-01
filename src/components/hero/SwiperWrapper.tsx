@@ -7,9 +7,10 @@ import styles from './HeroSlider.module.css';
 
 interface SwiperWrapperProps {
   children: React.ReactNode[];
+  onActiveIndexChange?: (index: number) => void;
 }
 
-const SwiperWrapper = ({ children }: SwiperWrapperProps) => {
+const SwiperWrapper = ({ children, onActiveIndexChange }: SwiperWrapperProps) => {
   return (
     <Swiper
       modules={[EffectFade, Navigation, Pagination, Autoplay]}
@@ -19,6 +20,7 @@ const SwiperWrapper = ({ children }: SwiperWrapperProps) => {
         clickable: true,
       }}
       navigation={true}
+      onActiveIndexChange={(swiper) => onActiveIndexChange?.(swiper.realIndex)}
       speed={1000}
       autoplay={{
         delay: 6500,
