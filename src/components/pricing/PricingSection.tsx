@@ -294,6 +294,38 @@ const PricingSection: React.FC = () => {
       ],
       buttonText: "Get Started",
       popular: false
+    },
+    {
+      name: "Personal Fitness",
+      plan: "personalfitness",
+      price: "Contact",
+      period: "for pricing",
+      description: "Personalized fitness coaching for your goals",
+      features: [
+        "Fitness assessment",
+        "Customized exercise plan",
+        "Strength and conditioning",
+        "Mobility support",
+        "Professional coaching"
+      ],
+      buttonText: "Request Details",
+      popular: false
+    },
+    {
+      name: "Massage",
+      plan: "massage",
+      price: "Contact",
+      period: "for pricing",
+      description: "Personalized massage and recovery sessions",
+      features: [
+        "Muscle tension relief",
+        "Recovery support",
+        "Improved mobility",
+        "Personalized focus areas",
+        "Appointment-based sessions"
+      ],
+      buttonText: "Request Appointment",
+      popular: false
     }
   ];
 
