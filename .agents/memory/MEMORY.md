@@ -1,0 +1,1 @@
+- [Preview hydration attributes](preview-hydration-attributes.md) — persistent preview tooling can alter root document attributes before React hydrates.

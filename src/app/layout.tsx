@@ -79,7 +79,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">      
+    <html lang="en" suppressHydrationWarning>
       <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-16680316399"
@@ -126,7 +126,7 @@ export default function RootLayout({
           />
         </noscript>
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <LocalBusinessSchema />
         <Providers>
           {children}
