@@ -1,0 +1,39 @@
+.panel {
+  margin: 1.5rem auto;
+  padding: 1.5rem;
+  max-width: 680px;
+  background: #242423;
+  color: #fff;
+  border: 1px solid #ac161e;
+  border-radius: 12px;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.panel h3, .panel p {
+  color: #fff;
+}
+
+.panel a {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #ac161e;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+
+.panel a:hover {
+  background: #8f1219;
+}
+
+.panel a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+
+.panel .instructions {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}

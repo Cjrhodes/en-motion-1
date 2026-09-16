@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import styles from './SelfDefenseEvent.module.css';
+import VenmoPayment from './payments/VenmoPayment';
 
 const SelfDefenseEvent = () => {
   const [email, setEmail] = useState('');
@@ -112,6 +113,7 @@ const SelfDefenseEvent = () => {
               {status === 'error' && <p className={styles.errorMessage}>{errorMessage}</p>}
               
               <p className={styles.spotsNote}>Limited spots available</p>
+              <VenmoPayment />
             </div>
           </div>
         </div>
