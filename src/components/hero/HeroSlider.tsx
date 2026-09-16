@@ -19,7 +19,6 @@ const DynamicSwiperWrapper = dynamic(() => import('./SwiperWrapper'));
 
 const HeroSlider = () => {
   const dispatch = useAppDispatch();
-  const [videoRequested, setVideoRequested] = useState(false);
   const [loadedSlides, setLoadedSlides] = useState(() => new Set([0]));
 
   const openContactModal = () => {
@@ -154,7 +153,6 @@ const HeroSlider = () => {
       </div>
       {/* Video Section */}
       <div className={styles['video-section']}>
-        {videoRequested ? (
           <video
             autoPlay
             loop
@@ -169,24 +167,6 @@ const HeroSlider = () => {
             <source src="/video/promovideo-mobile.mp4" type="video/mp4" />
             <p>Your browser does not support the video tag.</p>
           </video>
-        ) : (
-          <button
-            type="button"
-            className={styles['video-placeholder']}
-            onClick={() => setVideoRequested(true)}
-            aria-label="Play En Motion promotional video"
-          >
-            <Image
-              src="/img/video-preview.webp"
-              alt=""
-              fill
-              loading="lazy"
-              sizes="100vw"
-              className={styles['video-poster']}
-            />
-            <span className={styles['play-button']} aria-hidden="true">▶</span>
-          </button>
-        )}
       </div>
     </>
   );
