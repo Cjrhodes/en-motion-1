@@ -87,6 +87,9 @@ const FooterSection3 = () => {
             <div className="row">
               <div className="col-12 text-center">
                 <p className="copyright-text">&copy; {new Date().getFullYear()} Enmotion Fitness. All rights reserved.</p>
+                <p className="copyright-text">
+                  <a href="/privacy-policy" style={{ color: "inherit", font: "inherit", textDecoration: "underline" }}>Privacy Policy</a>
+                </p>
               </div>
             </div>
           </div>

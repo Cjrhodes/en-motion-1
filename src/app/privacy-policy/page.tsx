@@ -13,7 +13,7 @@ export default function PrivacyPolicy() {
       color: '#333'
     }}>
       <h1 style={{ fontSize: '2rem', marginBottom: '10px' }}>Privacy Policy</h1>
-      <p style={{ color: '#666', marginBottom: '30px' }}>Last Updated: January 5, 2026</p>
+      <p style={{ color: '#666', marginBottom: '30px' }}>Last Updated: September 24, 2026</p>
 
       <section style={{ marginBottom: '30px' }}>
         <h2 style={{ fontSize: '1.4rem', marginBottom: '15px' }}>1. Introduction</h2>
@@ -141,7 +141,8 @@ export default function PrivacyPolicy() {
           <p><strong>En Motion</strong></p>
           <p>Miami, FL</p>
           <p>Email: info@enmotionmiami.com</p>
-          <p>Website: enmotionmiami.com</p>
+          <p>Website: enmotionfit.com</p>
+          <p>Phone: (786) 925-8086</p>
         </div>
       </section>
 
