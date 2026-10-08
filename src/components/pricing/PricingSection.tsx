@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import styles from './PricingSection.module.css';
 import Link from 'next/link';
 import { useAppDispatch } from "@/redux/hooks";
-import VenmoPayment from '../payments/VenmoPayment';
 
 // Simple modal component
 const Modal: React.FC<{
@@ -325,7 +324,6 @@ const PricingSection: React.FC = () => {
           <h2 className={styles.programTitle}>Training Plans</h2>
           <p className={styles.programDescription}>{description}</p>
         </div>
-        <VenmoPayment />
         <div className={styles.pricingGrid}>
           {pricingPlans.map((plan, index) => (
             <div 
